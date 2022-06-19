@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ir.atriatech.customlibs.shapeofview.shapes.RoundRectView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:layout_marginStart="150dp"
+    android:layout_marginEnd="150dp"
+    android:layoutDirection="rtl"
+    app:shape_roundRect_bottomLeftRadius="10dp"
+    app:shape_roundRect_bottomRightRadius="10dp"
+    app:shape_roundRect_topLeftRadius="10dp"
+    app:shape_roundRect_topRightRadius="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layoutDirection="rtl">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_camera"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="@string/_camera_req"
+            android:textAlignment="gravity"
+            android:textColor="@color/gray"
+            android:textDirection="rtl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtSetting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/_setting"
+            android:textAlignment="gravity"
+            android:textColor="#0073a6"
+
+            app:layout_constraintEnd_toStartOf="@id/txtClose"
+            app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:layout_marginEnd="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/_close"
+            android:textAlignment="gravity"
+            android:textColor="#0073a6"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ir.atriatech.customlibs.shapeofview.shapes.RoundRectView>
+
+

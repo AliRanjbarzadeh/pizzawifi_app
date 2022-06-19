@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ir.atriatech.customlibs.datepicker.PersianDatePicker
+        android:id="@+id/datePicker"
+        style="@style/AppFontBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@string/app_font"
+        android:gravity="center_horizontal"
+        android:layoutDirection="ltr"
+        app:displayDescription="true"
+        app:displayMonthNames="true"
+        app:minYear="1320"
+        app:yearRange="0" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8mdp"
+            android:layout_marginEnd="@dimen/_4mdp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/mContinue"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12font_mdp"
+            app:backgroundTint="@color/forestGreen1"
+            app:cornerRadius="@dimen/_20mdp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4mdp"
+            android:layout_marginTop="@dimen/_8mdp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12font_mdp"
+            app:backgroundTint="@color/colorPrimary"
+            app:cornerRadius="@dimen/_20mdp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

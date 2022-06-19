@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<data>
+
+		<variable
+			name="item"
+			type="ir.atriatech.pizzawifi.entities.customerMenu.Comment" />
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingStart="32dp"
+		android:paddingTop="32dp"
+		android:paddingEnd="32dp"
+		android:paddingBottom="32dp">
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:id="@+id/txtPrice"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="8dp"
+			android:drawableStart="@drawable/ic_comment_user"
+			android:drawablePadding="8dp"
+			android:ellipsize="end"
+			android:gravity="center_vertical|start"
+			android:maxLines="1"
+			android:text="@{item.name, default=`@string/testName`}"
+			android:textAlignment="viewStart"
+			android:textColor="@color/colorAccentSecondary"
+			android:textSize="16sp"
+			app:layout_constraintEnd_toStartOf="@id/linearRate"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<LinearLayout
+			android:id="@+id/linearRate"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			app:layout_constraintBottom_toBottomOf="@id/txtPrice"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintTop_toTopOf="@id/txtPrice">
+
+			<androidx.appcompat.widget.AppCompatTextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:layout_marginEnd="8dp"
+				android:text="@{String.valueOf(item.rate), default=`@string/productCustomerRate`}"
+				android:textColor="@color/colorAA"
+				android:textSize="14sp" />
+
+			<me.zhanghai.android.materialratingbar.MaterialRatingBar
+				style="@style/Widget.MaterialRatingBar.RatingBar.Small"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:isIndicator="true"
+				android:layoutDirection="ltr"
+				android:rating="@{item.rate, default=`2.5`}"
+				app:layout_constraintBottom_toBottomOf="@id/txtCommentCount"
+				app:layout_constraintEnd_toEndOf="@id/line1"
+				app:layout_constraintStart_toEndOf="@id/txtCommentCount"
+				app:layout_constraintTop_toTopOf="@id/txtCommentCount"
+				app:mrb_fillBackgroundStars="true"
+				app:mrb_progressBackgroundTint="@color/color87"
+				app:mrb_progressTint="@color/colorFFC3" />
+
+		</LinearLayout>
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="32dp"
+			android:layout_marginTop="14dp"
+			android:gravity="center_vertical|start"
+			android:lineSpacingExtra="2sp"
+			android:text="@{item.comment, default=`@string/loremDescription`}"
+			android:textColor="@color/white"
+			android:textSize="16sp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/txtPrice" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

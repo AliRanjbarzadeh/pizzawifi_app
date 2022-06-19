@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="ir.atriatech.pizzawifi.ui.intro.IntroItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/flBack"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.12" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.88" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidlineTopOuterHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.44" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidlineBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.77" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgIntro"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginEnd="42dp"
+            android:layout_marginBottom="38dp"
+            android:scaleType="fitCenter"
+            app:imageResource="@{item.image}"
+            app:layout_constraintBottom_toBottomOf="@+id/guidlineBottom"
+            app:layout_constraintTop_toTopOf="@+id/guidlineTopOuterHint"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineLeft"
+            app:layout_constraintStart_toStartOf="@+id/guidelineRight"
+            app:srcCompat="@drawable/ic_intro1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="28dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@{item.title}"
+            android:textColor="@color/codGray"
+            android:textSize="22sp"
+			app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@+id/txtDesc"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineLeft"
+            app:layout_constraintStart_toStartOf="@+id/guidelineRight"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="28dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="4"
+            android:text="@{item.description}"
+            android:textColor="@color/codGray"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/guidlineTopOuterHint"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineLeft"
+            app:layout_constraintStart_toStartOf="@+id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

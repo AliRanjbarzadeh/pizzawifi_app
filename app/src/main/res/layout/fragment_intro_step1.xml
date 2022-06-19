@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context="ir.atriatech.pizzawifi.ui.intro.step1.IntroStep1">
+
+	<data>
+
+		<variable
+			name="viewModel"
+			type="ir.atriatech.pizzawifi.ui.intro.step1.IntroStep1FragmentViewModel" />
+	</data>
+
+	<androidx.coordinatorlayout.widget.CoordinatorLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@drawable/bg_main_pattern"
+		android:layoutDirection="locale">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/mainView"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+			<androidx.appcompat.widget.AppCompatImageView
+				android:id="@+id/imgTop"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				android:layout_marginTop="26dp"
+				android:scaleType="fitCenter"
+				android:src="@drawable/ic_intro1"
+				app:layout_constraintBottom_toBottomOf="@id/guide1"
+				app:layout_constraintDimensionRatio="1:1"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+				android:id="@+id/title"
+				style="@style/AppFontBold"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="32dp"
+				android:layout_marginEnd="32dp"
+				android:gravity="center_vertical|start"
+				android:text="@string/app_name"
+				android:textAlignment="viewStart"
+				android:textColor="@color/textPrimary"
+				android:textSize="22sp"
+				app:layout_constraintBottom_toTopOf="@id/description"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/imgTop"
+				app:layout_constraintVertical_chainStyle="packed" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+				android:id="@+id/description"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:gravity="center_vertical|start"
+				android:lineSpacingExtra="3dp"
+				android:text="@string/app_name"
+				android:textAlignment="viewStart"
+				android:textColor="@color/textPrimary"
+				android:textSize="16sp"
+				app:layout_constraintBottom_toTopOf="@id/btnNext"
+				app:layout_constraintEnd_toEndOf="@id/title"
+				app:layout_constraintStart_toStartOf="@id/title"
+				app:layout_constraintTop_toBottomOf="@id/title" />
+
+			<com.google.android.material.button.MaterialButton
+				android:id="@+id/btnNext"
+				style="@style/BtnDefault130"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="40dp"
+				android:text="@string/next"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/description" />
+
+			<androidx.constraintlayout.widget.Guideline
+				android:id="@+id/guide1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				app:layout_constraintGuide_percent="0.5" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

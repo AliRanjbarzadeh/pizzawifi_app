@@ -1,0 +1,408 @@
+ext {
+    fields = [
+            'baseUrl'            : '"https://api.new.pizzawifi.com/"',
+            'devUrl'             : '"http://192.168.1.155/pizzawifi-new/api/"',
+            'baseUrlUnsafe'      : '"http://api.new.pizzawifi.com/"',
+            'uploadUrl'          : '"https://media.new.pizzawifi.com/"',
+            'uploadUrlUnsafe'    : '"http://media.new.pizzawifi.com/"',
+            'clubUrl'            : '"https://crm.pizzawifi.com/api/"',
+            'authorization'      : '"Authorization"',
+            'tokenPrefix'        : '"Bearer "',
+            'defaultToken'       : '"Ov9ugfPxDb9rRY2S1qY4Cs4PpcIkBlj4"',
+            'loginSessionKey'    : '"is.login"',
+            'tokenSessionKey'    : '"dynamic.token"',
+            'tokenRegisterKey'   : '"register.token"',
+            'pushTokenSessionKey': '"PushToken"',
+            'user'               : '"user"',
+            'defaultLanguage'    : '"fa"',
+            'languageSessionKey' : '"current.language"',
+            'appName'            : '"PizzaWifi"',
+            'databaseName'       : '"PizzaWifiDB"',
+            'appVersion'         : '"33"',
+            'userAgent'          : '"PizzaWifi-Android"',
+            'environment'        : '"development"',
+    ]
+
+    versions = [
+            'min_sdk'                : 21,
+            'compile_sdk'            : 30,
+            'build_tools'            : "29.0.2",
+            'kotlin_version'         : '1.4.31',
+            'java_version'           : JavaVersion.VERSION_1_8,
+            'appVersion'             : 33,
+
+            //Global
+            'appcompat'              : '1.2.0',
+            'constraintlayout'       : '2.0.4',
+            'recyclerView'           : '1.2.0-beta02',
+            'cardview'               : '1.0.0',
+            'legacySupport'          : '1.0.0',
+            'lifecycle'              : '2.2.0',
+            'lifecycleCommon'        : '2.3.0',
+            'calligraphy3'           : '3.1.1',
+            'viewpump'               : '2.0.3',
+            'viewpager'              : '1.0.0',
+            'viewpager2'             : '1.1.0-beta01',
+            'playServiceLocation'    : '17.0.0',
+            'playServiceMap'         : '17.0.0',
+            'playServiceAuthApiPhone': '17.0.0',
+
+            //Google
+            'dagger'                 : '2.33',
+            'material'               : '1.3.0',
+            'firebase'               : '21.0.1',
+
+            //Android
+            'databindingCompiler'    : '7.0.0-alpha08',
+
+            //Rx
+            'rxJava'                 : '2.2.21',
+            'rxAndroid'              : '2.1.1',
+            'rxanimation'            : '1.0.0',
+            'rxpermissions'          : '0.10.2',
+            'rxlocation'             : '1.0.5',
+
+            //Square
+            'retrofit'               : '2.9.0',
+            'retrofitRxAdapter'      : '1.0.0',
+            'okhttp'                 : '3.12.2',
+            'picasso'                : '2.71828',
+
+            //Facebook
+            'stetho'                 : '1.5.1',
+
+            //Room
+            'room'                   : '2.3.0-beta02',
+
+            //Navigation
+            'navVersion'             : '2.3.3',
+
+            //Additional
+            'multidex'               : '2.0.1',
+            'hawk'                   : '2.0.1',
+            'logger'                 : '2.2.0',
+            'timber'                 : '4.7.1',
+            'smartRefreshLayout'     : '1.1.1',
+            'imageCropper'           : '2.8.0',
+            'styleableToast'         : '2.2.4',
+            'materialNumberPicker'   : '1.2.1',
+            'materialDialog'         : '3.3.0',
+            'maxheightscrollview'    : '1.0.0',
+            'keyboardvisibilityevent': '2.3.0',
+            'SpinKit'                : '1.4.0',
+            'lottie'                 : '3.0.7',
+            'rtlviewpager'           : '2.0.0',
+            'switchbutton'           : '2.0.0',
+            'materialratingbar'      : '1.3.2',
+            'swiperecyclerview'      : '1.3.2',
+            'shimmer'                : '1.0.2',
+            'anyNum'                 : 'v2.0',
+            'WaterDropIndicatorDemo' : 'v1.0.2',
+            'loadingButton'          : '2.2.0',
+            'easing'                 : '2.0@aar',
+            'androidanimations'      : '2.3@aar',
+            'powerMenu'              : '2.1.3',
+            'commons_io'             : '1.3.2',
+            'shortcutBadge'          : '1.1.22@aar',
+            'DynamicSizes'           : '1.0',
+            'viewpagerdotsindicator' : '4.1.2',
+            'zoomage'                : '1.3.1',
+    ]
+
+    deps = [
+            global    : [
+                    'appcompat'          : "androidx.appcompat:appcompat:${versions.appcompat}",
+                    'constraintlayout'   : "androidx.constraintlayout:constraintlayout:${versions.constraintlayout}",
+                    'recyclerView'       : "androidx.recyclerview:recyclerview:${versions.recyclerView}",
+                    'cardView'           : "androidx.cardview:cardview:${versions.cardView}",
+                    'support'            : "androidx.legacy:legacy-support-v4:${versions.legacySupport}",
+                    'coreUi'             : "androidx.legacy:legacy-support-core-ui:${versions.legacySupport}",
+                    'lifecycleExtensions': "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}",
+                    'lifecycleCommon'    : "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycleCommon}",
+                    'calligraphy3'       : "io.github.inflationx:calligraphy3:${versions.calligraphy3}",
+                    'viewpump'           : "io.github.inflationx:viewpump:${versions.viewpump}",
+                    'viewpager'          : "androidx.viewpager:viewpager:${versions.viewpager}",
+                    'viewpager2'         : "androidx.viewpager2:viewpager2:${versions.viewpager}",
+            ],
+
+            google    : [
+                    'dagger'                 : "com.google.dagger:dagger:${versions.dagger}",
+                    'daggerCompiler'         : "com.google.dagger:dagger-compiler:${versions.dagger}",
+                    'daggerAndroid'          : "com.google.dagger:dagger-android:${versions.dagger}",
+                    'daggerAndroidSupport'   : "com.google.dagger:dagger-android-support:${versions.dagger}",
+                    'daggerAndroidProcessor' : "com.google.dagger:dagger-android-processor:${versions.dagger}",
+                    'material'               : "com.google.android.material:material:${versions.material}",
+                    'playServiceLocation'    : "com.google.android.gms:play-services-location:${versions.playServiceLocation}",
+                    'playServiceMap'         : "com.google.android.gms:play-services-maps:${versions.playServiceMap}",
+                    'playServiceAuthApiPhone': "com.google.android.gms:play-services-auth-api-phone:${versions.playServiceAuthApiPhone}",
+                    'firebase'               : "com.google.firebase:firebase-messaging:${versions.firebase}",
+            ],
+
+            android   : [
+                    'databindingCompiler': "androidx.databinding:databinding-compiler:${versions.databindingCompiler}",
+            ],
+
+            kotlin    : [
+                    'stdlib': "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin_version}",
+            ],
+
+            rx        : [
+                    'rxJava'       : "io.reactivex.rxjava2:rxjava:${versions.rxJava}",
+                    'rxAndroid'    : "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}",
+                    'rxanimation'  : "com.mikhaellopez:rxanimation:${versions.rxanimation}",
+                    'rxpermissions': "com.github.tbruyelle:rxpermissions:${versions.rxpermissions}",
+                    'rxlocation'   : "com.patloew.rxlocation:rxlocation:${versions.rxlocation}",
+            ],
+
+            square    : [
+                    'retrofit'         : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+                    'gsonConverter'    : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+                    'okhttp'           : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
+                    'retrofitRxAdapter': "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${versions.retrofitRxAdapter}",
+                    'picasso'          : "com.squareup.picasso:picasso:${versions.picasso}"
+            ],
+
+            facebook  : [
+                    'stetho'            : "com.facebook.stetho:stetho:${versions.stetho}",
+                    'networkInterceptor': "com.facebook.stetho:stetho-okhttp3:${versions.stetho}",
+            ],
+
+            room      : [
+                    'roomRuntime' : "androidx.room:room-runtime:${versions.room}",
+                    'roomCompiler': "androidx.room:room-compiler:${versions.room}",
+                    'roomRx'      : "androidx.room:room-rxjava2:${versions.room}",
+            ],
+
+            navigation: [
+                    'navigation'  : "androidx.navigation:navigation-fragment-ktx:${versions.navVersion}",
+                    'navigationUi': "androidx.navigation:navigation-ui-ktx:${versions.navVersion}",
+            ],
+
+            additional: [
+                    'multidex'                 : "androidx.multidex:multidex:${versions.multidex}",
+                    'hawk'                     : "com.orhanobut:hawk:${versions.hawk}",
+                    'logger'                   : "com.orhanobut:logger:${versions.logger}",
+                    'timber'                   : "com.jakewharton.timber:timber:${versions.timber}",
+                    'smartRefreshLayout'       : "com.scwang.smartrefresh:SmartRefreshLayout:${versions.smartRefreshLayout}",
+                    'imageCropper'             : "com.theartofdev.edmodo:android-image-cropper:${versions.imageCropper}",
+                    'styleableToast'           : "com.muddzdev:styleabletoast:${versions.styleableToast}",
+                    'materialNumberPicker'     : "biz.kasual:materialnumberpicker:${versions.materialNumberPicker}",
+                    'materialDialog'           : "com.afollestad.material-dialogs:core:${versions.materialDialog}",
+                    'materialDialogBottomSheet': "com.afollestad.material-dialogs:bottomsheets:${versions.materialDialog}",
+                    'maxheightscrollview'      : "com.bskim:maxheightscrollview:${versions.maxheightscrollview}",
+                    'keyboardvisibilityevent'  : "net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:${versions.keyboardvisibilityevent}",
+                    'SpinKit'                  : "com.github.ybq:Android-SpinKit:${versions.SpinKit}",
+                    'lottie'                   : "com.airbnb.android:lottie:${versions.lottie}",
+                    'rtlviewpager'             : "com.duolingo.open:rtl-viewpager:${versions.rtlviewpager}",
+                    'switchbutton'             : "com.kyleduo.switchbutton:library:${versions.switchbutton}",
+                    'materialratingbar'        : "me.zhanghai.android.materialratingbar:library:${versions.materialratingbar}",
+                    'swiperecyclerview'        : "com.yanzhenjie.recyclerview:x:${versions.swiperecyclerview}",
+                    'shimmer'                  : "com.github.mike14u:shimmer-recyclerview-x:${versions.shimmer}",
+                    'anyNum'                   : "com.github.ALI-KH-Y:AnyNum:${versions.anyNum}",
+                    'WaterDropIndicatorDemo'   : "com.github.juyao:WaterDropIndicatorDemo:${versions.WaterDropIndicatorDemo}",
+                    'loadingButton'            : "br.com.simplepass:loading-button-android:${versions.loadingButton}",
+                    'easing'                   : "com.daimajia.easing:library:${versions.easing}",
+                    'androidanimations'        : "com.daimajia.androidanimations:library:${versions.androidanimations}",
+                    'powerMenupopUp'           : "com.github.skydoves:powermenu:${versions.powerMenu}",
+                    'commons_io'               : "org.apache.commons:commons-io:${versions.commons_io}",
+                    'shortcutBadge'            : "me.leolin:ShortcutBadger:${versions.shortcutBadge}",
+                    'DynamicSizes'             : "com.github.MrNouri:DynamicSizes:${versions.DynamicSizes}",
+                    'viewpagerdotsindicator'   : "com.tbuonomo.andrui:viewpagerdotsindicator:${versions.viewpagerdotsindicator}",
+                    'zoomage'                  : "com.jsibbold:zoomage:${versions.zoomage}",
+            ]
+    ]
+
+    def modules = [
+            app       : ':app',
+            core      : ':core',
+            extensions: ':extensions',
+            util      : ':util',
+            customlibs: ':customlibs',
+//            aFileChooser: ':aFileChooser',
+    ]
+
+    def plugins = [
+            kotlin_android   : 'kotlin-android',
+            kotlin_extensions: 'kotlin-android-extensions',
+            kapt             : 'kotlin-kapt',
+    ]
+
+    /*=========================Core============================*/
+
+    coreModuleDeps = [
+
+            /**
+             * Global
+             */
+            [configuration: "api", dependency: deps.global.appcompat],
+            [configuration: "api", dependency: deps.global.constraintlayout],
+            [configuration: "api", dependency: deps.global.recyclerView],
+            [configuration: "api", dependency: deps.global.calligraphy3],
+            [configuration: "api", dependency: deps.global.viewpump],
+            [configuration: "api", dependency: deps.global.lifecycleCommon],
+            [configuration: "api", dependency: deps.global.lifecycleExtensions],
+            [configuration: "api", dependency: deps.global.support],
+            [configuration: "api", dependency: deps.global.coreUi],
+            [configuration: "api", dependency: deps.additional.WaterDropIndicatorDemo],
+
+            /**
+             * Google
+             */
+            [configuration: "api", dependency: deps.google.dagger],
+            [configuration: "kapt", dependency: deps.google.daggerCompiler],
+            [configuration: "api", dependency: deps.google.daggerAndroid],
+            [configuration: "api", dependency: deps.google.daggerAndroidSupport],
+            [configuration: "kapt", dependency: deps.google.daggerAndroidProcessor],
+            [configuration: "api", dependency: deps.google.material],
+            [configuration: "api", dependency: deps.google.playServiceLocation],
+            [configuration: "api", dependency: deps.google.playServiceMap],
+
+            /**
+             * kotlin
+             */
+            [configuration: "api", dependency: deps.kotlin.stdlib],
+
+            /**
+             * RX
+             */
+            [configuration: "api", dependency: deps.rx.rxJava],
+            [configuration: "api", dependency: deps.rx.rxAndroid],
+            [configuration: "api", dependency: deps.rx.rxanimation],
+            [configuration: "api", dependency: deps.rx.rxpermissions],
+            [configuration: "api", dependency: deps.rx.rxlocation],
+
+            /**
+             * Square
+             */
+            [configuration: "api", dependency: deps.square.retrofit],
+            [configuration: "api", dependency: deps.square.retrofitRxAdapter],
+            [configuration: "api", dependency: deps.square.gsonConverter],
+            [configuration: "api", dependency: deps.square.okhttp],
+            [configuration: "api", dependency: deps.square.picasso],
+
+            /**
+             * Facebook
+             */
+            [configuration: "api", dependency: deps.facebook.stetho],
+            [configuration: "api", dependency: deps.facebook.networkInterceptor],
+
+            /**
+             * Room
+             */
+            [configuration: "api", dependency: deps.room.roomRuntime],
+            [configuration: "kapt", dependency: deps.room.roomCompiler],
+            [configuration: "api", dependency: deps.room.roomRx],
+
+            /**
+             * Navigation
+             */
+            [configuration: "api", dependency: deps.navigation.navigation],
+            [configuration: "api", dependency: deps.navigation.navigationUi],
+
+            /**
+             * Additional
+             */
+            [configuration: "api", dependency: deps.additional.multidex],
+            [configuration: "api", dependency: deps.additional.hawk],
+            [configuration: "api", dependency: deps.additional.timber],
+            [configuration: "api", dependency: deps.additional.logger],
+            [configuration: "api", dependency: deps.additional.smartRefreshLayout],
+            [configuration: "api", dependency: deps.additional.imageCropper],
+            [configuration: "api", dependency: deps.additional.styleableToast],
+            [configuration: "api", dependency: deps.additional.materialNumberPicker],
+            [configuration: "api", dependency: deps.additional.materialDialog],
+            [configuration: "api", dependency: deps.additional.materialDialogBottomSheet],
+            [configuration: "api", dependency: deps.additional.maxheightscrollview],
+            [configuration: "api", dependency: deps.additional.lottie],
+            [configuration: "api", dependency: deps.additional.shimmer],
+//            [configuration: "api", dependency: deps.additional.anyNum],
+            [configuration: "api", dependency: deps.additional.loadingButton],
+            [configuration: "api", dependency: deps.additional.easing],
+            [configuration: "api", dependency: deps.additional.androidanimations],
+            [configuration: "api", dependency: deps.additional.powerMenupopUp],
+            [configuration: "api", dependency: deps.additional.commons_io],
+            [configuration: "api", dependency: deps.additional.shortcutBadge],
+            [configuration: "api", dependency: deps.additional.DynamicSizes],
+    ]
+
+    coreModulePlugins = [
+            plugins.kotlin_android, plugins.kotlin_extensions, plugins.kapt
+    ]
+
+    /*=========================Extension============================*/
+
+    extentionsModuleDeps = [
+            [configuration: "api", dependency: project(modules.core)],
+
+            /**
+             * Additional
+             */
+            [configuration: "implementation", dependency: deps.additional.SpinKit],
+    ]
+
+    /*=========================Util============================*/
+    utillModuleDeps = [
+            [configuration: "api", dependency: project(modules.extensions)],
+            [configuration: "api", dependency: project(modules.customlibs)],
+
+            /**
+             * Google
+             */
+            [configuration: "kapt", dependency: deps.google.daggerCompiler],
+            [configuration: "kapt", dependency: deps.google.daggerAndroidProcessor],
+
+            /**
+             * Room
+             */
+            [configuration: "kapt", dependency: deps.room.roomCompiler],
+    ]
+
+    /*=========================CustomLib============================*/
+    customlibModuleDeps = [
+            [configuration: "api", dependency: project(modules.extensions)],
+    ]
+
+    /*=========================App============================*/
+
+    appModuleDeps = [
+            [configuration: "implementation", dependency: project(modules.util)],
+
+            /**
+             * Play service
+             */
+            [configuration: "implementation", dependency: deps.google.playServiceAuthApiPhone],
+
+
+            /**
+             * Google
+             */
+            [configuration: "kapt", dependency: deps.google.daggerCompiler],
+            [configuration: "kapt", dependency: deps.google.daggerAndroidProcessor],
+            [configuration: "implementation", dependency: deps.google.firebase],
+
+            /**
+             * Room
+             */
+            [configuration: "kapt", dependency: deps.room.roomCompiler],
+
+            /**
+             * Global
+             */
+            [configuration: "implementation", dependency: deps.global.viewpager],
+
+            /**
+             * Additional
+             */
+            [configuration: "implementation", dependency: deps.additional.keyboardvisibilityevent],
+            [configuration: "implementation", dependency: deps.additional.switchbutton],
+            [configuration: "implementation", dependency: deps.additional.materialratingbar],
+            [configuration: "implementation", dependency: deps.additional.swiperecyclerview],
+            [configuration: "implementation", dependency: deps.additional.rtlviewpager],
+            [configuration: "implementation", dependency: deps.additional.viewpagerdotsindicator],
+            [configuration: "implementation", dependency: deps.additional.zoomage],
+    ]
+
+    appModulePlugins = [
+            plugins.kotlin_android, plugins.kotlin_extensions, plugins.kapt
+    ]
+}

@@ -1,0 +1,2 @@
+include ':app', ':core', ':extensions', ':util', ':customlibs'
+rootProject.name='PizzaWifi-new'

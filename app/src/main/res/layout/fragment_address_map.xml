@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.profile.address.map.AddressMap">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ir.atriatech.pizzawifi.ui.main.profile.address.map.AddressMapFragmentViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="locale">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40mdp"
+                android:background="@color/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtToolbar"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="center_vertical|start"
+                        android:text="@{viewModel.position == -1 ? @string/addAddress : @string/editAddress}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/appbarText"
+                        android:textSize="@dimen/_15font_mdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16mdp"
+                android:layout_marginEnd="@dimen/_16mdp"
+                android:layout_marginBottom="@dimen/_16mdp"
+                android:background="@drawable/bg_search_box"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etSearch"
+                    style="@style/PrimaryEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8mdp"
+                    android:background="@color/white"
+                    android:drawableStart="@drawable/ic_search"
+                    android:drawablePadding="@dimen/_8mdp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center_vertical|start"
+                    android:hint="@string/search"
+                    android:imeOptions="actionSearch|flagNoExtractUi"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="@dimen/_8mdp"
+                    android:text="@={viewModel.mSearchText}"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray2"
+                    android:textSize="@dimen/_12font_mdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imgMic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgMic"
+                    android:layout_width="@dimen/_40mdp"
+                    android:layout_height="@dimen/_40mdp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_mic_gray_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/gray2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <FrameLayout
+                android:id="@+id/frameMap"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/middle"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintBottom_toBottomOf="@id/frameMap"
+                app:layout_constraintEnd_toEndOf="@id/frameMap"
+                app:layout_constraintStart_toStartOf="@id/frameMap"
+                app:layout_constraintTop_toTopOf="@id/frameMap" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgMarker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_marker"
+                app:layout_constraintEnd_toEndOf="@id/frameMap"
+                app:layout_constraintStart_toStartOf="@id/frameMap"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.mikelau.views.shimmer.ShimmerRecyclerViewX
+            android:id="@+id/rvPlaces"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_120mdp"
+            android:clipToPadding="false"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:shimmer_demo_angle="@integer/shimmerAngel"
+            app:shimmer_demo_child_count="5"
+            app:shimmer_demo_layout="@layout/item_address_search_shimmer"
+            app:shimmer_demo_layout_manager_type="linear_vertical"
+            app:shimmer_demo_mask_width="0.1"
+            app:shimmer_demo_reverse_animation="@bool/shimmerReverse"
+            app:shimmer_demo_shimmer_color="@color/silver"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_address_search" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_70mdp"
+                android:background="@color/white"
+                android:padding="@dimen/_16mdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_margin="@dimen/_16mdp"
+                android:gravity="center"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/saveContinue"
+                android:textSize="@dimen/_12font_mdp"
+                app:cornerRadius="@dimen/_20mdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginBottom="@dimen/_16mdp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_my_location"
+                app:backgroundTint="@color/forestGreen1"
+                app:layout_constraintBottom_toTopOf="@id/btnNext"
+                app:layout_constraintStart_toStartOf="@id/btnNext"
+                app:tint="@color/white" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

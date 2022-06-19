@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.profile.address.Address">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ir.atriatech.pizzawifi.ui.main.profile.address.AddressFragmentViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="locale">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="0dp"
+            tools:targetApi="lollipop">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbarId"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40mdp"
+                    android:background="@color/transparent"
+                    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                    app:contentInsetRight="0dp"
+                    app:contentInsetStart="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtToolbar"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginEnd="@dimen/_16mdp"
+                            android:gravity="center_vertical|start"
+                            android:text="@string/myAddresses"
+                            android:textAlignment="viewStart"
+                            android:textColor="@{viewModel.emptyView ? @color/appBackgroundColor : @color/appbarText, default=`@color/appbarText`}"
+                            android:textSize="@dimen/_15font_mdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.appcompat.widget.Toolbar>
+            </FrameLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgEmptyItems"
+                android:layout_width="@dimen/_80mdp"
+                android:layout_height="@dimen/_80mdp"
+                android:src="@drawable/ic_location_outline"
+                android:visibility="@{viewModel.emptyView ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toTopOf="@id/txtEmptyItems"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtEmptyItems"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8mdp"
+                android:layout_marginTop="@dimen/_18mdp"
+                android:layout_marginEnd="@dimen/_8mdp"
+                android:gravity="center"
+                android:text="@string/no_item_found"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16font_mdp"
+                android:visibility="@{viewModel.emptyView ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toTopOf="@id/btnAdd2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgEmptyItems" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAdd2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_25mdp"
+                android:paddingStart="@dimen/_25mdp"
+                android:paddingEnd="@dimen/_25mdp"
+                android:text="@string/addAddress"
+                android:visibility="@{viewModel.emptyView ? View.VISIBLE : View.GONE}"
+                app:cornerRadius="@dimen/_20mdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtEmptyItems" />
+
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:id="@+id/refreshLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srlAccentColor="@color/colorAccent"
+                app:srlPrimaryColor="@color/colorPrimary">
+
+                <com.yanzhenjie.recyclerview.SwipeRecyclerView
+                    android:id="@+id/rvAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingBottom="@dimen/_65mdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_address" />
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="@dimen/_16mdp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_baseline_add_24"
+            android:visibility="@{viewModel.showContent ? View.VISIBLE : View.GONE}"
+            app:backgroundTint="@color/colorPrimary"
+            app:tint="@color/white" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

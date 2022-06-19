@@ -1,0 +1,470 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="googleMapApiKey" translatable="false">AIzaSyA3gbDnnBX4F57Htlum7iI0jtC18-Cj13M</string>
+    <!--Global-->
+    <string name="app_name">پیتزا وای فای</string>
+    <string name="next">بعدی</string>
+    <string name="mContinue">ادامه</string>
+    <string name="exitAppWarning">برای خروج کلید بازگشت را مجددا بزنید</string>
+    <string name="exitRegisterWarning">برای خروج از ثبت نام کلید بازگشت را مجددا بزنید</string>
+
+    <!--Intro-->
+    <string-array name="introTitles">
+        <item>مواد اولیه تازه</item>
+        <item>تحویل به موقع</item>
+        <item>تجهیزات مدرن</item>
+    </string-array>
+
+    <string-array name="introDescriptions">
+        <item>استفاده از مواد مصرفی تازه و بروز و استفاده از معتبرترین برندها ماموریت ماست تا برگری با طعم تازگی رو به شما عرضه کنیم</item>
+        <item>سیستم حمل و نقل پیتزا وای فای با پرسنل آموزش دیده تمام سعی خود را برای رساندن غذای گرم به مشتری انجام میدهد</item>
+        <item>استفاده از تجهیزات به روز و مدرن در شعب و تولید برگر در کارخانه با سیستم مکانیزه و بدون دخالت دست به ما کمک میکند تا برگر شما را به بهترین نحو اماده کنیم</item>
+    </string-array>
+
+    <string name="app_font_hekayat">fonts/hekayat.ttf</string>
+
+    <!--Login-->
+    <string name="loginWord">ورود</string>
+    <string name="login">ورود به حساب کاربری</string>
+    <string name="loginTitle1">برای ادامه لطفا تلفن همراه خود را وارد کنید</string>
+    <string name="mobileHint">تلفن همراه</string>
+    <string name="mobileHintNew">شماره همراه جدید</string>
+    <string name="verifyCode">کد تایید</string>
+    <string name="verifyHint">*****</string>
+    <string name="loginTitle2">لطفا کد ۵ رقمی ارسال شده به شماره %s را وارد کنید</string>
+    <string name="sendAgain">ارسال مجدد کد</string>
+    <string name="verifyTimer">ارسال مجدد کد (%s)</string>
+    <string name="loginInfo">اطلاعات اولیه</string>
+    <string name="nameHint">نام و نام خانوادگی</string>
+    <string name="acceptRegister">تمامی قوانین و ضوابط را خوانده ام و میپذیرم</string>
+    <string name="register">عضویت در پیتزا وای فای</string>
+    <string name="introducerHint">شماره همراه معرف (اختیاری)</string>
+    <string name="emptyMobile">شماره تلفن همراه خود را وارد کنید</string>
+    <string name="wrongMobile">شماره تلفن همراه وارد شده معتبر نمی باشد</string>
+    <string name="enterCode">کد تایید را وارد کنید</string>
+    <string name="wrongCode">کد تایید وارد شده معتبر نمی باشد</string>
+    <string name="emptyName">نام را وارد کنید</string>
+    <string name="acceptLaw">قوانین و ضوابط را مطالعه و تایید نمایید</string>
+    <string name="menu0">خانه</string>
+    <string name="menu1">سفارشات</string>
+    <string name="menu2">سبد خرید</string>
+    <string name="menu3">پروفایل</string>
+    <string name="menu4">بیشتر</string>
+    <string name="makePizza">پیتزای خودتو بساز</string>
+    <string name="makePizzaDescription">برای شما که سلیقه خاصی دارید</string>
+    <string name="restaurantMenu">سفارش از منو</string>
+    <string name="customerMenu">منو مشتریان</string>
+    <string name="productName">نام محصول</string>
+    <string name="add">افزودن</string>
+    <string name="personalize">سفارشی سازی</string>
+    <string name="enterTournament">ورود به مسابقه</string>
+    <string name="productMenuTitle">منو</string>
+    <string name="productDetail">جزئیات پیتزا</string>
+    <string name="addToCart">افزودن به سبد خرید</string>
+    <string name="saveAndAddToCart">ثبت و افزودن به سبد خرید</string>
+    <string name="productCustomerRate">3.7</string>
+    <string name="productSender">فرستنده: %s</string>
+    <string name="customerProductCommentCount">%s نظر</string>
+    <string name="customerPizzaTitle">پیتزای ساخته شده</string>
+    <string name="customerMenuDetail">جزئیات پیتزا</string>
+    <string name="customerPizzaMaterialTitle">مواد استفاده شده در پیتزا</string>
+    <string name="customerPizzaMaterialTitle2">مواد استفاده شده در پیتزای شما</string>
+    <string name="comments">نظرات</string>
+    <string name="addComment">ثبت نظر</string>
+    <string name="enterYourRate">امتیاز خود را ثبت کنید</string>
+    <string name="writeYourComment">نظر خود را بنویسید</string>
+    <string name="comment">متن نظر</string>
+    <string name="addImage">اضافه کردن عکس (اختیاری)</string>
+    <string name="startMake">شروع ساخت</string>
+    <string name="orders">سفارشات</string>
+    <string name="noOrderFound">شما تاکنون سفارشی ثبت نکرده اید</string>
+    <string name="searchOrder">جستجوی سفارش</string>
+    <string name="enterOrderId">شماره سفارش را وارد کنید</string>
+    <string name="orderId">سفارش شماره %s</string>
+    <string name="orderDetailTitle">جزئیات سفارش #%s</string>
+    <string name="totalPrice">مبلغ کل: </string>
+    <string name="remainTime">زمان باقی مانده</string>
+    <string name="orderItems">اقلام سفارش</string>
+    <string name="orderItemCount">%s عدد</string>
+    <string name="orderDetail">جزئیات سفارش</string>
+    <string name="orderUserInfo">اطلاعات تکمیلی سفارش</string>
+    <string name="orderDetail2">پیگیری سفارش</string>
+    <string name="orderer">نام خریدار: %s</string>
+    <string name="orderer2">دریافت در: %s</string>
+    <string name="ordererTitle">نام خریدار</string>
+    <string name="ordererTitle2">شعبه</string>
+    <string name="ordererMobile">شماره تماس</string>
+    <string name="ordererAddress">آدرس</string>
+    <string name="orderTimeTitle">زمان سفارش</string>
+    <string name="waitingTime">زمان انتظار</string>
+    <string name="reorder">سفارش مجدد</string>
+    <string name="walletAmountLabel">موجودی کیف پول</string>
+    <string name="walletAmount">موجودی کیف پول:</string>
+    <string name="clubAmountLabel">امتیاز باشگاه مشتریان</string>
+    <string name="myPizzas">پیتزاهای من</string>
+    <string name="noPizzaFound">شما هنوز پیتزایی نساخته اید</string>
+    <string name="searchPizza">جستجوی پیتزا</string>
+    <string name="sendToCustomerMenu">ارسال پیتزا به منو مشتریان</string>
+    <string name="mSend">ارسال</string>
+    <string name="noSupport">شما هنوز درخواستی ثبت نکرده اید</string>
+    <string name="mSupport">پشتیبانی</string>
+    <string name="supportId">درخواست شماره #%s</string>
+    <string name="addSupport">ثبت درخواست جدید</string>
+    <string name="supportTitle">عنوان درخواست</string>
+    <string name="supportMessage">متن درخواست</string>
+    <string name="sendSupport">ارسال درخواست</string>
+    <string name="wallet">کیف پول</string>
+    <string name="noTransactionFound">تراکنشی یافت نشد</string>
+    <string name="walletHint">مبلغ (تومان)</string>
+    <string name="increaseWallet">افزایش موجودی</string>
+    <string name="transactionHistory">تراکنش های من</string>
+    <string name="logoutTitle">خروج از حساب</string>
+    <string name="logoutDescription">آیا برای خروج از حساب کاربری اطمینان دارید؟</string>
+    <string name="forceLogoutDescription">شما به علت برخی مشکلات از اپلیکیشن خارج شدید، لطفا برای ورود مجدد تلاش کنید.</string>
+    <string name="editUserInfo">ویرایش اطلاعات کاربری</string>
+    <string name="birthDateHint">تاریخ تولد</string>
+    <string name="weddingDateHint">تاریخ ازدواج</string>
+    <string name="save">ذخیره</string>
+    <string name="emptyComptetion">شما هنوز در مسابقه ای شرکت نکرده اید</string>
+    <string name="myCompetitions">مسابقه های من</string>
+    <string name="cometitionDetail">جزئیات مسابقه</string>
+    <string name="competitionOver">مسابقه پایان یافته است</string>
+    <string name="competitionTimer">تا پایان مسابقه</string>
+    <string name="emptyAddress">شما هنوز آدرسی ثبت نکرده اید</string>
+    <string name="myAddresses">آدرس های من</string>
+    <string name="selectAddress">انتخاب آدرس</string>
+    <string name="addAddress">ثبت آدرس جدید</string>
+    <string name="selectAddressOnMap">انتخاب آدرس از روی نقشه</string>
+    <string name="search">جستجو</string>
+    <string name="saveContinue">ثبت و ادامه</string>
+    <string name="addressDetail">جزئیات آدرس</string>
+    <string name="address">آدرس دقیق</string>
+    <string name="address2">آدرس</string>
+    <string name="changeAddress">تغییر آدرس</string>
+    <string name="mobileHint2">شماره تلفن همراه</string>
+    <string name="emptyAddress2">لطفا آدرس را وارد کنید</string>
+    <string name="changeNumberTitle1">از این قسمت میتوانید شماره موبایل خود را تغییر دهید\nتمام اطلاعات شما به شماره جدید انتقال داده میشوند</string>
+    <string name="changeNumber">تغییر شماره همراه</string>
+    <string name="sameNumber">شماره همراه جدید نمی تواند با شماره همراه فعلی برابر باشد</string>
+    <string name="verifyCodeTitle">تایید شماره همراه</string>
+    <string name="emptyMessages">شما هنوز پیامی دریافت نکرده اید</string>
+    <string name="notifications">پیام های مدیریت</string>
+    <string name="contactUs">تماس با ما</string>
+    <string name="aboutUs">درباره ما</string>
+    <string name="findUsInSocials">ما را در شبکه های اجتماعی دنبال کنید</string>
+    <string name="contactUsInfo">اطلاعات تماس پیتزا وای فای</string>
+    <string name="law">قوانین و مقررات</string>
+    <string name="faq">سوالات متداول</string>
+    <string name="area">مناطق تحت پوشش</string>
+    <string name="shopCart">سبد خرید</string>
+    <string name="emptyBasket">سبد خرید شما خالی میباشد</string>
+    <string name="totalToPay">مبلغ قابل پرداخت</string>
+    <string name="mContinue2">تایید و ادامه</string>
+    <string name="_delete">حذف</string>
+    <string name="noFaqFound">سوالی یافت نشد</string>
+    <string name="emptyMessage">لطفا متن پیام را وارد کنید</string>
+    <string name="emptyTitle">عنوان را وارد کنید</string>
+    <string name="emptyAmount">لطفا یک مبلغ را وارد کنید</string>
+    <string name="wrongAmount">مبلغ کمتر از 200 تومان قابل پرداخت نمی باشد</string>
+    <string name="somethingWrong">خطایی رخ داده است لطفا دوباره تلاش کنید</string>
+    <string name="paymentFailed">پرداخت ناموفق</string>
+    <string name="paymentSuccess">پرداخت با موفقیت انجام شد</string>
+    <string name="addressAddWarning">خطای ثبت آدرس</string>
+    <string name="addressDeleteTittle">حذف آدرس</string>
+    <string name="addressDeleteText">آیا از حذف آدرس اطمینان دارید؟</string>
+    <string name="wrongImageValue">خطا در انتخاب عکس</string>
+    <string name="noOrderFoundSearch">سفارشی با این شماره یافت نشد</string>
+    <string name="orderStatus">وضعیت سفارش</string>
+    <string name="noProductFound">محصولی یافت نشد</string>
+    <string name="pendingStatus">در حال بررسی</string>
+    <string name="acceptStatus">تایید شده</string>
+    <string name="sentStatus">ارسال شده</string>
+    <string name="deliveredStatus">تحویل شده</string>
+    <string name="declinedStatus">رد شده</string>
+    <string name="makerDisabled">درحال حاضر پیتزاساز غیرفعال می باشد</string>
+    <string name="breadStepTitle">انتخاب خمیر</string>
+    <string name="nextStep">مرحله بعد</string>
+    <string name="calory">%s کالری</string>
+    <string name="notExists">ناموجود</string>
+    <string name="prevStep">مرحله قبل</string>
+    <string name="selectBread">لطفا خمیر را انتخاب کنید</string>
+    <string name="breadEmptySteps">خمیر انتخاب شده دارای مراحل پیتزاساز نمی باشد</string>
+    <string name="minStepMaterialError">برای مرحله %s حداقل باید %s مورد انتخاب کنید</string>
+    <string name="minStepRightMaterialError">برای مرحله %s حداقل باید %s مورد از سمت راست انتخاب کنید</string>
+    <string name="minStepLeftMaterialError">برای مرحله %s حداقل باید %s مورد از سمت چپ انتخاب کنید</string>
+    <string name="stepSingleMaterialError">برای مرحله %s فقط می توانید یک ماده اولیه انتخاب کنید</string>
+    <string name="stepOverLap">حداکثر تعداد انتخاب برای مرحله %s ، %s می باشد</string>
+    <string name="stepOverLapRight">حداکثر تعداد انتخاب برای مرحله %s در قسمت راست %s می باشد</string>
+    <string name="stepOverLapLeft">حداکثر تعداد انتخاب برای مرحله %s در قسمت چپ %s می باشد</string>
+    <string name="makerProductsTitle">پیش غذا،‌ نوشابه و سالاد</string>
+    <string name="dessertsTitle">سالاد و پیش غذا</string>
+    <string name="drinksTitle">نوشیدنی</string>
+    <string name="lastMakerPageTitle">ثبت پیتزای من</string>
+    <string name="nameYourPizza">یه اسم برای پیتزای خودت بذار</string>
+    <string name="pizzaNameHint">برای مثال: پیتزای من</string>
+    <string name="otherProductWithMaker">سفارشات دیگر در این پک</string>
+    <string name="emptyPizzaName">نام پیتزا را وارد کنید</string>
+    <string name="decideTitle">برای ادامه یکی از مراحل زیر را انتخاب کنید</string>
+    <string name="goShopCart">رفتن به سبد خرید</string>
+    <string name="makeAnotherPizza">پیتزای دیگری بساز</string>
+    <string name="selectFromMenu">انتخاب پیتزا از منو</string>
+    <string name="setQtyError">لطفا تعداد را مشخص کنید</string>
+    <string name="deleteFromShopCartTitle">حذف از سبد خرید</string>
+    <string name="deleteFromShopCartDescription">آیا برای حذف %s از سبد خرید اطمینان دارید؟</string>
+    <string name="clearShopCartTitle">خالی کردن سبد خرید</string>
+    <string name="clearShopCartDescription">آیا از خالی کردن سبد خرید اطمینان دارید؟</string>
+    <string name="selectHowToSend">انتخاب نحوه ارسال</string>
+    <string name="eatInPlace">تو پیتزا وای فای میخورم</string>
+    <string name="takeBySelf">درب مغازه تحویل میگیرم</string>
+    <string name="sendToMe">برام ارسال کنید</string>
+    <string name="selectAddressError">لطفا یک آدرس انتخاب کنید</string>
+    <string name="noBranchFound">شعبه ای یافت نشد</string>
+    <string name="fromWhichBranch">از کدام شعبه؟</string>
+    <string name="checkoutTitle">ثبت نهایی و پرداخت</string>
+    <string name="orderSumTitle">مجموع</string>
+    <string name="taxTitle">مالیات</string>
+    <string name="tollTitle">عوارض</string>
+    <string name="discountTitle">تخفیف کل</string>
+    <string name="totalToPayTitle">مبلغ قابل پرداخت</string>
+    <string name="discountCode">کد تخفیف</string>
+    <string name="mCheck">بررسی کد</string>
+    <string name="mDeleteDiscount">حذف کد</string>
+    <string name="description">توضیحات</string>
+    <string name="orderDescription">توضیحات سفارش</string>
+    <string name="orderDescriptionHint">اگر توضیحات بیشتری در مورد سفارش لازم است با ما در میان بگذارید</string>
+    <string name="receiverAddress">آدرس تحویل گیرنده</string>
+    <string name="branchAddress">آدرس شعبه</string>
+    <string name="branchName">نام شعبه</string>
+    <string name="branches">شعب</string>
+    <string name="savePay">ثبت نهایی</string>
+    <string name="enterDiscountCode">کد تخفیف را وارد کنید</string>
+    <string name="noBranchSelected">شعبه ای انتخاب نشده است</string>
+    <string name="discount">تخفیف</string>
+    <string name="orderAddError">خطای ثبت سفارش</string>
+    <string name="emptyAddress3">لطفا یک آدرس و یا شعبه انتخاب کنید</string>
+    <string name="paymentType">روش پرداخت</string>
+    <string name="payOnline">پرداخت آنلاین</string>
+    <string name="payOffline">پرداخت در محل</string>
+    <string name="selectPaymentMethod">روش پرداخت را انتخاب کنید</string>
+    <string name="reorderError">سفارش مجدد این سفارش امکان پذیر نیست</string>
+    <string name="noPizzaFound2">پیتزایی یافت نشد</string>
+    <string name="pizzaDetail">جزئیات پیتزا</string>
+    <string name="sendToMenuDescription">برای ارسال پیتزای خود به منو مشتریان دکمه ارسال را بزنید</string>
+    <string name="sendToMenuTitle">ارسال به منو مشتریان</string>
+    <string name="sureSendToMenuDescription">آیا برای ارسال به منو مشتریان اطمینان دارید؟</string>
+    <string name="rateError">امتیاز نمی تواند کمتر از یک باشد</string>
+    <string name="commentEmptyError">متن نظر را وارد کنید</string>
+    <string name="reorderDescription">آیا از سفارش مجدد اطمینان دارید؟</string>
+    <string name="survey">نظرسنجی</string>
+    <string name="alreadySurvey">شما قبلا در نظرسنجی شرکت کرده اید</string>
+    <string name="onlyDeliveredOrdersSurvey">نظرسنجی برای این سفارش فعال نشده است</string>
+    <string name="pizzaDeleteTittle">حذف پیتزا</string>
+    <string name="pizzaDeleteText">آیا برای حذف پیتزا اطمینان دارید؟</string>
+    <string name="customerDisabled">در حال حاضر منو مشتریان غیرفعال می باشد</string>
+    <string name="menuDisabled">در حال حاضر منو غیرفعال می باشد</string>
+    <string name="timeToAnswerQuestion">زمان پاسخ به این سوال</string>
+    <string name="competitionEndTime">%s تا پایان مسابقه و نمایش جواب ها</string>
+    <string name="nextQuestion">سوال بعد</string>
+    <string name="exitCompetitionTitle">خروج از مسابقه</string>
+    <string name="exitCompetitionDescription">برای خروج از مسابقه اطمینان دارید؟</string>
+    <string name="finishCompetition">پایان مسابقه</string>
+    <string name="yourNotAnswered">پاسخ نداده اید</string>
+    <string name="updateApp">بروزرسانی</string>
+    <string name="updateTitle">بروزرسانی</string>
+    <string name="orderLater">پیش سفارش</string>
+    <string name="orderNow">همین الان</string>
+    <string name="orderTime">تعیین زمان سفارش</string>
+    <string name="selectOrderTime">لطفا زمان سفارش را انتخاب کنید</string>
+    <string name="outOfTimeOrderError">در حال حاضر نمی توانید سفارش ثبت کنید</string>
+    <string name="selectImage">انتخاب تصویر</string>
+    <string name="sampleCategoryBlog">در پیتزا وای فای چه میگذرد؟</string>
+    <string name="blogView">مشاهده</string>
+    <string name="blogSampleTitle">اطلاعات شعب اطلاعات شعب اطلاعات شعب</string>
+    <string name="blogSampleCategory">دسته بندی مطلب</string>
+    <string name="blogSampleVideoTime">09:23</string>
+    <string name="blogDetail">جزئیات مطلب</string>
+    <string name="continueShop">ادامه سفارش</string>
+
+    <!--Profile title items-->
+    <string-array name="profileItems">
+        <item>ویرایش اطلاعات</item>
+        <item>ویرایش شماره همراه</item>
+        <item>پشتیبانی، پیشنهادات و انتقادات</item>
+        <item>آدرس ها</item>
+        <item>پیتزاهای من</item>
+        <item>کیف پول من</item>
+        <item>پیام ها</item>
+        <item>خروج از حساب</item>
+    </string-array>
+
+    <!--Profile icon items-->
+    <integer-array name="profileIcons">
+        <item>@drawable/ic_options_outline</item>
+        <item>@drawable/ic_phone_portrait_outline_2</item>
+        <item>@drawable/ic_chatbubbles_outline</item>
+        <item>@drawable/ic_location_outline_2</item>
+        <item>@drawable/ic_pizza_outline</item>
+        <item>@drawable/ic_wallet_outline</item>
+        <item>@drawable/ic_notifications_outline</item>
+        <item>@drawable/ic_power_outline</item>
+    </integer-array>
+
+    <!--More title items-->
+    <string-array name="moreItems">
+        <item>درباره ما</item>
+        <item>تماس با ما</item>
+        <item>قوانین و مقررات</item>
+        <item>لیست شعب</item>
+        <item>مناطق تحت پوشش</item>
+<!--        <item>سوالات متداول</item>-->
+        <item>معرفی به دوستان</item>
+    </string-array>
+
+    <!--More icon items-->
+    <integer-array name="moreIcons">
+        <item>@drawable/ic_customers</item>
+        <item>@drawable/ic_more_smartphone</item>
+        <item>@drawable/ic_more_law</item>
+        <item>@drawable/ic_branch_list</item>
+        <item>@drawable/ic_location_more</item>
+<!--        <item>@drawable/ic_faq_more</item>-->
+        <item>@drawable/ic_meeting_more</item>
+    </integer-array>
+
+    <!--	default Strings====================-->
+    <string name="specialProduct">محصولات ویژه</string>
+    <string name="startProgram">شروع برنامه</string>
+    <string name="messageNumber">پیام شماره #%s</string>
+    <string name="writeSupportMessage">پیام خود را بنویسید</string>
+    <string name="considerIncreasingValueIsTooHigh">مبلغ وارد شده بیش از حد مجاز است</string>
+    <string name="editInfo">ویرایش اطلاعات</string>
+    <string name="edit">ویرایش</string>
+    <string name="cancel">لغو</string>
+    <string name="enterYourText">پیام خود را بنویسید</string>
+    <string name="speech_prompt">عبارت مورد نظر را بیان کنید</string>
+    <string name="SorryYourDeviceDoesNotSupportSpeechInput">دستگاه شما این قابلیت را پشتیبانی نمی کند!</string>
+    <string name="nearestBranch">نزدیک ترین شعبه به من</string>
+    <string name="clearFilter">حذف فیلتر</string>
+    <string name="productDetail2">مشخصات محصول</string>
+    <string name="deleteDiscountCode">حذف کد تخفیف</string>
+
+    <string name="sureSelectBranch">آیا برای انتخاب %s اطمینان دارید؟</string>
+    <string name="someOrderInBasket">شما سفارش تکمیل نشده از %s دارید، آیا می خواهید سبد خرید خالی شود؟</string>
+    <string name="someOrderInBasketCity">شما سفارش تکمیل نشده از %s دارید، آیا می خواهید سبد خرید خالی شود؟</string>
+    <string name="cityHasNoBranch">شهر انتخابی شما هیچ شعبه ای ندارد</string>
+    <string name="sendPriceTitle">هزینه ارسال</string>
+    <string name="maxChoiceProduct">شما می توانید حداکثر %s تعداد از محصول %s انتخاب کنید</string>
+    <string name="noBranchIsSpecified">شعبه مشخص نشده است!</string>
+    <string name="courierPriceTitle">هزینه پیک</string>
+    <string name="requestForBranchForm">فرم درخواست شعبه</string>
+    <string name="nameHint2">نام</string>
+    <string name="lastName">نام خانوادگی</string>
+    <string name="fixNumber">شماره تماس</string>
+    <string name="phoneNumber">شماره همراه</string>
+    <string name="email">پست الکترونیکی</string>
+    <string name="age">سن</string>
+    <string name="province">استان</string>
+    <string name="city">شهر</string>
+    <string name="areaProperty">متراژ ملک</string>
+    <string name="investmentValue">میزان سرمایه</string>
+    <string name="yourCurrentJob">در حال حاضر مشغول به چه حرفه ای هستید؟</string>
+    <string name="trainingCourse">دوره های آموزشی گذرانده شده</string>
+    <string name="monthlyTurnOver">میزان گردش حساب ماهیانه(تومان)</string>
+    <string name="situation">وضعیت</string>
+    <string name="familiarWithRestaurant">آشنایی با حرفه رستوران داری و مشاغل مرتبط با آن دارید؟</string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
+    <string name="uploadResume">آپلود رزومه کاری</string>
+    <string name="uploadDoumentsAndStoreImage">آپلود مدارک و تصاویر ملک مغازه</string>
+    <string name="rent">اجاره</string>
+    <string name="mortage">رهن</string>
+    <string name="owner">مالک</string>
+    <string name="newDoc">سند جدید</string>
+    <string name="addForm">افزودن فرم</string>
+    <string name="emptyLastName">نام خانوادگی را وارد کنید</string>
+    <string name="emptyFixNumber">شماره تلفن ثابت را وارد کنید</string>
+    <string name="emptymobilePhoneNumber">شماره همراه را وارد کنید</string>
+    <string name="emptyage">سن را وارد کنید</string>
+    <string name="emptyprovince">نام استان را وارد کنید</string>
+    <string name="emptycity">نام شهر را وارد کنید</string>
+    <string name="emptysituation">وضعیت ملک را وارد کنید</string>
+    <string name="emptyexactAddress">آدرس را وارد کنید</string>
+    <string name="emptyareaProperty">متراژ ملک را وارد کنید</string>
+    <string name="emptyinvestmentValue">میزان سرمایه را وارد کنید</string>
+    <string name="emptycurrentJob">حرفه فعلی خود را وارد کنید</string>
+    <string name="wrongFixPhoneNumber">شماره تماس وارد شده معتبر نمی باشد</string>
+    <string name="emptyResume">فایل رزومه آپلود نشده است</string>
+    <string name="emptyDocumentUploaded">هیچ سندی جهت آپلود انتخاب نشده است</string>
+    <string name="fromWhichCity">از کدام شهر؟</string>
+    <string name="nearestCity">نزدیک ترین شهر به من</string>
+    <string name="noCityFound">شهری یافت نشد</string>
+    <string name="distance">فاصله: %s متر</string>
+    <string name="wrongEmailAddress">آدرس ایمیل وارد شده صحیح نمی باشد</string>
+    <string name="choose_file">انتخاب فایل</string>
+    <string name="studyTermsAndCondition">قوانین را مطالعه نمودم و تمامی موارد را می پذیرم</string>
+    <string name="conditionAreNotAccepted">قوانین و مقررات تایید نشده است!</string>
+    <string name="pleaseSelectProvinceFirst">لطفا ابتدا استان را انتخاب کنید</string>
+    <string name="selectProvince">انتخاب استان</string>
+    <string name="selectCity">انتخاب شهر</string>
+    <string name="selectWhich">انتخاب کنید</string>
+    <string name="selectBranch">انتخاب شعبه</string>
+    <string name="selectSituation">انتخاب وضعیت</string>
+    <string name="lotteryDate">تاریخ شرکت در قرعه کشی: %s</string>
+    <string name="lotteryEndDate">تاریخ قرعه کشی: %s</string>
+    <string name="lotteryMsg">پیام های قرعه کشی</string>
+    <string name="lotteries">قرعه کشی ها</string>
+    <string name="emptyLottery">قرعه کشی یافت نشد</string>
+    <string name="emptyCampain">شما هنوز در کمپینی شرکت نکرده اید</string>
+    <string name="campaign_detail">جزییات کمپین</string>
+    <string name="start_date">تاریخ شروع جشنواره :</string>
+    <string name="end_date">تاریخ پایان جشنواره :</string>
+    <string name="join_campaign">مشخصات کاربر برای شرکت در جشنواره</string>
+    <string name="upload_image">تصویر مورد نظر را بارگذاری کنید.</string>
+    <string name="after_upload">بعد از بررسی و تایید تصویر توسط مجموعه برگر های تخصصی پیتزا وای فای، امتیاز به پنل باشگاه شما افزوده می گردد</string>
+    <string name="add_image_campaign">افزودن تصویر</string>
+    <string name="insta_id">آیدی اینستاگرام</string>
+    <string name="register_data">ثبت اطلاعات و شرکت در جشنواره</string>
+    <string name="already_participate">شما قبلا در جشنواره شرکت کرده اید</string>
+    <string name="user_send_image">تصویر ارسالی کاربر</string>
+    <string name="state_campaign">وضعیت</string>
+    <string name="join_to_campaign">شرکت در جشنواره</string>
+    <string name="club_title">باشگاه مشتریان</string>
+    <string name="my_club">باشگاه من</string>
+    <string name="no_item_found">موردی یافت نشد!</string>
+    <string name="club_rate">امتیاز</string>
+    <string name="club_rate_sample">10,000</string>
+    <string name="show_club_item">مشاهده</string>
+    <string name="get_club_item">ثبت</string>
+    <string name="club_get_rate_sure_title">دریافت پکیج</string>
+    <string name="club_get_rate_error_title">خطای دریافت پکیج</string>
+    <string name="club_get_rate_error">شما باید حداقل %s امتیاز برای دریافت این پکیج داشته باشید</string>
+    <string name="club_sample_title">تخفیف ویژه پیتزا وای فای</string>
+    <string name="club_sample_description">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</string>
+
+    <string name="club_company_name">نام شرکت</string>
+    <string name="club_code">کد تخفیف</string>
+    <string name="club_expire_date">تاریخ انقضا</string>
+    <string name="club_percent">درصد تخفیف</string>
+    <string name="club_max_amount">حداکثر مبلغ</string>
+    <string name="club_wallet">شارژ کیف پول</string>
+    <string name="yourSelectedCity">%s - (شهر انتخابی شما)</string>
+    <string name="yourSelectedBranch">%s - (شعبه انتخابی شما)</string>
+    <string name="sampleCategory">پیتزا وای فای</string>
+    <string name="makeFullPizza">ساختن پیتزای کامل</string>
+    <string name="makeHalfPizza">ساختن پیتزای نصف نصف</string>
+    <string name="priceTemp">20,000 تومان</string>
+    <string name="rightMaterialTitle">سمت راست</string>
+    <string name="leftMaterialTitle">سمت چپ</string>
+    <string name="leftMaterialName">%s - چپ</string>
+    <string name="rightMaterialName">%s - راست</string>
+    <string name="centerMaterials">مشترک</string>
+    <string name="discountPercentSample">100%</string>
+    <string name="tools">ابزار</string>
+    <string name="editAddress">ویرایش آدرس</string>
+    <string name="costs">هزینه ها</string>
+    <string name="sample_mobile_number">09171111111</string>
+    <string name="pleaseSelectBranch">لطفا یک شعبه انتخاب کنید</string>
+    <string name="seconds">ثانیه</string>
+    <string name="minutes">دقیقه</string>
+    <string name="orderSum">مبلغ کل</string>
+    <string name="payment_type2">نوع پرداخت</string>
+</resources>

@@ -1,0 +1,76 @@
+apply plugin: 'com.android.library'
+
+rootProject.coreModulePlugins.each {
+    apply plugin: it
+}
+
+android {
+    compileSdkVersion versions.compile_sdk
+    buildToolsVersion versions.build_tools
+
+
+    defaultConfig {
+        minSdkVersion versions.min_sdk
+        targetSdkVersion versions.compile_sdk
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+        buildConfigField 'String', 'BASE_URL', fields.baseUrl
+        buildConfigField 'String', 'DEV_URL', fields.devUrl
+        buildConfigField 'String', 'BASE_URL_UNSAFE', fields.baseUrlUnsafe
+        buildConfigField 'String', 'BASE_URL_CLUB', fields.clubUrl
+        buildConfigField 'String', 'UPLOAD_URL', fields.uploadUrl
+        buildConfigField 'String', 'UPLOAD_URL_UNSAFE', fields.uploadUrlUnsafe
+        buildConfigField 'String', 'AUTHORIZATION', fields.authorization
+        buildConfigField 'String', 'TOKEN_PREFIX', fields.tokenPrefix
+        buildConfigField 'String', 'DEFAULT_TOKEN', fields.defaultToken
+        buildConfigField 'String', 'LOGIN_SESSION_KEY', fields.loginSessionKey
+        buildConfigField 'String', 'TOKEN_SESSION_KEY', fields.tokenSessionKey
+        buildConfigField 'String', 'TOKEN_REGISTER_KEY', fields.tokenRegisterKey
+        buildConfigField 'String', 'DEFAULT_LANGUAGE', fields.defaultLanguage
+        buildConfigField 'String', 'LANGUAGE_SESSION_KEY', fields.languageSessionKey
+        buildConfigField 'String', 'USER', fields.user
+        buildConfigField 'String', 'App_Name', fields.appName
+        buildConfigField 'String', 'DATABASE_NAME', fields.databaseName
+        buildConfigField 'String', 'APP_VERSION', fields.appVersion
+        buildConfigField 'String', 'USER_AGENT', fields.userAgent
+        buildConfigField 'String', 'PUSH_TOKEN_SESSION_KEY', fields.pushTokenSessionKey
+        buildConfigField 'String', 'ENVIRONMENT', fields.environment
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'ENVIRONMENT', '"production"'
+        }
+
+        debug {
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+//	dataBinding {
+//		enabled = true
+//	}
+
+    compileOptions {
+        sourceCompatibility versions.java_version
+        targetCompatibility versions.java_version
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    rootProject.coreModuleDeps.each {
+        add(it.configuration, it.dependency, it.options)
+    }
+}

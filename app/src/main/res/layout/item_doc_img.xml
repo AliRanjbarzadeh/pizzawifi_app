@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+<!--        <variable-->
+<!--            name="item"-->
+<!--            type="ir.atriatech.omanradar.entities.checkout.UploadItem" />-->
+    </data>
+
+    <FrameLayout
+        android:id="@+id/flBillImage"
+        android:layout_width="110dp"
+        android:layout_height="108dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border_dash_gold_rec">
+
+
+        <ir.atriatech.customlibs.shapeofview.shapes.RoundRectView
+            android:id="@+id/imgShape1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:shape_roundRect_bottomLeftRadius="23dp"
+            app:shape_roundRect_bottomRightRadius="23dp"
+            app:shape_roundRect_topLeftRadius="23dp"
+            app:shape_roundRect_topRightRadius="23dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgPhotoDoc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/border_dash_gold_rec"
+                android:cropToPadding="true"
+                android:scaleType="centerInside"
+                android:padding="2dp" />
+<!--            android:visibility="@{item.imageUploaded ? View.VISIBLE : View.GONE}"-->
+
+        </ir.atriatech.customlibs.shapeofview.shapes.RoundRectView>
+
+<!--        <androidx.appcompat.widget.AppCompatTextView-->
+<!--            android:id="@+id/txtNewImage"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="3dp"-->
+<!--            android:drawableTop="@drawable/ic_add_photo_gold"-->
+<!--            android:drawablePadding="16dp"-->
+<!--            android:ellipsize="end"-->
+<!--            android:gravity="center"-->
+<!--            android:maxLines="1"-->
+<!--            android:text="@string/newDoc"-->
+<!--            android:textAlignment="gravity"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="12sp" />-->
+<!--        android:visibility="@{item.imageUploaded ? View.GONE : View.VISIBLE}"-->
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgDeleteDoc"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="top|end"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_cancel_circle_white" />
+
+<!--        android:visibility="@{item.imageUploaded ? View.VISIBLE : View.GONE}"-->
+
+
+    </FrameLayout>
+</layout>
+

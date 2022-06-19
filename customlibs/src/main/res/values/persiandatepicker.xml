@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DefaultNumberPickerTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorControlNormal">#353535</item>
+        <item name="android:textColorPrimary">#353535</item>
+        <item name="android:background">#F5F5F5</item>
+        <item name="android:textSize">@dimen/_12font_mdp</item>
+    </style>
+</resources>

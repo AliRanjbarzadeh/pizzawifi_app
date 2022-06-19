@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.shopcart.checkout.ShopCartCheckout">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ir.atriatech.pizzawifi.ui.main.shopcart.checkout.ShopCartCheckoutFragmentViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/mainView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="locale">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40mdp"
+                android:background="@color/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtToolbar"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="center_vertical|start"
+                        android:text="@string/checkoutTitle"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/appbarText"
+                        android:textSize="@dimen/_15font_mdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtCity"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:drawableStart="@drawable/ic_location_marker_white"
+                        android:drawablePadding="12dp"
+                        android:gravity="center_vertical|end"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="8dp"
+                        android:text="@string/city"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:id="@+id/llMain"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/_170mdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12mdp"
+                    android:layout_marginTop="@dimen/_12mdp"
+                    android:layout_marginEnd="@dimen/_12mdp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_12mdp"
+                            android:layout_weight="1"
+                            android:text="@string/address2"
+                            android:textColor="@color/color35"
+                            android:textSize="@dimen/_14font_mdp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnChangeAddress"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/changeAddress"
+                            android:textColor="@color/colorGreen"
+                            android:textSize="@dimen/_14font_mdp"
+                            app:icon="@drawable/ic_baseline_arrow_back_ios_new_24"
+                            app:iconGravity="textEnd"
+                            app:iconPadding="0dp"
+                            app:iconSize="@dimen/_16mdp"
+                            app:iconTint="@color/colorGreen" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16mdp"
+                        android:elevation="0dp"
+                        app:cardCornerRadius="@dimen/_10mdp"
+                        app:strokeColor="@color/colorPrimary"
+                        app:strokeWidth="@dimen/_1mdp">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_10mdp">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="@dimen/_20mdp"
+                                android:layout_height="@dimen/_20mdp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/ic_location_outline" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_8mdp"
+                                android:layout_marginEnd="@dimen/_8mdp"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical|start"
+                                android:maxLines="1"
+                                android:text="@{viewModel.address == null ? viewModel.branch.address : viewModel.address.address, default=`@string/loremDescription`}"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12font_mdp" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="@dimen/_20mdp"
+                                android:layout_height="@dimen/_20mdp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/ic_baseline_check_circle_outline_24"
+                                app:tint="@color/colorPrimary" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12mdp"
+                    android:layout_marginTop="@dimen/_12mdp"
+                    android:layout_marginEnd="@dimen/_12mdp"
+                    android:text="@string/paymentType"
+                    android:textColor="@color/color35"
+                    android:textSize="@dimen/_14font_mdp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardPay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12mdp"
+                    android:layout_marginTop="@dimen/_12mdp"
+                    android:layout_marginEnd="@dimen/_12mdp"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/payOffline"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_8mdp"
+                            android:layout_weight="1"
+                            android:visibility="@{!viewModel.checkoutPrices.offline ? View.GONE : View.VISIBLE}"
+                            app:cardCornerRadius="@dimen/_10mdp"
+                            app:strokeColor="@color/colorE0"
+                            app:strokeWidth="@dimen/_1mdp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/imgPayOffline"
+                                    android:layout_width="@dimen/_20mdp"
+                                    android:layout_height="@dimen/_20mdp"
+                                    android:layout_marginStart="@dimen/_8mdp"
+                                    android:layout_marginTop="@dimen/_10mdp"
+                                    android:layout_marginBottom="@dimen/_10mdp"
+                                    android:src="@drawable/ic_wallet_outline"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/txtOrderId2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_4mdp"
+                                    android:layout_marginEnd="@dimen/_4mdp"
+                                    android:ellipsize="end"
+                                    android:gravity="center"
+                                    android:maxLines="1"
+                                    android:text="@string/payOffline"
+                                    android:textAlignment="gravity"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_10font_mdp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@id/rbSelected2"
+                                    app:layout_constraintStart_toEndOf="@id/imgPayOffline"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_chainStyle="packed" />
+
+                                <com.google.android.material.radiobutton.MaterialRadioButton
+                                    android:id="@+id/rbSelected2"
+                                    android:layout_width="@dimen/_20mdp"
+                                    android:layout_height="@dimen/_20mdp"
+                                    android:layout_marginEnd="@dimen/_8mdp"
+                                    android:button="@drawable/ic_radio_orange"
+                                    android:checked="@{viewModel.checkoutPrices.paymentType == 2}"
+                                    android:clickable="false"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:padding="0dp"
+                                    android:visibility="@{viewModel.checkoutPrices.paymentType == 2 ? View.VISIBLE : View.INVISIBLE}"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:useMaterialThemeColors="false" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/payOnline"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:alpha="@{viewModel.checkoutPrices.totalToPay == 0 ? 0.7f : 1f}"
+                            android:visibility="@{!viewModel.checkoutPrices.online ? View.GONE : View.VISIBLE}"
+                            app:cardCornerRadius="@dimen/_10mdp"
+                            app:strokeColor="@color/colorE0"
+                            app:strokeWidth="@dimen/_1mdp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/imgPayOnline"
+                                    android:layout_width="@dimen/_20mdp"
+                                    android:layout_height="@dimen/_20mdp"
+                                    android:layout_marginStart="@dimen/_8mdp"
+                                    android:layout_marginTop="@dimen/_10mdp"
+                                    android:layout_marginBottom="@dimen/_10mdp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/ic_card_outline"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/txtOrderId"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_4mdp"
+                                    android:layout_marginEnd="@dimen/_4mdp"
+                                    android:ellipsize="end"
+                                    android:gravity="center"
+                                    android:maxLines="1"
+                                    android:text="@string/payOnline"
+                                    android:textAlignment="gravity"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_10font_mdp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@id/rbSelected"
+                                    app:layout_constraintStart_toEndOf="@id/imgPayOnline"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_chainStyle="packed" />
+
+                                <com.google.android.material.radiobutton.MaterialRadioButton
+                                    android:id="@+id/rbSelected"
+                                    android:layout_width="@dimen/_20mdp"
+                                    android:layout_height="@dimen/_20mdp"
+                                    android:layout_marginEnd="@dimen/_8mdp"
+                                    android:button="@drawable/ic_radio_orange"
+                                    android:checked="@{viewModel.checkoutPrices.paymentType == 1}"
+                                    android:clickable="false"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:padding="0dp"
+                                    android:visibility="@{viewModel.checkoutPrices.paymentType == 1 ? View.VISIBLE : View.INVISIBLE}"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:useMaterialThemeColors="false" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12mdp"
+                    android:layout_marginTop="@dimen/_12mdp"
+                    android:layout_marginEnd="@dimen/_12mdp"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="0dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilDiscount"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_45mdp"
+                            android:hint="@string/enterDiscountCode"
+                            android:paddingBottom="@dimen/_3mdp"
+                            android:textColorHint="@color/gray2"
+                            app:boxCornerRadiusBottomEnd="@dimen/_8mdp"
+                            app:boxCornerRadiusBottomStart="@dimen/_8mdp"
+                            app:boxCornerRadiusTopEnd="@dimen/_8mdp"
+                            app:boxCornerRadiusTopStart="@dimen/_8mdp"
+                            app:hintTextColor="@color/colorPrimary"
+                            app:layout_constraintBottom_toBottomOf="@id/btnDiscount"
+                            app:layout_constraintEnd_toStartOf="@id/btnDiscount"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/btnDiscount">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etDiscount"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="@dimen/_4mdp"
+                                android:gravity="center_vertical|start"
+                                android:imeOptions="flagNoExtractUi|actionDone"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:paddingTop="0dp"
+                                android:paddingBottom="0dp"
+                                android:text="@={viewModel.checkoutPrices.discountCode}"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_12font_mdp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnDiscount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp"
+                            android:paddingStart="@dimen/_16mdp"
+                            android:paddingEnd="@dimen/_16mdp"
+                            android:text="@string/mCheck"
+                            android:textSize="@dimen/_12font_mdp"
+                            app:cornerRadius="@dimen/_3mdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12mdp"
+                    android:layout_marginTop="@dimen/_12mdp"
+                    android:layout_marginEnd="@dimen/_12mdp"
+                    android:visibility="@{viewModel.userInfo.wallet > 0 ? View.VISIBLE : View.GONE}"
+                    app:cardCornerRadius="@dimen/_8mdp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/colorE0"
+                    app:strokeWidth="@dimen/_1mdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_8mdp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginEnd="@dimen/_8mdp"
+                                android:text="@string/walletAmountLabel"
+                                android:textColor="@color/color35"
+                                android:textSize="@dimen/_14font_mdp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginEnd="@dimen/_8mdp"
+                                android:text="@{viewModel.checkoutPrices.walletFormat, default=`@string/testProductPrice`}"
+                                android:textColor="@color/colorAA"
+                                android:textSize="@dimen/_12font_mdp" />
+                        </LinearLayout>
+
+                        <com.kyleduo.switchbutton.SwitchButton
+                            android:id="@+id/btnWallet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:kswBackDrawable="@drawable/switch_button_selector"
+                            app:kswThumbDrawable="@drawable/switch_button_thumb_selector"
+                            app:kswThumbHeight="@dimen/_20mdp"
+                            app:kswThumbMargin="@dimen/_2mdp"
+                            app:kswThumbRangeRatio="2"
+                            app:kswThumbWidth="@dimen/_20mdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12mdp"
+                    android:layout_marginTop="@dimen/_12mdp"
+                    android:layout_marginEnd="@dimen/_12mdp"
+                    android:text="@string/orderTime"
+                    android:textColor="@color/color35"
+                    android:textSize="@dimen/_14font_mdp"
+                    android:visibility="@{viewModel.checkoutPrices.showOrderTime ? View.VISIBLE : View.GONE}" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/orderNow"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="@{viewModel.checkoutPrices.now ? View.VISIBLE : View.GONE}"
+                            app:cardCornerRadius="@dimen/_8mdp"
+                            app:cardElevation="0dp"
+                            app:strokeColor="@color/colorE0"
+                            app:strokeWidth="@dimen/_1mdp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/_8mdp">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/imgOrderNow"
+                                    android:layout_width="@dimen/_18mdp"
+                                    android:layout_height="@dimen/_18mdp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/ic_time_outline"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/txtOrderNow"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_8mdp"
+                                    android:layout_marginEnd="@dimen/_8mdp"
+                                    android:ellipsize="end"
+                                    android:gravity="center_vertical|start"
+                                    android:maxLines="1"
+                                    android:text="@{viewModel.checkoutPrices.orderNow, default=`@string/orderNow`}"
+                                    android:textAlignment="viewStart"
+                                    android:textColor="@color/color35"
+                                    android:textSize="@dimen/_14font_mdp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@id/rbOrderNow"
+                                    app:layout_constraintStart_toEndOf="@id/imgOrderNow"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_chainStyle="packed" />
+
+                                <com.google.android.material.radiobutton.MaterialRadioButton
+                                    android:id="@+id/rbOrderNow"
+                                    android:layout_width="@dimen/_20mdp"
+                                    android:layout_height="@dimen/_20mdp"
+                                    android:button="@drawable/ic_radio_orange"
+                                    android:checked="@{viewModel.checkoutPrices.orderTime == 1}"
+                                    android:clickable="false"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:padding="0dp"
+                                    android:visibility="@{viewModel.checkoutPrices.orderTime == 1 ? View.VISIBLE : View.INVISIBLE}"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:useMaterialThemeColors="false" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/orderLater"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8mdp"
+                            android:visibility="@{viewModel.checkoutPrices.reserve ? View.VISIBLE : View.GONE}"
+                            app:cardCornerRadius="@dimen/_8mdp"
+                            app:cardElevation="0dp"
+                            app:strokeColor="@color/colorE0"
+                            app:strokeWidth="@dimen/_1mdp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/_8mdp">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/imgOrderLater"
+                                    android:layout_width="@dimen/_18mdp"
+                                    android:layout_height="@dimen/_18mdp"
+                                    android:src="@drawable/ic_calendar_outline"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/txtOrderLater"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_8mdp"
+                                    android:layout_marginEnd="@dimen/_8mdp"
+                                    android:ellipsize="end"
+                                    android:gravity="center_vertical|start"
+                                    android:maxLines="1"
+                                    android:text="@{viewModel.checkoutPrices.orderLater, default=`@string/orderLater`}"
+                                    android:textAlignment="viewStart"
+                                    android:textColor="@color/color35"
+                                    android:textSize="@dimen/_14font_mdp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@id/rbOrderLater"
+                                    app:layout_constraintStart_toEndOf="@id/imgOrderLater"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_chainStyle="packed" />
+
+                                <com.google.android.material.radiobutton.MaterialRadioButton
+                                    android:id="@+id/rbOrderLater"
+                                    android:layout_width="@dimen/_20mdp"
+                                    android:layout_height="@dimen/_20mdp"
+                                    android:button="@drawable/ic_radio_orange"
+                                    android:checked="@{viewModel.checkoutPrices.orderTime == 2}"
+                                    android:clickable="false"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:padding="0dp"
+                                    android:visibility="@{viewModel.checkoutPrices.orderTime == 2 ? View.VISIBLE : View.INVISIBLE}"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:useMaterialThemeColors="false" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12mdp"
+                    android:layout_marginTop="@dimen/_12mdp"
+                    android:layout_marginEnd="@dimen/_12mdp"
+                    android:text="@string/orderDescription"
+                    android:textColor="@color/color35"
+                    android:textSize="@dimen/_14font_mdp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12mdp"
+                    android:layout_marginTop="@dimen/_12mdp"
+                    android:layout_marginEnd="@dimen/_12mdp"
+                    app:cardCornerRadius="@dimen/_8mdp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/colorE0"
+                    app:strokeWidth="@dimen/_1mdp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:gravity="top"
+                        android:hint="@string/orderDescriptionHint"
+                        android:inputType="textMultiLine"
+                        android:lineSpacingExtra="3sp"
+                        android:maxLines="4"
+                        android:minLines="4"
+                        android:padding="@dimen/_8mdp"
+                        android:text="@={viewModel.description}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/colorF84"
+                        android:textSize="@dimen/_12font_mdp" />
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorAA53" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/_8mdp"
+                    android:paddingEnd="@dimen/_8mdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/discountTitle"
+                            android:textColor="@color/color35"
+                            android:textSize="@dimen/_12font_mdp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="@dimen/_8mdp"
+                            android:layout_marginEnd="@dimen/_8mdp"
+                            android:layout_weight="1"
+                            android:background="@color/colorAA53" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="@{viewModel.checkoutPrices.discountFormat, default = `@string/testProductPrice`}"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/colorGreen"
+                            android:textSize="@dimen/_12font_mdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/wallet"
+                            android:textColor="@color/color35"
+                            android:textSize="@dimen/_12font_mdp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="@dimen/_8mdp"
+                            android:layout_marginEnd="@dimen/_8mdp"
+                            android:layout_weight="1"
+                            android:background="@color/colorAA53" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="@{viewModel.checkoutPrices.wallet_priceFormat, default = `@string/testProductPrice`}"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/color35"
+                            android:textSize="@dimen/_12font_mdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/sendPriceTitle"
+                            android:textColor="@color/color35"
+                            android:textSize="@dimen/_12font_mdp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="@dimen/_8mdp"
+                            android:layout_marginEnd="@dimen/_8mdp"
+                            android:layout_weight="1"
+                            android:background="@color/colorAA53" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="@{viewModel.checkoutPrices.courier_priceFormat, default = `@string/testProductPrice`}"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/color35"
+                            android:textSize="@dimen/_12font_mdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/totalToPayTitle"
+                            android:textColor="@color/color35"
+                            android:textSize="@dimen/_12font_mdp" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="@dimen/_8mdp"
+                            android:layout_marginEnd="@dimen/_8mdp"
+                            android:layout_weight="1"
+                            android:background="@color/colorAA53" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/AppFontBold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="@{viewModel.checkoutPrices.totalToPayFormat, default = `@string/testProductPrice`}"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/color35"
+                            android:textSize="@dimen/_12font_mdp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/_8mdp"
+                android:text="@string/savePay"
+                android:textSize="@dimen/_12font_mdp"
+                app:backgroundTint="@color/colorGreen"
+                app:cornerRadius="@dimen/_20mdp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

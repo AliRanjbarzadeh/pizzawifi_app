@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!--PinView-->
+	<declare-styleable name="PinViewTheme">
+		<attr name="pinViewStyle" format="reference" />
+	</declare-styleable>
+
+	<declare-styleable name="PinView">
+		<attr name="itemCount" format="integer" />
+		<attr name="itemWidth" format="dimension" />
+		<attr name="itemHeight" format="dimension" />
+		<attr name="itemRadius" format="dimension" />
+		<attr name="itemSpacing" format="dimension" />
+		<attr name="lineWidth" format="dimension" />
+		<attr name="lineColor" format="reference|color" />
+		<attr name="viewType" format="enum">
+			<enum name="rectangle" value="0" />
+			<enum name="line" value="1" />
+		</attr>
+		<attr name="android:cursorVisible" />
+		<attr name="cursorWidth" format="dimension" />
+		<attr name="cursorColor" format="reference|color" />
+		<attr name="fontPath" format="string" />
+	</declare-styleable>
+
+	<!--PinView Dimen-->
+	<dimen name="pv_pin_view_item_size">48dp</dimen>
+	<dimen name="pv_pin_view_item_radius">5dp</dimen>
+	<dimen name="pv_pin_view_item_spacing">5dp</dimen>
+	<dimen name="pv_pin_view_item_line_width">2dp</dimen>
+	<dimen name="pv_pin_view_cursor_width">2dp</dimen>
+
+	<!--PinView Style-->
+	<style name="PinWidget" />
+
+	<style name="PinWidget.PinView" parent="Widget.AppCompat.EditText">
+		<item name="android:background">@null</item>
+		<item name="android:minHeight">0dp</item>
+		<item name="android:maxLines">1</item>
+	</style>
+</resources>

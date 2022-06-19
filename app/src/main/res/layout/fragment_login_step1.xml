@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.login.step1.LoginStep1">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ir.atriatech.pizzawifi.ui.login.step1.LoginStep1FragmentViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="locale">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="0dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbarId"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40mdp"
+                    android:background="@color/transparent"
+                    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtToolbar"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginEnd="@dimen/_16mdp"
+                            android:gravity="center_vertical|start"
+                            android:text="@string/login"
+                            android:textAlignment="viewStart"
+                            android:textColor="@{viewModel.emptyView ? @color/appBackgroundColor : @color/appbarText, default=`@color/appbarText`}"
+                            android:textSize="@dimen/_15font_mdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.appcompat.widget.Toolbar>
+            </FrameLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/mainNested"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toTopOf="@id/btnNext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/mainView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:paddingBottom="@dimen/_16mdp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgLoginStep1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="@dimen/_40mdp"
+                        android:src="@drawable/ic_person_add_outline"
+                        app:layout_constraintDimensionRatio="3:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/color222" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/titleTop"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_16mdp"
+                        android:layout_marginTop="@dimen/_16mdp"
+                        android:layout_marginEnd="@dimen/_16mdp"
+                        android:gravity="center"
+                        android:text="@string/loginTitle1"
+                        android:textColor="@color/gray2"
+                        android:textSize="@dimen/_12font_mdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imgLoginStep1" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilMobile"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_25mdp"
+                        android:hint="@string/mobileHint"
+                        android:textColorHint="@color/gray2"
+                        app:boxCornerRadiusBottomEnd="@dimen/_8mdp"
+                        app:boxCornerRadiusBottomStart="@dimen/_8mdp"
+                        app:boxCornerRadiusTopEnd="@dimen/_8mdp"
+                        app:boxCornerRadiusTopStart="@dimen/_8mdp"
+                        app:hintTextColor="@color/textPrimary"
+                        app:layout_constraintEnd_toEndOf="@id/titleTop"
+                        app:layout_constraintStart_toStartOf="@id/titleTop"
+                        app:layout_constraintTop_toBottomOf="@id/titleTop">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="0123456789"
+                            android:gravity="start"
+                            android:imeOptions="actionDone|flagNoExtractUi"
+                            android:importantForAutofill="noExcludeDescendants"
+                            android:inputType="phone"
+                            android:maxLength="11"
+                            android:maxLines="1"
+                            android:text="@={viewModel.mobile}"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_14font_mdp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16mdp"
+                android:layout_marginEnd="@dimen/_16mdp"
+                android:layout_marginBottom="@dimen/_16mdp"
+                android:gravity="center"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:onClick="@{() -> viewModel.login()}"
+                android:text="@string/saveContinue"
+                android:textSize="@dimen/_12font_mdp"
+                app:cornerRadius="@dimen/_20mdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

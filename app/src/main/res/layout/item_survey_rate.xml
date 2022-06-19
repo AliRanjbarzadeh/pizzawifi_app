@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="ir.atriatech.pizzawifi.entities.orders.survey.Question" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4mdp"
+        app:cardElevation="@dimen/_2mdp"
+        app:cardCornerRadius="@dimen/_8mdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_8mdp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textView"
+                style="@style/AppFontBold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8mdp"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:layout_marginEnd="@dimen/_8mdp"
+                android:gravity="center"
+                android:text="@{item.question, default=`@string/loremTitle`}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14font_mdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ir.atriatech.customlibs.shapeofview.shapes.RoundRectView
+                android:id="@+id/roundRect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_32mdp"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:layout_marginEnd="@dimen/_32mdp"
+                app:layout_constraintEnd_toEndOf="@id/textView"
+                app:layout_constraintStart_toStartOf="@id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:shape_roundRect_borderWidth="@dimen/_1mdp"
+                app:shape_roundRect_bottomLeftRadius="@dimen/_42mdp"
+                app:shape_roundRect_bottomRightRadius="@dimen/_42mdp"
+                app:shape_roundRect_topLeftRadius="@dimen/_42mdp"
+                app:shape_roundRect_topRightRadius="@dimen/_42mdp">
+                <!--				app:shape_roundRect_borderColor="@color/color4D4"-->
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBB"
+                    android:padding="@dimen/_8mdp">
+
+                    <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                        android:id="@+id/ratingCustomer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:isIndicator="false"
+                        android:layoutDirection="ltr"
+                        android:rating="@={item.rating}"
+                        android:stepSize="1"
+                        app:mrb_fillBackgroundStars="true"
+                        app:mrb_progressBackgroundTint="@color/white"
+                        app:mrb_progressTint="@color/textPrimary" />
+                </FrameLayout>
+
+            </ir.atriatech.customlibs.shapeofview.shapes.RoundRectView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

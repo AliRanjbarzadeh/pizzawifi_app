@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="ir.atriatech.pizzawifi.entities.ProvinceModel" />
+    </data>
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/rb"
+        style="@style/AppFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="6dp"
+        android:button="@drawable/ic_radio_orange"
+        android:checked="@{item.selected}"
+        android:paddingStart="8dp"
+        android:text="@{item.name}"
+        android:textColor="@color/textPrimary"
+        android:textSize="@dimen/text_14"
+        app:useMaterialThemeColors="false" />  <!--<android.support.constraint.ConstraintLayout-->
+</layout>

@@ -1,0 +1,8 @@
+<resources>
+	<string name="app_font">fonts/app_font_en.ttf</string>
+	<string name="no_app_found_to_open">No app found to process</string>
+	<string name="save_in_clip_boar">Copied to clipboard</string>
+	<string name="c1">Network setting</string>
+	<string name="c2">Try again</string>
+	<string name="app_font_bold">fonts/app_font_bold_en.ttf</string>
+</resources>

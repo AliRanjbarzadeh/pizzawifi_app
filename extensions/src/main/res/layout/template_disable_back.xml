@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context=".ui.login.step2.LoginStep2">
+
+	<data>
+
+		<import type="android.view.View" />
+
+		<variable
+			name="viewModelTemplate"
+			type="ir.atriatech.core.base.BaseCoreFragmentViewModel" />
+	</data>
+
+	<FrameLayout
+		android:id="@+id/disableBack"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/progressBackgroundAlpha">
+
+
+	</FrameLayout>
+</layout>

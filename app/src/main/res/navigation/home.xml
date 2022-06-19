@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu0"
+    android:label="home"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.category.CategoryFragment"
+        android:label="CategoryFragment"
+        tools:layout="@layout/fragment_category" />
+    <fragment
+        android:id="@+id/pizzaDetailFragment2"
+        android:name="ir.atriatech.pizzawifi.ui.main.profile.pizza.detail.PizzaDetailFragment"
+        android:label="PizzaDetailFragment"
+        tools:layout="@layout/fragment_pizza_detail" />
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.productdetail.ProductDetailFragment"
+        android:label="ProductDetailFragment"
+        tools:layout="@layout/fragment_product_detail" />
+    <fragment
+        android:id="@+id/customerMenuFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.home.customer.CustomerMenuFragment"
+        android:label="CustomerMenuFragment"
+        tools:layout="@layout/fragment_customer_menu" />
+    <fragment
+        android:id="@+id/customerMenuDetailFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.home.customer.detail.CustomerMenuDetailFragment"
+        android:label="CustomerMenuDetailFragment"
+        tools:layout="@layout/fragment_customer_menu_detail" />
+    <fragment
+        android:id="@+id/addCommentFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.home.customer.detail.comment.AddCommentFragment"
+        android:label="AddCommentFragment"
+        tools:layout="@layout/fragment_add_comment" />
+    <fragment
+        android:id="@+id/makerStep1Fragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.maker.MakerStep1Fragment"
+        android:label="MakerStep1Fragment"
+        tools:layout="@layout/fragment_maker_step1" />
+    <fragment
+        android:id="@+id/makerStep2Fragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.maker.MakerStep2Fragment"
+        android:label="MakerStep2Fragment"
+        tools:layout="@layout/fragment_maker_step2" />
+    <fragment
+        android:id="@+id/makerStep3Fragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.maker.MakerStep3Fragment"
+        android:label="MakerStep3Fragment"
+        tools:layout="@layout/fragment_maker_step3" />
+    <fragment
+        android:id="@+id/makerProductsFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.maker.products.MakerProductsFragment"
+        android:label="MakerProductsFragment"
+        tools:layout="@layout/fragment_maker_products" />
+    <fragment
+        android:id="@+id/makerLastStepFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.maker.laststep.MakerLastStepFragment"
+        android:label="MakerLastStepFragment"
+        tools:layout="@layout/fragment_maker_last_step" />
+    <fragment
+        android:id="@+id/decideFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.maker.decide.DecideFragment"
+        android:label="DecideFragment"
+        tools:layout="@layout/fragment_decide" />
+    <fragment
+        android:id="@+id/tournamentFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.home.tournament.TournamentFragment"
+        android:label="TournamentFragment"
+        tools:layout="@layout/fragment_tournament" />
+    <fragment
+        android:id="@+id/branchFragment2"
+        android:name="ir.atriatech.pizzawifi.ui.main.branch.BranchFragment"
+        android:label="BranchFragment"
+        tools:layout="@layout/fragment_branch" />
+    <fragment
+        android:id="@+id/cityFragment2"
+        android:name="ir.atriatech.pizzawifi.ui.main.city.CityFragment"
+        android:label="CityFragment"
+        tools:layout="@layout/fragment_city" />
+    <fragment
+        android:id="@+id/blogVideoDetail"
+        android:name="ir.atriatech.pizzawifi.ui.main.home.blogvideo.BlogVideoFragment"
+        android:label="BlogVideoFragment"
+        tools:layout="@layout/fragment_blog_video" />
+    <fragment
+        android:id="@+id/blogDetail"
+        android:name="ir.atriatech.pizzawifi.ui.main.home.blogdetail.BlogDetailFragment"
+        android:label="BlogDetailFragment"
+        tools:layout="@layout/fragment_blog_detail" />
+    <fragment
+        android:id="@+id/blogGalleryDetail"
+        android:name="ir.atriatech.pizzawifi.ui.main.home.bloggallery.BlogGalleryFragment"
+        android:label="BlogGalleryFragment"
+        tools:layout="@layout/fragment_blog_gallery" />
+    <fragment
+        android:id="@+id/blogGalleryFullScreen"
+        android:name="ir.atriatech.pizzawifi.ui.main.home.bloggallery.BlogGalleryFullScreenFragment"
+        android:label="BlogGalleryFullScreenFragment"
+        tools:layout="@layout/fragment_blog_gallery_full_screen" />
+    <fragment
+        android:id="@+id/campaignRegisterFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.profile.campaign.register.CampaignRegisterFragment"
+        android:label="CampaignRegisterFragment" />
+
+    <include app:graph="@navigation/profile" />
+    <include app:graph="@navigation/more" />
+</navigation>

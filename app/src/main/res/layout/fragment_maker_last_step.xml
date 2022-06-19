@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.maker.laststep.MakerLastStep">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ir.atriatech.pizzawifi.ui.main.maker.laststep.MakerLastStepFragmentViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="locale">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40mdp"
+                android:background="@color/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtToolbar"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="center_vertical|start"
+                        android:text="@string/lastMakerPageTitle"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/appbarText"
+                        android:textSize="@dimen/_15font_mdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toTopOf="@id/cvNext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/mainView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/_16mdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtTitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        android:text="@string/nameYourPizza"
+                        android:textColor="@color/color78"
+                        android:textSize="@dimen/_14font_mdp" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/productDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        app:cardCornerRadius="@dimen/_8mdp"
+                        app:cardElevation="@dimen/_2mdp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ir.atriatech.customlibs.shapeofview.shapes.CircleView
+                                android:id="@+id/imgShape"
+                                android:layout_width="@dimen/_65mdp"
+                                android:layout_height="@dimen/_65mdp"
+                                android:layout_marginStart="@dimen/_8mdp"
+                                android:layout_marginTop="@dimen/_8mdp"
+                                android:layout_marginBottom="@dimen/_8mdp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_8mdp"
+                                android:layout_marginEnd="@dimen/_8mdp"
+                                android:textColorHint="@color/gray"
+                                android:theme="@style/MyEditTextTheme"
+                                app:boxBackgroundMode="outline"
+                                app:hintTextColor="@color/gray"
+                                app:layout_constraintBottom_toBottomOf="@id/imgShape"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/imgShape"
+                                app:layout_constraintTop_toTopOf="@id/imgShape">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etName"
+                                    style="@style/DefaultEditText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical|start"
+                                    android:hint="@string/pizzaNameHint"
+                                    android:imeOptions="actionNext|flagNoExtractUi"
+                                    android:inputType="text"
+                                    android:maxLength="30"
+                                    android:maxLines="1"
+                                    android:text="@={viewModel.name}"
+                                    android:textAlignment="viewStart"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/gray"
+                                    android:textSize="@dimen/_12font_mdp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        app:cardCornerRadius="@dimen/_8mdp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8mdp"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ellipsize="end"
+                                    android:gravity="center_vertical|start"
+                                    android:maxLines="1"
+                                    android:text="@{viewModel.priceFormat}"
+                                    android:textAlignment="viewStart"
+                                    android:textColor="@color/textPrimary"
+                                    android:textSize="@dimen/_14font_mdp" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/btnIncrease"
+                                    android:layout_width="@dimen/_24mdp"
+                                    android:layout_height="@dimen/_24mdp"
+                                    android:layout_marginStart="@dimen/_8mdp"
+                                    android:layout_marginEnd="@dimen/_8mdp"
+                                    android:padding="@dimen/_2mdp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/ic_baseline_add_24" />
+
+                                <TextSwitcher
+                                    android:id="@+id/txtCount"
+                                    android:layout_width="@dimen/_24mdp"
+                                    android:layout_height="@dimen/_24mdp"
+                                    android:gravity="center"
+                                    android:text="@{viewModel.mQty > 99 ? `+99` : String.valueOf(viewModel.mQty)}"
+                                    android:textColor="@color/textPrimary"
+                                    android:textDirection="ltr"
+                                    android:textSize="@dimen/_14font_mdp">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:textColor="@color/textPrimary"
+                                        android:textDirection="ltr"
+                                        android:textSize="@dimen/_14font_mdp" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:textColor="@color/textPrimary"
+                                        android:textDirection="ltr"
+                                        android:textSize="@dimen/_14font_mdp" />
+                                </TextSwitcher>
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/btnDecrease"
+                                    android:layout_width="@dimen/_24mdp"
+                                    android:layout_height="@dimen/_24mdp"
+                                    android:layout_marginStart="@dimen/_8mdp"
+                                    android:padding="@dimen/_2mdp"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/ic_baseline_remove_24" />
+                            </LinearLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        android:text="@string/customerPizzaMaterialTitle2"
+                        android:textColor="@color/color78"
+                        android:textSize="@dimen/_14font_mdp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        android:text="@string/centerMaterials"
+                        android:textColor="@color/color78"
+                        android:textSize="@dimen/_12font_mdp"
+                        android:visibility="@{viewModel.half ? View.VISIBLE : View.GONE}" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardMaterials"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        app:cardCornerRadius="@dimen/_8mdp"
+                        app:cardElevation="@dimen/_2mdp">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvMaterials"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingBottom="@dimen/_4mdp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:itemCount="2"
+                            tools:listitem="@layout/item_material_pizza_detail" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginTop="@dimen/_12mdp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        android:text="@string/rightMaterialTitle"
+                        android:textColor="@color/color78"
+                        android:textSize="@dimen/_12font_mdp"
+                        android:visibility="@{viewModel.half &amp;&amp; viewModel.showRight ? View.VISIBLE : View.GONE}" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        android:visibility="@{viewModel.half &amp;&amp; viewModel.showRight ? View.VISIBLE : View.GONE}"
+                        app:cardCornerRadius="@dimen/_8mdp"
+                        app:cardElevation="@dimen/_2mdp">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvRightMaterials"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingBottom="@dimen/_4mdp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:itemCount="2"
+                            tools:listitem="@layout/item_material_pizza_detail" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginTop="@dimen/_12mdp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        android:text="@string/leftMaterialTitle"
+                        android:textColor="@color/color78"
+                        android:textSize="@dimen/_12font_mdp"
+                        android:visibility="@{viewModel.half &amp;&amp; viewModel.showLeft ? View.VISIBLE : View.GONE}" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        android:visibility="@{viewModel.half &amp;&amp; viewModel.showLeft ? View.VISIBLE : View.GONE}"
+                        app:cardCornerRadius="@dimen/_8mdp"
+                        app:cardElevation="@dimen/_2mdp">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvLeftMaterials"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingBottom="@dimen/_4mdp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:itemCount="2"
+                            tools:listitem="@layout/item_material_pizza_detail" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/otherProductWithMaker"
+                        android:textColor="@color/color78"
+                        android:textSize="18sp"
+                        android:visibility="@{viewModel.emptyProducts ? View.GONE : View.VISIBLE}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/productDetail" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardProducts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        android:visibility="@{viewModel.emptyProducts ? View.GONE : View.VISIBLE}"
+                        app:cardCornerRadius="@dimen/_8mdp"
+                        app:cardElevation="@dimen/_2mdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtTitle2">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvProducts"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:itemCount="1"
+                            tools:listitem="@layout/item_maker_last_product"
+                            tools:spanCount="3" />
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvNext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="@dimen/_16mdp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/saveAndAddToCart"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14font_mdp"
+                    app:cornerRadius="@dimen/_20mdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context=".ui.main.maker.products.MakerProducts">
+
+	<data>
+
+		<variable
+			name="viewModel"
+			type="ir.atriatech.pizzawifi.ui.main.maker.products.MakerProductsFragmentViewModel" />
+	</data>
+
+	<androidx.coordinatorlayout.widget.CoordinatorLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layoutDirection="locale">
+
+		<com.google.android.material.appbar.AppBarLayout
+			android:id="@+id/appbarId"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<androidx.appcompat.widget.Toolbar
+				android:id="@+id/toolbarId"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/_40mdp"
+				android:background="@color/colorPrimary"
+				android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+				<androidx.constraintlayout.widget.ConstraintLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/txtToolbar"
+						android:layout_width="0dp"
+						android:layout_height="match_parent"
+						android:layout_marginEnd="16dp"
+						android:gravity="center_vertical|start"
+						android:text="@string/makerProductsTitle"
+						android:textAlignment="viewStart"
+						android:textColor="@color/appbarText"
+						android:textSize="@dimen/_15font_mdp"
+						app:layout_constraintBottom_toBottomOf="parent"
+						app:layout_constraintEnd_toStartOf="@id/imgHelp"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintTop_toTopOf="parent" />
+
+					<androidx.appcompat.widget.AppCompatImageView
+						android:id="@+id/imgHelp"
+						android:layout_width="48dp"
+						android:layout_height="0dp"
+						android:padding="8dp"
+						android:scaleType="fitCenter"
+						android:src="@drawable/ic_help_yellow"
+						app:layout_constraintBottom_toBottomOf="parent"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintTop_toTopOf="parent" />
+				</androidx.constraintlayout.widget.ConstraintLayout>
+			</androidx.appcompat.widget.Toolbar>
+		</com.google.android.material.appbar.AppBarLayout>
+
+		<androidx.core.widget.NestedScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:fillViewport="true"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+			<LinearLayout
+				android:id="@+id/mainView"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:clipToPadding="false"
+				android:orientation="vertical"
+				android:paddingBottom="8dp">
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="16dp"
+					android:gravity="center_vertical|start"
+					android:text="@string/dessertsTitle"
+					android:textAlignment="viewStart"
+					android:textColor="@color/color78"
+					android:textSize="18sp" />
+
+				<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/rvDessert"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:clipToPadding="false"
+					android:orientation="horizontal"
+					android:paddingStart="5dp"
+					android:paddingTop="8dp"
+					android:paddingEnd="5dp"
+					android:paddingBottom="8dp"
+					app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+					tools:itemCount="3"
+					tools:listitem="@layout/item_maker_product" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="16dp"
+					android:gravity="center_vertical|start"
+					android:text="@string/drinksTitle"
+					android:textAlignment="viewStart"
+					android:textColor="@color/color78"
+					android:textSize="18sp" />
+
+				<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/rvDrinks"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:clipToPadding="false"
+					android:orientation="horizontal"
+					android:paddingStart="5dp"
+					android:paddingTop="8dp"
+					android:paddingEnd="5dp"
+					android:paddingBottom="8dp"
+					app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+					tools:itemCount="3"
+					tools:listitem="@layout/item_maker_product" />
+
+				<androidx.constraintlayout.widget.ConstraintLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+
+					<com.google.android.material.button.MaterialButton
+						android:id="@+id/btnNext"
+						style="@style/BtnDefault130"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="@string/nextStep"
+						app:layout_constraintEnd_toStartOf="@id/btnPrev"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintTop_toTopOf="parent" />
+
+					<com.google.android.material.button.MaterialButton
+						android:id="@+id/btnPrev"
+						style="@style/BtnDefault130"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="8dp"
+						android:text="@string/prevStep"
+						app:backgroundTint="@color/color64"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toEndOf="@id/btnNext"
+						app:layout_constraintTop_toTopOf="parent" />
+				</androidx.constraintlayout.widget.ConstraintLayout>
+			</LinearLayout>
+
+		</androidx.core.widget.NestedScrollView>
+	</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

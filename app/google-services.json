@@ -1,0 +1,167 @@
+{
+  "project_info": {
+    "project_number": "206985120693",
+    "firebase_url": "https://pizzawifi-6cc75.firebaseio.com",
+    "project_id": "pizzawifi-6cc75",
+    "storage_bucket": "pizzawifi-6cc75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206985120693:android:5636ab029d25a6a8",
+        "android_client_info": {
+          "package_name": "ir.atriatech.pizzapeyk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206985120693-3jded8elov1felb0ughnftpjlldr2ejj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ir.atriatech.pizzapeyk",
+            "certificate_hash": "a10efa81366ecd858ae4927c2e70dd08ec179a28"
+          }
+        },
+        {
+          "client_id": "206985120693-iroofn8pihl0lsvlcplb6kg9j153c04c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3gbDnnBX4F57Htlum7iI0jtC18-Cj13M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206985120693-iroofn8pihl0lsvlcplb6kg9j153c04c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "206985120693-v632i609n568e690n5j313j5kqj71r3o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ir.atriatech.pizzawifi"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206985120693:android:9a93558257ddd8ad",
+        "android_client_info": {
+          "package_name": "ir.atriatech.pizzawifi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206985120693-d4ujcp8n9csbrm8jmsb2oh6mpj8jpd7a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ir.atriatech.pizzawifi",
+            "certificate_hash": "a10efa81366ecd858ae4927c2e70dd08ec179a28"
+          }
+        },
+        {
+          "client_id": "206985120693-e4q4merc1p6gc5bfodc9cmb0vinl2oif.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ir.atriatech.pizzawifi",
+            "certificate_hash": "dea6c4cdf4816bf7e65c579302cb7d90e33538dd"
+          }
+        },
+        {
+          "client_id": "206985120693-pr1riv3ngs6va25onen4skdno4n3pq6r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ir.atriatech.pizzawifi",
+            "certificate_hash": "bc379c90d13663d42fbeb8520fa23fb7a184a914"
+          }
+        },
+        {
+          "client_id": "206985120693-t9f86uiotapa68k9gvie6vqo3n1gtm8t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ir.atriatech.pizzawifi",
+            "certificate_hash": "d913787f5fb22345254bf67b862e31782ac11f26"
+          }
+        },
+        {
+          "client_id": "206985120693-iroofn8pihl0lsvlcplb6kg9j153c04c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3gbDnnBX4F57Htlum7iI0jtC18-Cj13M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206985120693-iroofn8pihl0lsvlcplb6kg9j153c04c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "206985120693-v632i609n568e690n5j313j5kqj71r3o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ir.atriatech.pizzawifi"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206985120693:android:c209636cc3d0b0407c67fc",
+        "android_client_info": {
+          "package_name": "ir.atriatech.pizzawifitv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206985120693-q5i34538820suf4f5gb28odgi1husqfo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ir.atriatech.pizzawifitv",
+            "certificate_hash": "44e7c19fe1284875a8b2b0fd545621985d7c2390"
+          }
+        },
+        {
+          "client_id": "206985120693-iroofn8pihl0lsvlcplb6kg9j153c04c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3gbDnnBX4F57Htlum7iI0jtC18-Cj13M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206985120693-iroofn8pihl0lsvlcplb6kg9j153c04c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "206985120693-v632i609n568e690n5j313j5kqj71r3o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ir.atriatech.pizzawifi"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

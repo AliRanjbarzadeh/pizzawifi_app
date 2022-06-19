@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="ir.atriatech.pizzawifi.entities.home.Blog" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="@dimen/_225mdp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8mdp"
+        android:layout_marginEnd="@dimen/_8mdp"
+        app:cardBackgroundColor="@color/color27"
+        app:cardElevation="@dimen/_12mdp"
+        app:shapeAppearance="@style/HomeBlogItem">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_8mdp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgProduct"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_100mdp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/blog_sample_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/HomeBlogItemImage" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgTitle"
+                android:layout_width="@dimen/_20mdp"
+                android:layout_height="@dimen/_20mdp"
+                android:layout_marginStart="@dimen/_8mdp"
+                android:layout_marginTop="@dimen/_3mdp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_baseline_location_on_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgProduct" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTitle"
+                fontPath="@string/app_font_hekayat"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_3mdp"
+                android:ellipsize="end"
+                android:gravity="start|center_vertical"
+                android:maxLines="1"
+                android:minHeight="@dimen/_24mdp"
+                android:text="@{item.name, default=`@string/blogSampleTitle`}"
+                android:textAlignment="textStart"
+                android:textColor="@color/silver"
+                android:textSize="@dimen/_15font_mdp"
+                app:layout_constraintBottom_toBottomOf="@id/imgTitle"
+                app:layout_constraintEnd_toStartOf="@id/btnShowMore"
+                app:layout_constraintStart_toEndOf="@id/imgTitle"
+                app:layout_constraintTop_toTopOf="@id/imgTitle" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShowMore"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_40mdp"
+                android:layout_marginEnd="@dimen/_20mdp"
+                android:text="@string/blogView"
+                android:textColor="@color/silverChalice"
+                android:textSize="@dimen/_12font_mdp"
+                app:cornerRadius="@dimen/_25mdp"
+                app:layout_constraintBottom_toBottomOf="@id/imgProduct"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgProduct"
+                app:strokeColor="@color/gray2"
+                app:strokeWidth="0.6dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

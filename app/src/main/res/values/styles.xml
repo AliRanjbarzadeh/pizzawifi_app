@@ -1,0 +1,312 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/appBackgroundColor</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/color32</item>
+
+        <!--Primary text & hint color-->
+        <!--		<item mSearchText="android:textColor">@color/textPrimary</item>-->
+        <!--		<item mSearchText="android:textColorHint">@color/hintPrimary</item>-->
+
+        <!--Default font for change language-->
+        <item name="fontPath">@string/app_font</item>
+
+        <!--Material Dialog-->
+        <item name="md_corner_radius">@dimen/_10mdp</item>
+        <item name="md_background_color">@color/white</item>
+        <item name="md_color_button_text">@color/color70</item>
+        <item name="md_color_title">@color/black</item>
+        <item name="md_color_content">@color/gray</item>
+        <item name="md_color_hint">@color/textPrimary</item>
+        <item name="md_ripple_color">@color/black30</item>
+        <item name="android:textColorSecondary">@color/textPrimary</item>
+    </style>
+
+    <!--Splash Theme-->
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+    </style>
+
+    <style name="LoginTheme" parent="AppTheme">
+    </style>
+
+    <!--BottomNavigationView-->
+    <style name="BottomMenuTextAppearanceActive">
+        <item name="android:textSize">@dimen/_10font_mdp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="BottomMenuTextAppearance">
+        <item name="android:textSize">@dimen/_10font_mdp</item>
+        <item name="android:textColor">@color/whiteT</item>
+    </style>
+
+    <!--Fonts-->
+    <style name="AppFont">
+        <item name="fontPath">@string/app_font</item>
+    </style>
+
+    <style name="AppFontBold">
+        <item name="fontPath">@string/app_font_bold</item>
+    </style>
+
+    <style name="AppFontHekayat">
+        <item name="fontPath">@string/app_font_hekayat</item>
+    </style>
+
+    <!--Buttons-->
+    <style name="BtnDefault" parent="Widget.MaterialComponents.Button">
+        <item name="android:paddingBottom">6dp</item>
+        <item name="backgroundTint">@color/colorAccent</item>
+        <item name="android:textSize">16sp</item>
+        <item name="cornerRadius">18dp</item>
+    </style>
+
+    <style name="BtnDefault130" parent="Widget.MaterialComponents.Button">
+        <item name="android:minWidth">130dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="cornerRadius">18dp</item>
+    </style>
+
+    <style name="BtnDefault130Green" parent="Widget.MaterialComponents.Button">
+        <item name="android:minWidth">130dp</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="backgroundTint">@color/forestGreen</item>
+        <item name="android:textSize">16sp</item>
+        <item name="cornerRadius">18dp</item>
+    </style>
+
+    <style name="BtnHomeTop" parent="Widget.MaterialComponents.Button">
+        <item name="android:minWidth">150dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:paddingEnd">18dp</item>
+        <item name="android:paddingStart">18dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="backgroundTint">@color/colorAccent</item>
+        <item name="android:textSize">21sp</item>
+        <item name="cornerRadius">30dp</item>
+        <item name="fontPath">@string/app_font_hekayat</item>
+    </style>
+
+    <style name="BtnDefaultPrimary130" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:minWidth">130dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <style name="BtnDefaultOutline130" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:minWidth">130dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="BtnHomeOrder" parent="Widget.MaterialComponents.Button">
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="cornerRadius">20dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="fontPath">@string/app_font_bold</item>
+    </style>
+
+    <style name="CustomShapeAppearance">
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerSizeBottomRight">20dp</item>
+    </style>
+
+    <style name="HomeBlackAreaShape">
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeBottomLeft">130dp</item>
+        <item name="cornerSizeBottomRight">130dp</item>
+    </style>
+
+    <style name="HomeYellowAreaShape">
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeBottomLeft">57dp</item>
+        <item name="cornerSizeBottomRight">57dp</item>
+    </style>
+
+    <style name="HomeBlogItem">
+        <item name="cornerSizeTopLeft">15dp</item>
+        <item name="cornerSizeTopRight">15dp</item>
+        <item name="cornerSizeBottomLeft">15dp</item>
+        <item name="cornerSizeBottomRight">15dp</item>
+    </style>
+
+    <style name="HomeBlogItemImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">15dp</item>
+        <item name="cornerSizeTopRight">15dp</item>
+        <item name="cornerSizeBottomLeft">20dp</item>
+        <item name="cornerSizeBottomRight">20dp</item>
+    </style>
+
+    <style name="BranchTitleButton">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">17dp</item>
+    </style>
+
+    <style name="ProfileImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_15mdp</item>
+        <item name="cornerSizeTopRight">@dimen/_15mdp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_15mdp</item>
+        <item name="cornerSizeBottomRight">@dimen/_15mdp</item>
+    </style>
+
+    <style name="ProfileImageCamera">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_12mdp</item>
+        <item name="cornerSizeTopRight">@dimen/_12mdp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_12mdp</item>
+        <item name="cornerSizeBottomRight">@dimen/_12mdp</item>
+    </style>
+
+    <style name="ItemClubImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_30mdp</item>
+        <item name="cornerSizeTopRight">@dimen/_30mdp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_30mdp</item>
+        <item name="cornerSizeBottomRight">@dimen/_30mdp</item>
+    </style>
+
+    <style name="ClubProfileImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_30mdp</item>
+        <item name="cornerSizeTopRight">@dimen/_30mdp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_30mdp</item>
+        <item name="cornerSizeBottomRight">@dimen/_30mdp</item>
+    </style>
+
+    <style name="ClubItemImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_35mdp</item>
+        <item name="cornerSizeTopRight">@dimen/_35mdp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_35mdp</item>
+        <item name="cornerSizeBottomRight">@dimen/_35mdp</item>
+    </style>
+
+    <style name="ClubUserInfo">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_24mdp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_24mdp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <style name="BtnHomeMenuOrder">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_15mdp</item>
+        <item name="cornerSizeTopRight">@dimen/_15mdp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_15mdp</item>
+        <item name="cornerSizeBottomRight">@dimen/_15mdp</item>
+    </style>
+
+    <style name="BtnHomeBranch">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_13mdp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_13mdp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <!--Edit Text-->
+    <style name="MyEditTextTheme" parent="AppTheme">
+        <item name="colorControlNormal">@color/silver</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="ProductImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_28mdp</item>
+        <item name="cornerSizeTopRight">@dimen/_28mdp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_28mdp</item>
+        <item name="cornerSizeBottomRight">@dimen/_28mdp</item>
+    </style>
+
+    <style name="ShopCartImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_30mdp</item>
+        <item name="cornerSizeTopRight">@dimen/_30mdp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_30mdp</item>
+        <item name="cornerSizeBottomRight">@dimen/_30mdp</item>
+    </style>
+
+    <style name="ProductIncreaseButton">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_12mdp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_12mdp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <style name="ProductDecreaseButton">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">@dimen/_12mdp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">@dimen/_12mdp</item>
+    </style>
+
+    <style name="ProductAddButton">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/_12mdp</item>
+        <item name="cornerSizeTopRight">@dimen/_12mdp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_12mdp</item>
+        <item name="cornerSizeBottomRight">@dimen/_12mdp</item>
+    </style>
+
+    <style name="DefaultEditText">
+        <item name="android:theme">@style/MyEditTextTheme</item>
+    </style>
+
+    <style name="PrimaryEditTextTheme" parent="AppTheme">
+        <item name="colorControlNormal">@color/silver</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="PrimaryEditText">
+        <item name="android:theme">@style/MyEditTextTheme</item>
+        <item name="android:textCursorDrawable">@drawable/my_primary_cursor</item>
+    </style>
+
+
+    <style name="MyDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:gravity">center</item>
+    </style>
+</resources>

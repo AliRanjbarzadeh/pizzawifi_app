@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/menu2"
+	android:label="orders"
+	app:startDestination="@id/ordersFragment">
+	<fragment
+		android:id="@+id/ordersFragment"
+		android:name="ir.atriatech.pizzawifi.ui.main.orders.OrdersFragment"
+		android:label="OrdersFragment"
+		tools:layout="@layout/fragment_orders" />
+	<fragment
+		android:id="@+id/orderDetailFragment"
+		android:name="ir.atriatech.pizzawifi.ui.main.orders.detail.OrderDetailFragment"
+		android:label="OrderDetailFragment"
+		tools:layout="@layout/fragment_order_detail" />
+	<fragment
+		android:id="@+id/surveyFragment"
+		android:name="ir.atriatech.pizzawifi.ui.main.orders.survey.SurveyFragment"
+		android:label="SurveyFragment"
+		tools:layout="@layout/fragment_survey" />
+</navigation>

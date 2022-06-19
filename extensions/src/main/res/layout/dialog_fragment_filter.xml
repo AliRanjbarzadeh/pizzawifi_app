@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ir.atriatech.customlibs.shapeofview.shapes.RoundRectView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:layout_marginStart="150dp"
+    android:layout_marginEnd="150dp"
+    android:layoutDirection="rtl"
+    app:shape_roundRect_bottomLeftRadius="10dp"
+    app:shape_roundRect_bottomRightRadius="10dp"
+    app:shape_roundRect_topLeftRadius="10dp"
+    app:shape_roundRect_topRightRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/white"
+        android:layoutDirection="rtl"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtOrderDistance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_order_distance"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="@string/_by_distance"
+            android:textAlignment="gravity"
+            android:textColor="@color/gray"
+            android:textDirection="rtl" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtOrderFavourite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_order_favarit"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="@string/_by_favourit"
+            android:textAlignment="gravity"
+            android:textColor="@color/gray"
+            android:textDirection="rtl" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtOrderDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_order_date"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="@string/_by_date"
+            android:textAlignment="gravity"
+            android:textColor="@color/gray"
+            android:textDirection="rtl" />
+
+
+
+
+    </LinearLayout>
+
+
+</ir.atriatech.customlibs.shapeofview.shapes.RoundRectView>
+
+

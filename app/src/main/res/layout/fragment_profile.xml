@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.profile.Profile">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ir.atriatech.pizzawifi.ui.main.profile.ProfileFragmentViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="locale">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40mdp"
+                android:background="@color/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtToolbar"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="center_vertical|start"
+                        android:text="@string/menu3"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/appbarText"
+                        android:textSize="@dimen/_15font_mdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/topBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12mdp"
+                android:layout_marginTop="@dimen/_12mdp"
+                android:layout_marginEnd="@dimen/_12mdp"
+                app:cardCornerRadius="@dimen/_10mdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/_8mdp">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="@dimen/_70mdp"
+                        android:layout_height="@dimen/_70mdp"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:background="@color/transparent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/product_test"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearance="@style/ProfileImage" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/loaderContainer"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:clickable="false"
+                        android:padding="0dp"
+                        app:cardBackgroundColor="@color/transparent"
+                        app:cardElevation="0dp"
+                        app:layout_constraintBottom_toBottomOf="@id/imgProfile"
+                        app:layout_constraintEnd_toEndOf="@id/imgProfile"
+                        app:layout_constraintStart_toStartOf="@id/imgProfile"
+                        app:layout_constraintTop_toTopOf="@id/imgProfile"
+                        app:shapeAppearance="@style/ProfileImage" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imgUpload"
+                        android:layout_width="@dimen/_24mdp"
+                        android:layout_height="@dimen/_24mdp"
+                        android:background="@color/colorPrimary"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_camera_outline"
+                        app:layout_constraintBottom_toBottomOf="@id/imgProfile"
+                        app:layout_constraintCircle="@id/imgProfile"
+                        app:layout_constraintCircleAngle="135"
+                        app:layout_constraintCircleRadius="@dimen/_42mdp"
+                        app:layout_constraintStart_toStartOf="@id/imgProfile"
+                        app:shapeAppearance="@style/ProfileImageCamera" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtName"
+                        style="@style/AppFontBold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        android:gravity="start"
+                        android:text="@{viewModel.userInfo.name, default=`@string/nameHint`}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_16font_mdp"
+                        app:layout_constraintBottom_toTopOf="@+id/txtMobile"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/imgProfile"
+                        app:layout_constraintTop_toTopOf="@id/imgProfile"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtMobile"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="start"
+                        android:text="@{viewModel.userInfo.mobile, default=`@string/mobileHint`}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color82"
+                        android:textSize="@dimen/_14font_mdp"
+                        app:layout_constraintBottom_toBottomOf="@id/imgProfile"
+                        app:layout_constraintEnd_toEndOf="@id/txtName"
+                        app:layout_constraintStart_toStartOf="@id/txtName"
+                        app:layout_constraintTop_toBottomOf="@id/txtName" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnWalletInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:clickable="false"
+                        app:backgroundTint="@color/colorF2"
+                        app:cornerRadius="@dimen/_20mdp"
+                        app:layout_constraintEnd_toEndOf="@id/walletAmount"
+                        app:layout_constraintStart_toStartOf="@id/walletAmountLabel"
+                        app:layout_constraintTop_toBottomOf="@id/imgProfile" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/walletAmountLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:elevation="@dimen/_100mdp"
+                        android:gravity="center_vertical"
+                        android:paddingStart="@dimen/_8mdp"
+                        android:paddingEnd="@dimen/_4mdp"
+                        android:text="@string/walletAmount"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10font_mdp"
+                        app:layout_constraintBottom_toBottomOf="@id/btnWalletInfo"
+                        app:layout_constraintStart_toStartOf="@id/imgProfile"
+                        app:layout_constraintTop_toTopOf="@id/btnWalletInfo" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/walletAmount"
+                        style="@style/AppFontBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:elevation="@dimen/_100mdp"
+                        android:gravity="center_vertical"
+                        android:paddingStart="@dimen/_10mdp"
+                        android:paddingEnd="@dimen/_8mdp"
+                        android:text="@{viewModel.userInfo.walletFormat, default=`@string/testProductPrice`}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10font_mdp"
+                        app:layout_constraintBottom_toBottomOf="@id/btnWalletInfo"
+                        app:layout_constraintStart_toEndOf="@id/walletAmountLabel"
+                        app:layout_constraintTop_toTopOf="@id/btnWalletInfo" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnIncreaseWallet"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16mdp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        android:text="@string/increaseWallet"
+                        android:textSize="@dimen/_10font_mdp"
+                        app:cornerRadius="@dimen/_20mdp"
+                        app:layout_constraintBottom_toBottomOf="@id/btnWalletInfo"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/btnWalletInfo"
+                        app:layout_constraintTop_toTopOf="@id/btnWalletInfo" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvProfile"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_12mdp"
+                android:clipToPadding="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/topBar"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_my_menu" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

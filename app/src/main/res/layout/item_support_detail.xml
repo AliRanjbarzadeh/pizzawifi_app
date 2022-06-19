@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="ir.atriatech.pizzawifi.entities.profile.support.Support" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12mdp"
+        android:layout_marginEnd="@dimen/_40mdp"
+        android:clickable="false"
+        android:focusable="false"
+        app:cardCornerRadius="@dimen/_10mdp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/colorBD"
+        app:strokeWidth="@dimen/_1mdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_8mdp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|start"
+                android:lineSpacingExtra="3sp"
+                android:text="@{item.message, default=`@string/shortLoremDescription`}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12font_mdp"
+                app:layout_constraintEnd_toEndOf="@id/txtDate"
+                app:layout_constraintStart_toEndOf="@id/imgIcon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:maxLines="1"
+                android:text="@{item.cDate, default=`@string/testDate`}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/color82"
+                android:textSize="@dimen/_10font_mdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/txtTitle"
+                app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--	</com.google.android.material.card.MaterialCardView>-->
+</layout>

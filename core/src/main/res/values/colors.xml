@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<color name="fruit_salad">#4CAF50</color>
+    <color name="forest_green">#318034</color>
+    <color name="gallery">#e0e0e0</color>
+    <color name="mine_shaft">#222222</color>
+    <color name="white">#ffffff</color>
+    <color name="whiteT2">#80FFFFFF</color>
+    <color name="appbarText">#ffffff</color>
+    <color name="dove_gray">#616161</color>
+    <color name="color_b30_red_transparent">#81BF360C</color>
+    <color name="transparent">#00000000</color>
+    <color name="_06b_blue">#066cbc</color>
+    <color name="codGray">#111111</color>
+    <color name="_8c4_green">#8bc34a</color>
+    <color name="_261_green">#206d15</color>
+    <color name="_666_gray">#616161</color>
+    <color name="gray">#282828</color>
+    <color name="cms_green2">#4CAF50</color>
+    <color name="progressBackground">#FFFFFF</color>
+    <color name="progressBackgroundAlpha">#CC4E4E4E</color>
+    <color name="lightningYellow">#F7B91D</color>
+    <color name="colorC1">#C10A28</color>
+</resources>

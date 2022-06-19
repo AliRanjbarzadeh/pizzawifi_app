@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+
+rootProject.appModulePlugins.each {
+	apply plugin: it
+}
+
+// Creates a variable called keystorePropertiesFile, and initializes it to the keystore.properties file.
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+// Initializes a new Properties() object called keystoreProperties.
+def keystoreProperties = new Properties()
+// Loads the keystore.properties file into the keystoreProperties object.
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+	signingConfigs {
+		buildTools
+		Atriatech {
+			keyAlias keystoreProperties['keyAlias']
+			keyPassword keystoreProperties['keyPassword']
+			storeFile file(keystoreProperties['storeFile'])
+			storePassword keystoreProperties['storePassword']
+		}
+	}
+
+	compileSdkVersion versions.compile_sdk
+	buildToolsVersion versions.build_tools
+	defaultConfig {
+		applicationId "ir.atriatech.pizzawifi"
+		minSdkVersion versions.min_sdk
+		targetSdkVersion versions.compile_sdk
+		versionCode versions.appVersion
+		versionName "3.0"
+		multiDexEnabled true
+
+		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+	}
+
+	buildTypes {
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+			signingConfig signingConfigs.Atriatech
+		}
+	}
+
+	buildFeatures {
+		dataBinding = true
+		viewBinding true
+	}
+
+//	dataBinding {
+//		enabled = true
+//	}
+
+	compileOptions {
+		sourceCompatibility versions.java_version
+		targetCompatibility versions.java_version
+	}
+	lintOptions {
+		checkReleaseBuilds false
+		// Or, if you prefer, you can continue to check for errors in release builds,
+		// but continue the build even when errors are found:
+		abortOnError false
+	}
+}
+
+dependencies {
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
+	rootProject.appModuleDeps.each {
+		add(it.configuration, it.dependency, it.options)
+	}
+
+	// Import the BoM for the Firebase platform
+	implementation platform('com.google.firebase:firebase-bom:27.1.0')
+
+	// Declare the dependency for the Analytics library
+	// When using the BoM, you don't specify versions in Firebase library dependencies
+	implementation 'com.google.firebase:firebase-analytics-ktx'
+}
+
+apply plugin: 'com.google.gms.google-services'

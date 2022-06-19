@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<data>
+
+		<import type="android.view.View" />
+
+		<variable
+			name="item"
+			type="ir.atriatech.pizzawifi.entities.orders.Order" />
+	</data>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginTop="22dp"
+			android:layout_marginEnd="16dp"
+			android:gravity="center_vertical|start"
+			android:text="@string/orderDetail"
+			android:textAlignment="viewStart"
+			android:textColor="@color/color78"
+			android:textSize="18sp" />
+
+		<com.google.android.material.card.MaterialCardView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginTop="12dp"
+			android:layout_marginEnd="16dp"
+			app:cardBackgroundColor="@color/color30"
+			app:cardCornerRadius="8dp"
+			app:cardElevation="2dp">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="16dp"
+					android:ellipsize="end"
+					android:gravity="center_vertical|start"
+					android:maxLines="1"
+					android:text="@{item.deliveryType == 3 ? String.format(@string/orderer, item.name) : String.format(@string/orderer2, item.name), default=`@string/orderer`}"
+					android:textAlignment="viewStart"
+					android:textColor="@color/colorD4"
+					android:textSize="16sp" />
+
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					android:layout_marginTop="14dp"
+					android:background="@color/colorAA53" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="16dp"
+					android:ellipsize="end"
+					android:gravity="center_vertical|start"
+					android:maxLines="1"
+					android:text="@{String.format(@string/ordererMobile, item.mobile), default=`@string/ordererMobile`}"
+					android:textAlignment="viewStart"
+					android:textColor="@color/colorD4"
+					android:textSize="16sp" />
+
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					android:layout_marginTop="14dp"
+					android:background="@color/colorAA53" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="16dp"
+					android:layout_marginBottom="14dp"
+					android:ellipsize="end"
+					android:gravity="center_vertical|start"
+					android:maxLines="1"
+					android:text="@{String.format(@string/ordererAddress, item.address), default=`@string/ordererAddress`}"
+					android:textAlignment="viewStart"
+					android:textColor="@color/colorD4"
+					android:textSize="16sp" />
+
+			</LinearLayout>
+
+		</com.google.android.material.card.MaterialCardView>
+
+		<com.google.android.material.card.MaterialCardView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginTop="12dp"
+			android:layout_marginEnd="16dp"
+			app:cardBackgroundColor="@color/color30"
+			app:cardCornerRadius="8dp"
+			app:cardElevation="2dp">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="16dp"
+					android:ellipsize="end"
+					android:gravity="center_vertical|start"
+					android:maxLines="1"
+					android:text="@{item.orderSumFormat, default=`@string/testOrderSum`}"
+					android:textAlignment="viewStart"
+					android:textColor="@color/colorD4"
+					android:textSize="16sp" />
+
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					android:layout_marginTop="14dp"
+					android:background="@color/colorAA53" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="16dp"
+					android:ellipsize="end"
+					android:gravity="center_vertical|start"
+					android:maxLines="1"
+					android:text="@{item.taxFormat, default=`@string/testOrderTax`}"
+					android:textAlignment="viewStart"
+					android:textColor="@color/colorD4"
+					android:textSize="16sp"
+					android:visibility="@{item.tax > 0 ? View.VISIBLE : View.GONE}" />
+
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					android:layout_marginTop="14dp"
+					android:background="@color/colorAA53"
+					android:visibility="@{item.tax > 0 ? View.VISIBLE : View.GONE}" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="16dp"
+					android:ellipsize="end"
+					android:gravity="center_vertical|start"
+					android:maxLines="1"
+					android:text="@{item.tollFormat, default=`@string/testOrderToll`}"
+					android:textAlignment="viewStart"
+					android:textColor="@color/colorD4"
+					android:textSize="16sp"
+					android:visibility="@{item.toll > 0 ? View.VISIBLE : View.GONE}" />
+
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					android:layout_marginTop="14dp"
+					android:background="@color/colorAA53"
+					android:visibility="@{item.toll > 0 ? View.VISIBLE : View.GONE}" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="16dp"
+					android:ellipsize="end"
+					android:gravity="center_vertical|start"
+					android:maxLines="1"
+					android:text="@{item.discountFormat, default=`@string/testOrderDiscount`}"
+					android:textAlignment="viewStart"
+					android:textColor="@color/colorD4"
+					android:textSize="16sp"
+					android:visibility="@{item.discount > 0 ? View.VISIBLE : View.GONE}" />
+
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					android:layout_marginTop="14dp"
+					android:background="@color/colorAA53"
+					android:visibility="@{item.discount > 0 ? View.VISIBLE : View.GONE}" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="16dp"
+					android:ellipsize="end"
+					android:gravity="center_vertical|start"
+					android:maxLines="1"
+					android:text="@{item.walletFormat, default=`@string/testOrderWallet`}"
+					android:textAlignment="viewStart"
+					android:textColor="@color/colorD4"
+					android:textSize="16sp"
+					android:visibility="@{item.wallet > 0 ? View.VISIBLE : View.GONE}" />
+
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="1dp"
+					android:layout_marginTop="14dp"
+					android:background="@color/colorAA53"
+					android:visibility="@{item.wallet > 0 ? View.VISIBLE : View.GONE}" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="16dp"
+					android:layout_marginBottom="14dp"
+					android:ellipsize="end"
+					android:gravity="center_vertical|start"
+					android:maxLines="1"
+					android:text="@{item.totalPriceFormat, default=`@string/testOrderTotalPrice`}"
+					android:textAlignment="viewStart"
+					android:textColor="@color/colorD4"
+					android:textSize="16sp" />
+
+			</LinearLayout>
+
+		</com.google.android.material.card.MaterialCardView>
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/btnReorder"
+			style="@style/BtnDefault130"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="32dp"
+			android:enabled="@{item.reorder}"
+			android:text="@string/reorder"
+			android:textColor="@color/white"
+			android:textSize="14sp"
+			app:icon="@drawable/ic_sync_white"
+			app:iconTint="@color/white" />
+	</LinearLayout>
+</layout>

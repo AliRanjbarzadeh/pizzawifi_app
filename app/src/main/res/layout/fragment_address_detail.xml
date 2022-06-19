@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.profile.address.detail.AddressDetail">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ir.atriatech.pizzawifi.ui.main.profile.address.detail.AddressDetailFragmentViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/mainView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="locale">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40mdp"
+                android:background="@color/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtToolbar"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="center_vertical|start"
+                        android:text="@{viewModel.position == -1 ? @string/addAddress : @string/editAddress}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/appbarText"
+                        android:textSize="@dimen/_15font_mdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/_70mdp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16mdp"
+                    android:layout_marginTop="@dimen/_20mdp"
+                    android:layout_marginEnd="@dimen/_16mdp"
+                    android:hint="@string/nameHint"
+                    android:textColorHint="@color/gray2"
+                    app:boxCornerRadiusBottomEnd="@dimen/_8mdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_8mdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_8mdp"
+                    app:boxCornerRadiusTopStart="@dimen/_8mdp"
+                    app:hintTextColor="@color/textPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:text="@={viewModel.name}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14font_mdp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilMobile"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16mdp"
+                    android:layout_marginTop="@dimen/_20mdp"
+                    android:layout_marginEnd="@dimen/_16mdp"
+                    android:hint="@string/mobileHint2"
+                    android:textColorHint="@color/gray2"
+                    app:boxCornerRadiusBottomEnd="@dimen/_8mdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_8mdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_8mdp"
+                    app:boxCornerRadiusTopStart="@dimen/_8mdp"
+                    app:hintTextColor="@color/textPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456879"
+                        android:gravity="center_vertical|start"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:inputType="phone"
+                        android:maxLength="11"
+                        android:maxLines="1"
+                        android:text="@={viewModel.mobile}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14font_mdp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilAddress"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16mdp"
+                    android:layout_marginTop="@dimen/_20mdp"
+                    android:layout_marginEnd="@dimen/_16mdp"
+                    android:hint="@string/address"
+                    android:textColorHint="@color/gray2"
+                    app:boxCornerRadiusBottomEnd="@dimen/_8mdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_8mdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_8mdp"
+                    app:boxCornerRadiusTopStart="@dimen/_8mdp"
+                    app:hintTextColor="@color/textPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilMobile">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|start"
+                        android:imeOptions="actionDone|flagNoExtractUi"
+                        android:inputType="textMultiLine"
+                        android:maxLines="4"
+                        android:minLines="4"
+                        android:text="@={viewModel.address}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14font_mdp" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSend"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35mdp"
+            android:layout_gravity="bottom"
+            android:layout_margin="@dimen/_16mdp"
+            android:gravity="center"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:onClick="@{() -> viewModel.saveAddress()}"
+            android:text="@string/save"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12font_mdp"
+            app:cornerRadius="@dimen/_20mdp" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

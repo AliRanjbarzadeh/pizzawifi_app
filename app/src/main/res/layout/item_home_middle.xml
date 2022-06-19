@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="ir.atriatech.pizzawifi.entities.home.HomeModel2" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+        <ir.atriatech.customlibs.shapeofview.shapes.CircleView
+            android:id="@+id/cvTitle"
+            android:layout_width="@dimen/_12mdp"
+            android:layout_height="@dimen/_12mdp"
+            android:layout_marginStart="@dimen/_24mdp"
+            android:layout_marginTop="@dimen/_4mdp"
+            app:layout_constraintBottom_toBottomOf="@id/titleTop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/titleTop">
+
+            <View
+                android:id="@+id/itemDot"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccentSecondary" />
+
+        </ir.atriatech.customlibs.shapeofview.shapes.CircleView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleTop"
+            fontPath="@string/app_font_hekayat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bghome_menu_title"
+            android:gravity="start"
+            android:paddingStart="@dimen/_8mdp"
+            android:paddingTop="@dimen/_8mdp"
+            android:paddingEnd="@dimen/_14mdp"
+            android:paddingBottom="@dimen/_8mdp"
+            android:text="@{item.title, default=`@string/sampleCategoryBlog`}"
+            android:textColor="@color/silver"
+            android:textSize="@dimen/_20font_mdp"
+            app:layout_constraintStart_toEndOf="@id/cvTitle"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/flBottom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/codGray2"
+            app:layout_constraintBottom_toBottomOf="@id/rvProduct"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rvProduct" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProduct"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/_8mdp"
+            android:paddingTop="@dimen/_24mdp"
+            android:paddingEnd="@dimen/_8mdp"
+            android:paddingBottom="@dimen/_24mdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleTop"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_home_product" />
+
+        <ir.atriatech.customlibs.shapeofview.shapes.RoundRectView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_3mdp"
+            app:layout_constraintBottom_toTopOf="@id/rvProduct"
+            app:layout_constraintEnd_toEndOf="@id/titleTop"
+            app:layout_constraintStart_toStartOf="@id/cvTitle"
+            app:layout_constraintTop_toTopOf="@id/rvProduct"
+            app:shape_roundRect_bottomLeftRadius="@dimen/_4mdp"
+            app:shape_roundRect_bottomRightRadius="@dimen/_4mdp"
+            app:shape_roundRect_topLeftRadius="@dimen/_4mdp"
+            app:shape_roundRect_topRightRadius="@dimen/_4mdp">
+
+            <View
+                android:id="@+id/itemLine"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccentSecondary" />
+        </ir.atriatech.customlibs.shapeofview.shapes.RoundRectView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="item"
+            type="ir.atriatech.pizzawifi.entities.more.contactus.ContactItem" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8mdp"
+        android:layout_marginEnd="@dimen/_8mdp"
+        android:layout_marginBottom="@dimen/_8mdp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|start"
+            android:text="@{item.title, default=`@string/contactUs`}"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14font_mdp" />
+
+        <View
+            android:layout_width="@dimen/_50mdp"
+            android:layout_height="@dimen/_2mdp"
+            android:layout_marginTop="@dimen/_4mdp"
+            android:background="@color/colorPrimary" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

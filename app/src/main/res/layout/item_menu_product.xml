@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="ir.atriatech.pizzawifi.entities.Product" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8mdp"
+        android:layout_marginTop="@dimen/_4mdp"
+        android:layout_marginEnd="@dimen/_8mdp"
+        android:layout_marginBottom="@dimen/_4mdp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_8mdp"
+        app:cardUseCompatPadding="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_4mdp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgProduct"
+                android:layout_width="@dimen/_56mdp"
+                android:layout_height="@dimen/_56mdp"
+                android:layout_marginStart="@dimen/_4mdp"
+                android:layout_marginTop="@dimen/_4mdp"
+                android:layout_marginBottom="@dimen/_4mdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/product_test"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/ProductImage" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtDiscount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_discount2"
+                android:gravity="center"
+                android:padding="@dimen/_2mdp"
+                android:paddingStart="@dimen/_10mdp"
+                android:paddingEnd="@dimen/_10mdp"
+                android:text="@{item.discountPercentString, default=`@string/discountPercentSample`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10font_mdp"
+                android:visibility="@{item.discount_percent > 0 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="@id/imgProduct"
+                app:layout_constraintTop_toTopOf="@id/imgProduct" />
+
+            <ir.atriatech.pizzawifi.base.MyTextView
+                android:id="@+id/txtName"
+                style="@style/AppFontBold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4mdp"
+                android:layout_marginEnd="@dimen/_4mdp"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:maxLines="1"
+                android:text="@{item.name, default=`@string/productName`}"
+                android:textAlignment="gravity"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14font_mdp"
+                app:badgeColor="@color/colorPrimary"
+                app:badgeCount="@{item.shopCount, default=`100`}"
+                app:badgeFont="@string/app_font_bold"
+                app:badgePadding="@dimen/_4mdp"
+                app:badgeTextColor="@color/white"
+                app:badgeTextSize="@dimen/_10font_mdp"
+                app:badgeWidth="@dimen/_18mdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgProduct"
+                app:layout_constraintTop_toTopOf="@id/imgProduct" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4mdp"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:maxLines="3"
+                android:minLines="3"
+                android:text="@{item.description, default=`@string/club_sample_description`}"
+                android:textAlignment="gravity"
+                android:textColor="@color/gray2"
+                android:textSize="@dimen/_10font_mdp"
+                app:layout_constraintEnd_toEndOf="@id/txtName"
+                app:layout_constraintStart_toStartOf="@id/txtName"
+                app:layout_constraintTop_toBottomOf="@id/txtName" />
+
+            <View
+                android:id="@+id/lineProduct"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_1mdp"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:background="@color/colorEB"
+                app:layout_constraintEnd_toEndOf="@id/txtName"
+                app:layout_constraintStart_toStartOf="@id/imgProduct"
+                app:layout_constraintTop_toBottomOf="@id/txtDescription" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4mdp"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:maxLines="1"
+                android:text="@{item.formatPrice, default=`@string/testProductPrice`}"
+                android:textAlignment="gravity"
+                android:textColor="@color/mineShaft"
+                android:textSize="@dimen/_12font_mdp"
+                app:layout_constraintStart_toStartOf="@id/imgProduct"
+                app:layout_constraintTop_toBottomOf="@id/lineProduct" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtRealPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:maxLines="1"
+                android:text="@{item.formatRealPrice, default=`@string/testProductPrice`}"
+                android:textAlignment="gravity"
+                android:textColor="@color/colorBD"
+                android:textSize="@dimen/_10font_mdp"
+                android:visibility="@{item.discountAmount > 0 ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintStart_toStartOf="@id/txtPrice"
+                app:layout_constraintTop_toBottomOf="@id/txtPrice" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAdd"
+                android:layout_width="@dimen/_24mdp"
+                android:layout_height="@dimen/_24mdp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:visibility="@{!item.inDb &amp;&amp; item.entity == 1 ? View.VISIBLE : View.INVISIBLE}"
+                app:icon="@drawable/ic_baseline_add_24"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/_1mdp"
+                app:iconSize="@dimen/_18mdp"
+                app:layout_constraintBottom_toBottomOf="@id/txtRealPrice"
+                app:layout_constraintEnd_toEndOf="@id/txtName"
+                app:layout_constraintTop_toTopOf="@id/txtPrice"
+                app:shapeAppearance="@style/ProductAddButton" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnIncrease"
+                android:layout_width="@dimen/_32mdp"
+                android:layout_height="@dimen/_24mdp"
+                android:gravity="center"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:padding="0dp"
+                android:visibility="@{item.inDb ? View.VISIBLE : View.INVISIBLE, default=`visible`}"
+                app:icon="@drawable/ic_baseline_add_24"
+                app:iconGravity="textStart"
+                app:iconPadding="@dimen/_1mdp"
+                app:iconSize="@dimen/_18mdp"
+                app:iconTint="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/txtRealPrice"
+                app:layout_constraintEnd_toEndOf="@id/txtName"
+                app:layout_constraintTop_toTopOf="@id/txtPrice"
+                app:shapeAppearance="@style/ProductIncreaseButton" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDecrease"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="@dimen/_32mdp"
+                android:layout_height="@dimen/_24mdp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:padding="0dp"
+                android:paddingStart="@dimen/_4mdp"
+                android:paddingEnd="0dp"
+                android:visibility="@{item.inDb ? View.VISIBLE : View.INVISIBLE, default=`visible`}"
+                app:icon="@drawable/ic_trash2"
+                app:iconGravity="textStart"
+                app:iconSize="@dimen/_18mdp"
+                app:iconTint="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="@id/btnIncrease"
+                app:layout_constraintEnd_toStartOf="@id/btnIncrease"
+                app:layout_constraintTop_toTopOf="@id/btnIncrease"
+                app:shapeAppearance="@style/ProductDecreaseButton"
+                app:strokeColor="@color/colorPrimary" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNotExists"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/notExists"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10font_mdp"
+                android:visibility="@{!item.inDb &amp;&amp; item.entity == 0 ? View.VISIBLE : View.GONE, default=`visible`}"
+                app:backgroundTint="@color/gray2"
+                app:cornerRadius="@dimen/_20mdp"
+                app:layout_constraintBottom_toBottomOf="@id/btnIncrease"
+                app:layout_constraintEnd_toEndOf="@id/btnIncrease"
+                app:layout_constraintStart_toStartOf="@id/btnDecrease"
+                app:layout_constraintTop_toTopOf="@id/btnIncrease" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

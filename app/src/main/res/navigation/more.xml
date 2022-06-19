@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu4"
+    android:label="more"
+    app:startDestination="@id/moreFragment">
+    <fragment
+        android:id="@+id/moreFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.more.MoreFragment"
+        android:label="MoreFragment"
+        tools:layout="@layout/fragment_more" />
+    <fragment
+        android:id="@+id/contactUsFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.more.contact.ContactUsFragment"
+        android:label="ContactUsFragment"
+        tools:layout="@layout/fragment_contact_us">
+        <deepLink app:uri="pizzawifi://pages/contact" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.more.about.AboutFragment"
+        android:label="AboutFragment"
+        tools:layout="@layout/fragment_about">
+        <deepLink app:uri="pizzawifi://pages/about" />
+    </fragment>
+    <fragment
+        android:id="@+id/lawFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.more.law.LawFragment"
+        android:label="LawFragment"
+        tools:layout="@layout/fragment_law">
+        <deepLink app:uri="pizzawifi://pages/law" />
+    </fragment>
+    <fragment
+        android:id="@+id/faqFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.more.faq.FaqFragment"
+        android:label="FaqFragment"
+        tools:layout="@layout/fragment_faq">
+        <deepLink app:uri="pizzawifi://pages/faq" />
+    </fragment>
+    <fragment
+        android:id="@+id/areaFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.more.area.AreaFragment"
+        android:label="AreaFragment"
+        tools:layout="@layout/fragment_area">
+        <deepLink app:uri="pizzawifi://pages/area" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestFormFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.more.requestForm.RequestFormFragment"
+        android:label="RequestFormFragment"
+        tools:layout="@layout/fragment_branch_request">
+        <deepLink app:uri="pizzawifi://pages/representation" />
+    </fragment>
+    <fragment
+        android:id="@+id/moreBranchesFragment"
+        android:name="ir.atriatech.pizzawifi.ui.main.more.branches.MoreBranchFragment"
+        android:label="MoreBranchesFragment"
+        tools:layout="@layout/fragment_more_branch">
+        <deepLink app:uri="pizzawifi://pages/branches" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerClub2"
+        android:name="ir.atriatech.pizzawifi.ui.main.profile.club.ClubFragment"
+        android:label="CustomerClub"
+        tools:layout="@layout/fragment_customer_club">
+        <deepLink app:uri="pizzawifi://pages/club" />
+    </fragment>
+</navigation>

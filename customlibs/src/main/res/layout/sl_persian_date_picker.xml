@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ir.atriatech.customlibs.shapeofview.shapes.RoundRectView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:shape_roundRect_bottomLeftRadius="@dimen/_8mdp"
+    app:shape_roundRect_bottomRightRadius="@dimen/_8mdp"
+    app:shape_roundRect_topLeftRadius="@dimen/_8mdp"
+    app:shape_roundRect_topRightRadius="@dimen/_8mdp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorC1"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12font_mdp" />
+
+        <ir.atriatech.customlibs.shapeofview.shapes.RoundRectView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:shape_roundRect_bottomLeftRadius="@dimen/_8mdp"
+            app:shape_roundRect_bottomRightRadius="@dimen/_8mdp"
+            app:shape_roundRect_topLeftRadius="@dimen/_8mdp"
+            app:shape_roundRect_topRightRadius="@dimen/_8mdp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <NumberPicker
+                    android:id="@+id/yearNumberPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/DefaultNumberPickerTheme"
+                    app:npDefaultValue="10"
+                    app:npMaxValue="1320"
+                    app:npMinValue="1398" />
+
+                <NumberPicker
+                    android:id="@+id/monthNumberPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/DefaultNumberPickerTheme" />
+
+                <NumberPicker
+                    android:id="@+id/dayNumberPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/DefaultNumberPickerTheme" />
+            </LinearLayout>
+        </ir.atriatech.customlibs.shapeofview.shapes.RoundRectView>
+    </LinearLayout>
+</ir.atriatech.customlibs.shapeofview.shapes.RoundRectView>
+

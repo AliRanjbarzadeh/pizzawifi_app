@@ -1,0 +1,5 @@
+<resources>
+	<string name="app_name">Util</string>
+	<string name="locationPermissionNeed">برای یافتن مکان نیاز به دسترسی می باشد، لطفا در تنظیمات دسترسی را فعال کنید</string>
+	<string name="permissionTitle">درخواست دسترسی</string>
+</resources>

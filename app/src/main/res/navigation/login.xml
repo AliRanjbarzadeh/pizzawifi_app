@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/login"
+	app:startDestination="@id/loginStep1Fragment">
+	<fragment
+		android:id="@+id/loginStep1Fragment"
+		android:name="ir.atriatech.pizzawifi.ui.login.step1.LoginStep1Fragment"
+		android:label="LoginStep1Fragment"
+		tools:layout="@layout/fragment_login_step1" />
+	<fragment
+		android:id="@+id/loginStep2Fragment"
+		android:name="ir.atriatech.pizzawifi.ui.login.step2.LoginStep2Fragment"
+		android:label="LoginStep2Fragment"
+		tools:layout="@layout/fragment_login_step2" />
+	<fragment
+		android:id="@+id/loginStep3Fragment"
+		android:name="ir.atriatech.pizzawifi.ui.login.step3.LoginStep3Fragment"
+		android:label="LoginStep3Fragment"
+		tools:layout="@layout/fragment_login_step3" />
+	<fragment
+		android:id="@+id/lawFragment2"
+		android:name="ir.atriatech.pizzawifi.ui.main.more.law.LawFragment"
+		tools:layout="@layout/fragment_law"
+		android:label="LawFragment" />
+</navigation>

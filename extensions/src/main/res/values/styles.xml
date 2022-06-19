@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="toast">
+		<item name="stTextBold">false</item>
+		<item name="stTextColor">#ffffff</item>
+		<item name="stFont">@font/app_font</item>
+		<item name="stTextSize">12sp</item>
+		<item name="android:minWidth">300dp</item>
+		<item name="android:gravity">center</item>
+		<item name="stColorBackground">@color/black</item>
+		<item name="stSolidBackground">false</item>
+		<item name="stLength">SHORT</item>
+		<item name="stRadius">25dp</item>
+	</style>
+
+	<style name="eToast">
+		<item name="stTextBold">false</item>
+		<item name="stTextColor">#ffffff</item>
+		<item name="stFont">@font/app_font</item>
+		<item name="stTextSize">12sp</item>
+		<item name="android:minWidth">300dp</item>
+		<item name="android:gravity">center</item>
+		<item name="stColorBackground">@color/red</item>
+		<item name="stSolidBackground">false</item>
+		<item name="stLength">SHORT</item>
+		<item name="stRadius">25dp</item>
+	</style>
+
+	<style name="sToast">
+		<item name="stTextBold">true</item>
+		<item name="stTextColor">#ffffff</item>
+		<item name="stFont">@font/app_font</item>
+		<item name="stTextSize">12sp</item>
+		<item name="stColorBackground">@color/green</item>
+		<item name="stSolidBackground">true</item>
+		<item name="stStrokeWidth">1dp</item>
+		<item name="android:layout_width">300dp</item>
+		<item name="stStrokeColor">#8BC34A</item>
+		<item name="android:minWidth">300dp</item>
+		<item name="android:gravity">center</item>
+		<item name="stLength">SHORT</item>
+		<item name="stRadius">25dp</item>
+	</style>
+
+	<style name="infoToast">
+		<item name="stTextBold">true</item>
+		<item name="stTextColor">#3E3E3E</item>
+		<item name="stFont">@font/app_font</item>
+		<item name="stTextSize">12sp</item>
+		<item name="stColorBackground">#ffffff</item>
+		<item name="stSolidBackground">true</item>
+		<item name="stStrokeWidth">1dp</item>
+		<item name="stStrokeColor">#9E9E9E</item>
+		<item name="stIconEnd">@drawable/ic_info_toast</item>
+		<item name="stLength">SHORT</item>
+		<item name="stRadius">5dp</item>
+	</style>
+
+	<style name="allDoneToast">
+		<item name="stTextBold">true</item>
+		<item name="stTextColor">#2196F3</item>
+		<item name="stFont">@font/app_font</item>
+		<item name="stTextSize">12sp</item>
+		<item name="stColorBackground">#ffffff</item>
+		<item name="stSolidBackground">true</item>
+		<item name="stStrokeWidth">1dp</item>
+		<item name="stStrokeColor">#90CAF9</item>
+		<item name="stIconEnd">@drawable/ic_done_all_black_24dp</item>
+		<item name="stLength">SHORT</item>
+		<item name="stRadius">5dp</item>
+	</style>
+</resources>

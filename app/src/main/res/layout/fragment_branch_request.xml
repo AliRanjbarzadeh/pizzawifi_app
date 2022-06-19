@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.profile.editinfo.EditInfo">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ir.atriatech.pizzawifi.ui.main.more.requestForm.RequestFormViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="locale">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40mdp"
+                android:background="@color/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtToolbar"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        android:gravity="center_vertical|start"
+                        android:text="@string/requestForBranchForm"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/appbarText"
+                        android:textSize="@dimen/_15font_mdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="false"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mainView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <!--                <LinearLayout-->
+                <!--                    android:id="@+id/llFormContainer"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:orientation="vertical" />-->
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etName"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/nameHint2"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="text"
+                        android:maxLength="50"
+                        android:maxLines="1"
+                        android:text="@={viewModel.name}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etLastName"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/lastName"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="text"
+                        android:maxLength="50"
+                        android:maxLines="1"
+                        android:text="@={viewModel.lastName}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilFixNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilLastName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFixNumber"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/fixNumber"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="phone"
+                        android:maxLength="11"
+                        android:maxLines="1"
+                        android:text="@={viewModel.fixPhoneNUmber}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilMobileNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilFixNumber">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMobileNumber"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/phoneNumber"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="phone"
+                        android:maxLength="11"
+                        android:maxLines="1"
+                        android:text="@={viewModel.mobilePhoneNumber}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilMobileNumber">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/email"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="100"
+                        android:maxLines="1"
+                        android:text="@={viewModel.email}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilEmail">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAge"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/age"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:maxLines="1"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilProvince"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilAge">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etProvince"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/province"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="text|textNoSuggestions"
+                        android:maxLines="1"
+                        android:text="@={viewModel.province.name}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilProvince">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCity"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/city"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="text|textNoSuggestions"
+                        android:maxLines="1"
+                        android:text="@={viewModel.city.name}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilSituation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilCity">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSituation"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/situation"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilSituation">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAddress"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/address"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="text"
+                        android:maxLength="100"
+                        android:maxLines="1"
+                        android:text="@={viewModel.exactAddress}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilAreaProperty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilAddress">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAreaProperty"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/areaProperty"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="number"
+                        android:maxLength="9"
+                        android:maxLines="1"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilInvestmentValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilAreaProperty">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etInvestmentValue"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/investmentValue"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:maxLength="23"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtFamiliarWithRestaurant"
+                    style="@style/AppFont"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="start"
+                    android:text="@string/familiarWithRestaurant"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/appbarText"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilInvestmentValue" />
+
+                <LinearLayout
+                    android:id="@+id/linearRestaurant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:weightSum="2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtFamiliarWithRestaurant">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rbYes"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:button="@drawable/ic_radio_orange"
+                        android:checked="@{viewModel.restaurantSkillFlag}"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:padding="8dp"
+                        android:text="@string/yes"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/appbarText"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:useMaterialThemeColors="false" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rbNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:button="@drawable/ic_radio_orange"
+                        android:checked="@{!viewModel.restaurantSkillFlag}"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:padding="8dp"
+                        android:text="@string/no"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/appbarText"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:useMaterialThemeColors="false" />
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilCurrentJob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearRestaurant">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCurrentJob"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/yourCurrentJob"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="text"
+                        android:maxLength="50"
+                        android:maxLines="1"
+                        android:text="@={viewModel.currentJob}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilTrainingCourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilCurrentJob">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTrainingCourse"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/trainingCourse"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="text"
+                        android:maxLength="200"
+                        android:maxLines="1"
+                        android:text="@={viewModel.trainingCourse}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilMonthlyTurnOver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilTrainingCourse">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMonthlyTurnOver"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/monthlyTurnOver"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="number"
+                        android:maxLength="23"
+                        android:maxLines="1"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilMonthlyTurnOver">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDescription"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|top"
+                        android:hint="@string/description"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="textMultiLine"
+                        android:lineSpacingExtra="3dp"
+                        android:maxLines="3"
+                        android:minLines="3"
+                        android:text="@={viewModel.description}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--                <FrameLayout-->
+                <!--                    android:id="@+id/flUploadResume"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="140dp"-->
+                <!--                    android:layout_margin="16dp"-->
+                <!--                    android:background="@drawable/border_dash_gold_rec"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/tilDescription">-->
+
+                <!--                    <ir.atriatech.customlibs.shapeofview.shapes.RoundRectView-->
+                <!--                        android:id="@+id/imgShapeResume"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="match_parent"-->
+                <!--                        app:shape_roundRect_bottomLeftRadius="23dp"-->
+                <!--                        app:shape_roundRect_bottomRightRadius="23dp"-->
+                <!--                        app:shape_roundRect_topLeftRadius="23dp"-->
+                <!--                        app:shape_roundRect_topRightRadius="23dp">-->
+
+                <!--                        <androidx.appcompat.widget.AppCompatImageView-->
+                <!--                            android:id="@+id/imgPhotoResume"-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="match_parent"-->
+                <!--                            android:layout_gravity="center"-->
+                <!--                            android:background="@drawable/border_dash_gold_rec"-->
+                <!--                            android:cropToPadding="true"-->
+                <!--                            android:padding="2dp"-->
+                <!--                            android:scaleType="centerCrop"-->
+                <!--                            android:visibility="@{viewModel.showResumeLogoImg ? View.VISIBLE : View.GONE}" />-->
+                <!--                    </ir.atriatech.customlibs.shapeofview.shapes.RoundRectView>-->
+
+                <!--                    <androidx.appcompat.widget.AppCompatTextView-->
+                <!--                        android:id="@+id/txtResume"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_gravity="center"-->
+                <!--                        android:layout_marginTop="3dp"-->
+                <!--                        android:drawableTop="@drawable/ic_add_photo_gold"-->
+                <!--                        android:drawablePadding="16dp"-->
+                <!--                        android:ellipsize="end"-->
+                <!--                        android:gravity="center"-->
+                <!--                        android:maxLines="1"-->
+                <!--                        android:text="@string/uploadResume"-->
+                <!--                        android:textAlignment="gravity"-->
+                <!--                        android:textColor="@color/white"-->
+                <!--                        android:textSize="12sp"-->
+                <!--                        android:visibility="@{viewModel.showResumeLogoImg ? View.GONE : View.VISIBLE}" />-->
+
+                <!--                    <androidx.appcompat.widget.AppCompatImageView-->
+                <!--                        android:id="@+id/imgDeleteResume"-->
+                <!--                        android:layout_width="40dp"-->
+                <!--                        android:layout_height="40dp"-->
+                <!--                        android:layout_gravity="top|end"-->
+                <!--                        android:scaleType="centerInside"-->
+                <!--                        android:src="@drawable/ic_cancel_circle_white"-->
+                <!--                        android:visibility="@{viewModel.showResumeLogoImg ? View.VISIBLE : View.GONE}" />-->
+
+                <!--                </FrameLayout>-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtResume"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:text="@string/uploadResume"
+                    android:textAlignment="gravity"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tilDescription"/>
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontalViewResume"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtResume"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp">
+
+                    <LinearLayout
+                        android:id="@+id/linearResumeUploads"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+
+                </HorizontalScrollView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtDocumentTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="16dp"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:text="@string/uploadDoumentsAndStoreImage"
+                    android:textAlignment="gravity"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalViewResume"/>
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontalViewDoc"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDocumentTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp">
+
+                    <LinearLayout
+                        android:id="@+id/linearUploadDocs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+
+                </HorizontalScrollView>
+
+                <!--                <FrameLayout-->
+                <!--                    android:id="@+id/flUploadDocument"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="140dp"-->
+                <!--                    android:layout_margin="16dp"-->
+                <!--                    android:background="@drawable/border_dash_gold_rec"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/flUploadResume">-->
+
+                <!--                    <ir.atriatech.customlibs.shapeofview.shapes.RoundRectView-->
+                <!--                        android:id="@+id/imgShapeDocument"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="match_parent"-->
+                <!--                        app:shape_roundRect_bottomLeftRadius="23dp"-->
+                <!--                        app:shape_roundRect_bottomRightRadius="23dp"-->
+                <!--                        app:shape_roundRect_topLeftRadius="23dp"-->
+                <!--                        app:shape_roundRect_topRightRadius="23dp">-->
+
+                <!--                        <androidx.appcompat.widget.AppCompatImageView-->
+                <!--                            android:id="@+id/imgPhotoDocument"-->
+                <!--                            android:layout_width="match_parent"-->
+                <!--                            android:layout_height="match_parent"-->
+                <!--                            android:layout_gravity="center"-->
+                <!--                            android:background="@drawable/border_dash_gold_rec"-->
+                <!--                            android:cropToPadding="true"-->
+                <!--                            android:padding="2dp"-->
+                <!--                            android:scaleType="centerCrop"-->
+                <!--                            android:visibility="@{viewModel.showDocumentImg ? View.VISIBLE : View.GONE}" />-->
+                <!--                    </ir.atriatech.customlibs.shapeofview.shapes.RoundRectView>-->
+
+                <!--                    <androidx.appcompat.widget.AppCompatTextView-->
+                <!--                        android:id="@+id/txtDocument"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_gravity="center"-->
+                <!--                        android:layout_marginTop="3dp"-->
+                <!--                        android:drawableTop="@drawable/ic_add_photo_gold"-->
+                <!--                        android:drawablePadding="16dp"-->
+                <!--                        android:ellipsize="end"-->
+                <!--                        android:gravity="center"-->
+                <!--                        android:maxLines="1"-->
+                <!--                        android:text="@string/uploadDoumentsAndStoreImage"-->
+                <!--                        android:textAlignment="gravity"-->
+                <!--                        android:textColor="@color/white"-->
+                <!--                        android:textSize="12sp"-->
+                <!--                        android:visibility="@{viewModel.showDocumentImg ? View.GONE : View.VISIBLE}" />-->
+
+                <!--                    <androidx.appcompat.widget.AppCompatImageView-->
+                <!--                        android:id="@+id/imgDeleteDocument"-->
+                <!--                        android:layout_width="40dp"-->
+                <!--                        android:layout_height="40dp"-->
+                <!--                        android:layout_gravity="top|end"-->
+                <!--                        android:scaleType="centerInside"-->
+                <!--                        android:src="@drawable/ic_cancel_circle_white"-->
+                <!--                        android:visibility="@{viewModel.showDocumentImg ? View.VISIBLE : View.GONE}" />-->
+
+                <!--                </FrameLayout>-->
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSend"
+                    style="@style/BtnDefault130"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="50dp"
+                    android:gravity="center"
+                    android:text="@string/addForm"
+                    app:icon="@drawable/ic_edit_white"
+                    app:iconGravity="textStart"
+                    app:iconPadding="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalViewDoc" />
+
+
+                <!--				<br.com.simplepass.loadingbutton.customViews.CircularProgressButton-->
+                <!--					android:id="@+id/btnSend"-->
+                <!--					android:layout_width="wrap_content"-->
+                <!--					android:layout_height="40dp"-->
+                <!--					android:layout_gravity="center_vertical"-->
+                <!--					android:layout_marginTop="50dp"-->
+                <!--					android:background="@drawable/bg_progress_button"-->
+                <!--					android:minWidth="130dp"-->
+                <!--					android:onClick="@{() -> viewModel.editInfo()}"-->
+                <!--					android:text="@string/save"-->
+                <!--					android:textColor="@color/white"-->
+                <!--					app:initialCornerAngle="20dp"-->
+                <!--					app:layout_constraintEnd_toEndOf="parent"-->
+                <!--					app:layout_constraintStart_toStartOf="parent"-->
+                <!--					app:layout_constraintTop_toBottomOf="@id/tilBirthDate"-->
+                <!--					app:spinning_bar_color="@color/white"-->
+                <!--					app:spinning_bar_padding="6dp"-->
+                <!--					app:spinning_bar_width="20dp" />-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

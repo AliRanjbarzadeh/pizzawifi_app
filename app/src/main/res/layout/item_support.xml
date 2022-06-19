@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="ir.atriatech.pizzawifi.entities.profile.support.Support" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="@dimen/_1mdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8mdp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:maxLines="1"
+                android:text="@{item.title, default=`@string/loremTitle`}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14font_mdp"
+                app:layout_constraintBottom_toTopOf="@id/txtDate"
+                app:layout_constraintEnd_toStartOf="@id/btnStatus"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:maxLines="1"
+                android:text="@{item.cDate, default=`@string/testDate`}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/color82"
+                android:textSize="@dimen/_10font_mdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/txtTitle"
+                app:layout_constraintStart_toStartOf="@id/txtTitle"
+                app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha=".08"
+                android:clickable="false"
+                app:backgroundTint="@color/supportStatus0"
+                app:cornerRadius="@dimen/_20mdp"
+                app:layout_constraintBottom_toBottomOf="@id/txtStatus"
+                app:layout_constraintEnd_toEndOf="@id/txtStatus"
+                app:layout_constraintStart_toStartOf="@id/txtStatus"
+                app:layout_constraintTop_toTopOf="@id/txtStatus" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtStatus"
+                style="@style/AppFontBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingStart="@dimen/_8mdp"
+                android:paddingEnd="@dimen/_8mdp"
+                android:text="@{item.statusText, default=`@string/testStatusText`}"
+                android:textColor="@color/supportStatus0"
+                android:textSize="@dimen/_10font_mdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

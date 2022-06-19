@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="ir.atriatech.pizzawifi.entities.home.HomeModel1" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/backYellowView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/topLogo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_35mdp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo4"
+            app:layout_constraintDimensionRatio="5:2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/selectCity"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_26mdp"
+            android:layout_marginTop="@dimen/_14mdp"
+            android:gravity="center"
+            android:insetBottom="0dp"
+            android:insetTop="0dp"
+            android:paddingStart="@dimen/_13mdp"
+            android:paddingEnd="@dimen/_12mdp"
+            android:text="@{item.homeButtons.cityButtonText, default=`@string/selectCity`}"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10font_mdp"
+            app:icon="@drawable/ic_baseline_keyboard_arrow_down_24"
+            app:iconGravity="textEnd"
+            app:iconSize="@dimen/_20mdp"
+            app:iconPadding="0dp"
+            app:iconTint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/topLogo"
+            app:shapeAppearance="@style/BtnHomeBranch"
+            app:strokeColor="@color/white" />
+
+        <View
+            android:layout_width="@dimen/_1mdp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_1mdp"
+            android:layout_marginBottom="@dimen/_1mdp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@id/selectCity"
+            app:layout_constraintStart_toStartOf="@id/selectCity"
+            app:layout_constraintTop_toTopOf="@id/selectCity" />
+
+        <!--        <com.google.android.material.card.MaterialCardView-->
+        <!--            android:id="@+id/restaurantMenu"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="@dimen/_40mdp"-->
+        <!--            android:layout_marginStart="@dimen/_30mdp"-->
+        <!--            android:layout_marginTop="@dimen/_25mdp"-->
+        <!--            android:layout_marginEnd="@dimen/_30mdp"-->
+        <!--            app:cardCornerRadius="@dimen/_10mdp"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/topLogo">-->
+
+        <!--            <androidx.appcompat.widget.LinearLayoutCompat-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:orientation="horizontal">-->
+
+        <!--                <androidx.appcompat.widget.AppCompatTextView-->
+        <!--                    style="@style/AppFontBold"-->
+        <!--                    android:layout_width="0dp"-->
+        <!--                    android:layout_height="match_parent"-->
+        <!--                    android:layout_weight="1"-->
+        <!--                    android:gravity="center_vertical"-->
+        <!--                    android:paddingStart="@dimen/_20mdp"-->
+        <!--                    android:paddingEnd="@dimen/_20mdp"-->
+        <!--                    android:text="@{item.homeButtons.menuTitle, default=`@string/restaurantMenu`}"-->
+        <!--                    android:textColor="@color/black"-->
+        <!--                    android:textSize="@dimen/_14font_mdp"-->
+        <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                    app:layout_constraintStart_toStartOf="parent"-->
+        <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--                <com.google.android.material.imageview.ShapeableImageView-->
+        <!--                    android:id="@+id/imgOrderMenu"-->
+        <!--                    android:layout_width="@dimen/_30mdp"-->
+        <!--                    android:layout_height="@dimen/_30mdp"-->
+        <!--                    android:layout_gravity="center_vertical"-->
+        <!--                    android:layout_marginEnd="@dimen/_8mdp"-->
+        <!--                    android:background="@color/colorFD"-->
+        <!--                    android:scaleType="centerInside"-->
+        <!--                    android:src="@drawable/ic_baseline_arrow_back_ios_new_24"-->
+        <!--                    app:shapeAppearance="@style/BtnHomeMenuOrder" />-->
+
+        <!--            </androidx.appcompat.widget.LinearLayoutCompat>-->
+        <!--        </com.google.android.material.card.MaterialCardView>-->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/restaurantMenu"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40mdp"
+            android:layout_marginStart="@dimen/_30mdp"
+            android:layout_marginEnd="@dimen/_30mdp"
+            android:layout_marginBottom="@dimen/_4mdp"
+            android:text="@{item.homeButtons.menuTitle, default=`@string/restaurantMenu`}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13font_mdp"
+            app:cornerRadius="@dimen/_20mdp"
+            app:layout_constraintBottom_toTopOf="@id/makePizza"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topLogo"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:rippleColor="@color/white"
+            app:strokeColor="@color/white" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/makePizza"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40mdp"
+            android:layout_marginTop="@dimen/_4mdp"
+            android:text="@{item.homeButtons.makerTitle, default=`@string/makePizza`}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13font_mdp"
+            app:cardCornerRadius="@dimen/_10mdp"
+            app:cornerRadius="@dimen/_20mdp"
+            app:layout_constraintBottom_toTopOf="@id/bottomLogo"
+            app:layout_constraintEnd_toEndOf="@id/restaurantMenu"
+            app:layout_constraintStart_toStartOf="@id/restaurantMenu"
+            app:layout_constraintTop_toBottomOf="@id/restaurantMenu"
+            app:rippleColor="@color/white"
+            app:strokeColor="@color/white" />
+
+        <!--        <com.google.android.material.card.MaterialCardView-->
+        <!--            android:id="@+id/makePizza"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="@dimen/_20mdp"-->
+        <!--            app:cardCornerRadius="@dimen/_10mdp"-->
+        <!--            app:layout_constraintEnd_toEndOf="@id/restaurantMenu"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/restaurantMenu"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/restaurantMenu">-->
+
+        <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content">-->
+
+        <!--                <androidx.appcompat.widget.AppCompatTextView-->
+        <!--                    android:id="@+id/txtMakePizza"-->
+        <!--                    style="@style/AppFontBold"-->
+        <!--                    android:layout_width="0dp"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_marginStart="@dimen/_20mdp"-->
+        <!--                    android:layout_marginTop="@dimen/_10mdp"-->
+        <!--                    android:text="@{item.homeButtons.makerTitle, default=`@string/makePizza`}"-->
+        <!--                    android:textColor="@color/black"-->
+        <!--                    android:textSize="@dimen/_14font_mdp"-->
+        <!--                    app:layout_constraintBottom_toTopOf="@id/txtMakePizzaDescription"-->
+        <!--                    app:layout_constraintEnd_toStartOf="@id/imgMakerPizza"-->
+        <!--                    app:layout_constraintStart_toStartOf="parent"-->
+        <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--                <androidx.appcompat.widget.AppCompatTextView-->
+        <!--                    android:id="@+id/txtMakePizzaDescription"-->
+        <!--                    android:layout_width="0dp"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_marginTop="@dimen/_5mdp"-->
+        <!--                    android:layout_marginBottom="@dimen/_10mdp"-->
+        <!--                    android:text="@{item.homeButtons.makerDescription, default=`@string/makePizzaDescription`}"-->
+        <!--                    android:textColor="@color/gray2"-->
+        <!--                    android:textSize="@dimen/_10font_mdp"-->
+        <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                    app:layout_constraintEnd_toEndOf="@id/txtMakePizza"-->
+        <!--                    app:layout_constraintStart_toStartOf="@id/txtMakePizza"-->
+        <!--                    app:layout_constraintTop_toBottomOf="@id/txtMakePizza" />-->
+
+        <!--                <androidx.appcompat.widget.AppCompatImageView-->
+        <!--                    android:id="@+id/imgMakerPizza"-->
+        <!--                    android:layout_width="@dimen/_60mdp"-->
+        <!--                    android:layout_height="@dimen/_50mdp"-->
+        <!--                    android:scaleType="fitStart"-->
+        <!--                    android:src="@drawable/ic_home_maker"-->
+        <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                    app:layout_constraintEnd_toEndOf="parent" />-->
+
+        <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+        <!--        </com.google.android.material.card.MaterialCardView>-->
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/bottomLogo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/home_banner3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="2:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

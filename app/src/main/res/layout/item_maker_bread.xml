@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="ir.atriatech.pizzawifi.entities.home.maker.Bread" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="@dimen/_120mdp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10mdp"
+        android:layout_marginTop="@dimen/_20mdp"
+        android:layout_marginEnd="@dimen/_10mdp"
+        android:alpha="@{item.alpha &amp;&amp; !item.selected ? 0.6f : 1f}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_2mdp">
+
+            <ir.atriatech.customlibs.ProgressView
+                android:id="@+id/pvMaterial"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_10mdp"
+                android:layout_marginTop="@dimen/_5mdp"
+                android:layout_marginEnd="@dimen/_10mdp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:pvAnimateDuration="700"
+                app:pvBackgroundColor="@color/transparent"
+                app:pvBackgroundWidth="0dp"
+                app:pvDirection="fromLeft"
+                app:pvProgressColor="@color/color50"
+                app:pvProgressWidth="@dimen/_3mdp"
+                app:pvShape="circle" />
+
+            <ir.atriatech.customlibs.shapeofview.shapes.CircleView
+                android:id="@+id/imgShape"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/_12mdp"
+                app:layout_constraintBottom_toBottomOf="@id/pvMaterial"
+                app:layout_constraintEnd_toEndOf="@id/pvMaterial"
+                app:layout_constraintStart_toStartOf="@id/pvMaterial"
+                app:layout_constraintTop_toTopOf="@id/pvMaterial">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter" />
+            </ir.atriatech.customlibs.shapeofview.shapes.CircleView>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15mdp"
+                android:layout_marginEnd="@dimen/_15mdp"
+                android:clickable="false"
+                android:focusable="false"
+                android:insetTop="@dimen/_10mdp"
+                android:insetBottom="@dimen/_10mdp"
+                android:text="@string/notExists"
+                android:textSize="@dimen/_10font_mdp"
+                android:visibility="@{item.entity == 0 ? View.VISIBLE : View.INVISIBLE}"
+                app:backgroundTint="@color/colorF24"
+                app:cornerRadius="@dimen/_20mdp"
+                app:layout_constraintBottom_toBottomOf="@id/pvMaterial"
+                app:layout_constraintEnd_toEndOf="@id/pvMaterial"
+                app:layout_constraintStart_toStartOf="@id/pvMaterial"
+                app:layout_constraintTop_toTopOf="@id/pvMaterial" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgRemove"
+                android:layout_width="@dimen/_24mdp"
+                android:layout_height="@dimen/_24mdp"
+                android:layout_marginStart="@dimen/_4mdp"
+                android:layout_marginTop="@dimen/_4mdp"
+                android:background="@drawable/circle_primary"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_trash2"
+                android:visibility="@{item.selected ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2mdp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@{item.name, default=`@string/productName`}"
+                android:textAlignment="gravity"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10font_mdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pvMaterial" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@{item.diameter, default=`@string/testDiameter`}"
+                android:textAlignment="gravity"
+                android:textColor="@color/colorAA"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtName" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

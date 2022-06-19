@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.profile.club.ClubFragment">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ir.atriatech.pizzawifi.ui.main.profile.club.UserClubFragmentViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="locale">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="0dp"
+            tools:targetApi="lollipop">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbarId"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40mdp"
+                    android:background="@color/transparent"
+                    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                    app:contentInsetRight="0dp"
+                    app:contentInsetStart="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imgBack"
+                            android:layout_width="56dp"
+                            android:layout_height="0dp"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_arrow"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtToolbar"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginEnd="16dp"
+                            android:gravity="center_vertical|start"
+                            android:text="@string/my_club"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/appbarText"
+                            android:textSize="@dimen/_15font_mdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/imgBack"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.appcompat.widget.Toolbar>
+            </FrameLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <FrameLayout
+                android:id="@+id/topBar"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_80mdp"
+                android:background="@color/color19"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:cardBackgroundColor="@color/color10"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/llClubRate"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearance="@style/ClubUserInfo" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        app:cardBackgroundColor="@color/color19"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/llClubRate"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearance="@style/ClubUserInfo">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/imgClubProfile"
+                                android:layout_width="@dimen/_60mdp"
+                                android:layout_height="@dimen/_60mdp"
+                                android:background="@color/transparent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_profile_user"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:shapeAppearance="@style/ClubProfileImage" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_marginStart="@dimen/_8mdp"
+                                android:layout_marginEnd="@dimen/_8mdp"
+                                android:gravity="center_vertical"
+                                android:text="@{viewModel.userInfo.name, default=`@string/nameHint`}"
+                                android:textColor="@color/mercury"
+                                android:textSize="@dimen/_16font_mdp"
+                                app:layout_constraintBottom_toBottomOf="@id/imgClubProfile"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/imgClubProfile"
+                                app:layout_constraintTop_toTopOf="@id/imgClubProfile" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/llClubRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:minWidth="@dimen/_60mdp"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/_8mdp"
+                        android:paddingEnd="@dimen/_8mdp"
+                        android:weightSum="2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@{viewModel.userInfo.clubFormat, default=`@string/club_rate_sample`}"
+                            android:textColor="@color/color50"
+                            android:textSize="@dimen/_18font_mdp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/club_rate"
+                            android:textColor="@color/color50"
+                            android:textSize="@dimen/_20font_mdp" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </FrameLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtEmptyMessages"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:layout_marginTop="35dp"
+                android:gravity="center"
+                android:text="@string/no_item_found"
+                android:textColor="@color/textPrimary"
+                android:textSize="18sp"
+                android:visibility="@{viewModel.emptyView ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/refreshLayout"
+                app:layout_constraintEnd_toEndOf="@id/refreshLayout"
+                app:layout_constraintStart_toStartOf="@id/refreshLayout"
+                app:layout_constraintTop_toTopOf="@id/refreshLayout" />
+
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:id="@+id/refreshLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/topBar"
+                app:srlAccentColor="@color/colorAccent"
+                app:srlPrimaryColor="@color/colorPrimary">
+
+                <com.mikelau.views.shimmer.ShimmerRecyclerViewX
+                    android:id="@+id/rvClubItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:paddingTop="@dimen/_4mdp"
+                    android:paddingBottom="@dimen/_4mdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:shimmer_demo_angle="@integer/shimmerAngel"
+                    app:shimmer_demo_child_count="20"
+                    app:shimmer_demo_layout="@layout/item_message_shimmer"
+                    app:shimmer_demo_layout_manager_type="linear_vertical"
+                    app:shimmer_demo_mask_width="0.1"
+                    app:shimmer_demo_reverse_animation="@bool/shimmerReverse"
+                    app:shimmer_demo_shimmer_color="@color/silver"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_club_profile" />
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

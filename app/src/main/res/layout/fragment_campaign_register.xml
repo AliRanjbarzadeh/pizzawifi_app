@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.profile.messages.detail.MessageDetail">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ir.atriatech.pizzawifi.ui.main.profile.campaign.register.CampaignRegisterFragmentViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/mainView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="locale">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40mdp"
+                android:background="@color/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtToolbar"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical|start"
+                        android:layoutDirection="locale"
+                        android:maxLines="1"
+                        android:text="@string/join_to_campaign"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/appbarText"
+                        android:textDirection="locale"
+                        android:textSize="@dimen/_15font_mdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/_70mdp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12mdp"
+                    app:cardBackgroundColor="@color/codGray2"
+                    app:cardCornerRadius="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            android:gravity="center"
+                            android:paddingStart="@dimen/_12mdp"
+                            android:paddingTop="@dimen/_6mdp"
+                            android:paddingEnd="@dimen/_12mdp"
+                            android:paddingBottom="@dimen/_6mdp"
+                            android:textColor="@color/colorAccentSecondary"
+                            android:textSize="22sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/txtTitle" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txtDescription"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/_12mdp"
+                            android:paddingTop="@dimen/_6mdp"
+                            android:paddingEnd="@dimen/_12mdp"
+                            android:paddingBottom="@dimen/_6mdp"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/image" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_12mdp"
+                    android:text="@string/start_date"
+                    android:textColor="@color/silverChalice"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card1" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtStartCampaign"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_12mdp"
+                    android:textColor="@color/silverChalice"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card1" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_12mdp"
+                    android:text="@string/end_date"
+                    android:textColor="@color/silverChalice"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt1" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtEndCampaign"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_12mdp"
+                    android:textColor="@color/silverChalice"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt1" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_12mdp"
+                    android:text="@string/join_campaign"
+                    android:textColor="@color/colorAccentSecondary"
+                    android:textSize="16sp"
+                    android:visibility="@{viewModel.campaignObject.canParticipate ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt2" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12mdp"
+                    android:visibility="@{viewModel.campaignObject.canParticipate ? View.VISIBLE : View.GONE}"
+                    app:cardBackgroundColor="@color/codGray2"
+                    app:cardCornerRadius="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt3">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txt4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8mdp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="@dimen/_8mdp"
+                            android:text="@string/upload_image"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toStartOf="@+id/txt6"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txt5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8mdp"
+                            android:layout_marginTop="16dp"
+                            android:text="@{viewModel.campaignObject.uploadDescription, default=`@string/after_upload`}"
+                            android:textColor="@color/colorAccent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@id/txt4"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/txt4" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/txt6"
+                            android:layout_width="@dimen/_110mdp"
+                            android:layout_height="@dimen/_100mdp"
+                            android:layout_margin="8dp"
+                            android:background="@drawable/bg_border_campaign"
+                            android:drawableTop="@drawable/ic_add_image_campaign"
+                            android:gravity="center"
+                            android:padding="@dimen/_25mdp"
+                            android:text="@string/add_image_campaign"
+                            android:textColor="@color/silverChalice"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@id/card1"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:cardBackgroundColor="@color/transparent"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="0dp"
+                            app:layout_constraintBottom_toBottomOf="@id/txt6"
+                            app:layout_constraintEnd_toEndOf="@id/txt6"
+                            app:layout_constraintStart_toStartOf="@id/txt6"
+                            app:layout_constraintTop_toTopOf="@id/txt6">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/imageViewCampaign"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/instaLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12mdp"
+                    android:layout_marginTop="@dimen/_12mdp"
+                    android:layout_marginEnd="@dimen/_12mdp"
+                    android:textColorHint="@color/silver"
+                    android:theme="@style/MyEditTextTheme"
+                    android:visibility="@{viewModel.campaignObject.canParticipate ? View.VISIBLE : View.GONE}"
+                    app:boxBackgroundMode="outline"
+                    app:hintTextColor="@color/colorAccentSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etInstagram"
+                        style="@style/DefaultEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:hint="@string/insta_id"
+                        android:imeOptions="actionNext|flagNoExtractUi"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:text="@={viewModel.instagram}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/textPrimary"
+                        android:textColorHint="@color/silver"
+                        android:textSize="16sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/shark"
+            android:orientation="vertical"
+            android:padding="@dimen/_12mdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/instaLayout">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                style="@style/BtnDefault130Green"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:onClick="@{() -> viewModel.saveCampaign()}"
+                android:text="@string/register_data"
+                android:visibility="@{viewModel.campaignObject.canParticipate ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etMobile" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/BtnDefault130"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:clickable="false"
+                android:text="@string/already_participate"
+                android:visibility="@{viewModel.campaignObject.canParticipate ? View.GONE : View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etMobile" />
+
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

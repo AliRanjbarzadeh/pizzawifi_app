@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<data>
+
+		<variable
+			name="item"
+			type="ir.atriatech.pizzawifi.entities.orders.detail.OrderTimer" />
+	</data>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginTop="22dp"
+			android:layout_marginEnd="16dp"
+			android:gravity="center_vertical|start"
+			android:text="@{item.orderStatus != 4 &amp;&amp; item.orderStatus != 3 ? @string/remainTime : @string/waitingTime, default=`@string/remainTime`}"
+			android:textAlignment="viewStart"
+			android:textColor="@color/color78"
+			android:textSize="18sp" />
+
+		<com.google.android.material.card.MaterialCardView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginTop="12dp"
+			android:layout_marginEnd="16dp"
+			app:cardBackgroundColor="@color/color30"
+			app:cardCornerRadius="8dp"
+			app:cardElevation="2dp">
+
+			<ir.atriatech.customlibs.countdownview.CountdownView
+				android:id="@+id/mTimer"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginTop="20dp"
+				android:layout_marginBottom="20dp"
+				app:isHideTimeBackground="false"
+				app:isShowHour="true"
+				app:isShowTimeBgBorder="true"
+				app:isShowTimeBgDivisionLine="false"
+				app:suffixGravity="center"
+				app:suffixTextColor="@color/silver"
+				app:suffixTextSize="30dp"
+				app:timeBgBorderColor="@color/colorPrimary"
+				app:timeBgBorderRadius="4dp"
+				app:timeBgBorderSize="1dp"
+				app:timeBgColor="@color/colorAA"
+				app:timeBgRadius="4dp"
+				app:timeBgSize="40dp"
+				app:timeTextColor="@color/color48"
+				app:timeTextSize="30sp" />
+
+		</com.google.android.material.card.MaterialCardView>
+
+	</LinearLayout>
+</layout>

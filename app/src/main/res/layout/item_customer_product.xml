@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<data>
+
+		<variable
+			name="item"
+			type="ir.atriatech.pizzawifi.entities.pizza.Pizza" />
+	</data>
+
+	<com.google.android.material.card.MaterialCardView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginEnd="8dp"
+		android:clickable="false"
+		android:focusable="false"
+		app:cardBackgroundColor="@color/color30"
+		app:cardCornerRadius="8dp"
+		app:cardElevation="2dp"
+		app:rippleColor="@color/black30">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingBottom="10dp">
+
+			<ir.atriatech.customlibs.shapeofview.shapes.CircleView
+				android:id="@+id/imgShape"
+				android:layout_width="80dp"
+				android:layout_height="80dp"
+				android:layout_marginStart="24dp"
+				android:layout_marginTop="12dp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent">
+
+				<androidx.appcompat.widget.AppCompatImageView
+					android:id="@+id/imgProduct"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:background="@drawable/ic_customer_plate"
+					android:padding="3dp"
+					android:scaleType="fitCenter"
+					android:src="@drawable/product_customer_test" />
+			</ir.atriatech.customlibs.shapeofview.shapes.CircleView>
+
+			<androidx.appcompat.widget.AppCompatTextView
+				android:id="@+id/txtName"
+				style="@style/AppFontBold"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="18dp"
+				android:layout_marginEnd="24dp"
+				android:ellipsize="end"
+				android:gravity="center_vertical|start"
+				android:maxLines="1"
+				android:text="@{item.name, default=`@string/productName`}"
+				android:textAlignment="viewStart"
+				android:textColor="@color/colorD6"
+				android:textSize="18sp"
+				app:layout_constraintBottom_toTopOf="@id/txtPrice"
+				app:layout_constraintEnd_toStartOf="@id/btnIncrease"
+				app:layout_constraintStart_toEndOf="@id/imgShape"
+				app:layout_constraintTop_toTopOf="@id/imgShape" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+				android:id="@+id/txtPrice"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:ellipsize="end"
+				android:gravity="center_vertical|start"
+				android:maxLines="1"
+				android:text="@{item.formatPrice, default=`@string/testProductPrice`}"
+				android:textAlignment="viewStart"
+				android:textColor="@color/colorAccentSecondary"
+				android:textSize="16sp"
+				app:layout_constraintBottom_toBottomOf="@id/imgShape"
+				app:layout_constraintEnd_toEndOf="@id/txtName"
+				app:layout_constraintStart_toStartOf="@id/txtName"
+				app:layout_constraintTop_toBottomOf="@id/txtName" />
+
+			<View
+				android:id="@+id/line1"
+				android:layout_width="0dp"
+				android:layout_height="1dp"
+				android:layout_marginTop="15dp"
+				android:background="@color/colorAA53"
+				app:layout_constraintEnd_toEndOf="@id/txtName"
+				app:layout_constraintStart_toStartOf="@id/imgShape"
+				app:layout_constraintTop_toBottomOf="@id/imgShape" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+				android:id="@+id/txtCommentCount"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="8dp"
+				android:layout_marginTop="10dp"
+				android:layout_marginEnd="16dp"
+				android:ellipsize="end"
+				android:gravity="center_vertical|start"
+				android:maxLines="1"
+				android:text="@{String.format(@string/customerProductCommentCount, item.commentCount), default=`@string/productCommentCount`}"
+				android:textAlignment="viewStart"
+				android:textColor="@color/colorAA"
+				android:textSize="16sp"
+				app:layout_constraintEnd_toStartOf="@id/ratingCustomer"
+				app:layout_constraintStart_toStartOf="@id/line1"
+				app:layout_constraintTop_toBottomOf="@id/line1" />
+
+			<LinearLayout
+				android:id="@+id/ratingCustomer"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginEnd="16dp"
+				android:background="@drawable/bg_customer_rate"
+				android:orientation="horizontal"
+				android:paddingStart="5dp"
+				android:paddingTop="2dp"
+				android:paddingEnd="5dp"
+				android:paddingBottom="2dp"
+				app:layout_constraintBottom_toBottomOf="@id/txtCommentCount"
+				app:layout_constraintEnd_toEndOf="@id/line1"
+				app:layout_constraintStart_toEndOf="@id/txtCommentCount"
+				app:layout_constraintTop_toTopOf="@id/txtCommentCount">
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:layout_marginEnd="8dp"
+					android:text="@{String.valueOf(item.rate), default=`@string/productCustomerRate`}"
+					android:textColor="@color/colorAA"
+					android:textSize="14sp" />
+
+				<me.zhanghai.android.materialratingbar.MaterialRatingBar
+					style="@style/Widget.MaterialRatingBar.RatingBar.Small"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:isIndicator="true"
+					android:layoutDirection="ltr"
+					android:rating="@{item.rate, default=`2.5`}"
+					app:layout_constraintBottom_toBottomOf="@id/txtCommentCount"
+					app:layout_constraintEnd_toEndOf="@id/line1"
+					app:layout_constraintStart_toEndOf="@id/txtCommentCount"
+					app:layout_constraintTop_toTopOf="@id/txtCommentCount"
+					app:mrb_fillBackgroundStars="true"
+					app:mrb_progressBackgroundTint="@color/color87"
+					app:mrb_progressTint="@color/colorFFC3" />
+
+			</LinearLayout>
+
+			<View
+				android:id="@+id/line2"
+				android:layout_width="0dp"
+				android:layout_height="1dp"
+				android:layout_marginTop="15dp"
+				android:background="@color/colorAA53"
+				app:layout_constraintEnd_toEndOf="@id/line1"
+				app:layout_constraintStart_toStartOf="@id/line1"
+				app:layout_constraintTop_toBottomOf="@id/ratingCustomer" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+				android:id="@+id/txtSender"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="8dp"
+				android:layout_marginTop="8dp"
+				android:layout_marginEnd="8dp"
+				android:ellipsize="end"
+				android:gravity="center_vertical|start"
+				android:maxLines="1"
+				android:text="@{String.format(@string/productSender, item.sender), default=`@string/productSenderTest`}"
+				android:textAlignment="viewStart"
+				android:textColor="@color/colorAA"
+				android:textSize="16sp"
+				app:layout_constraintEnd_toEndOf="@id/line2"
+				app:layout_constraintStart_toStartOf="@id/line2"
+				app:layout_constraintTop_toBottomOf="@id/line2" />
+
+			<androidx.appcompat.widget.AppCompatImageView
+				android:id="@+id/btnIncrease"
+				android:layout_width="32dp"
+				android:layout_height="32dp"
+				android:layout_marginEnd="24dp"
+				android:padding="2dp"
+				android:scaleType="fitCenter"
+				android:src="@drawable/ic_increase"
+				app:layout_constraintBottom_toTopOf="@id/txtCount"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="@id/imgShape"
+				app:layout_constraintVertical_chainStyle="packed" />
+
+			<TextSwitcher
+				android:id="@+id/txtCount"
+				android:layout_width="32dp"
+				android:layout_height="32dp"
+				android:layout_marginTop="25dp"
+				android:layout_marginBottom="25dp"
+				android:background="@drawable/circle37"
+				android:gravity="center"
+				android:text="@{item.shopCount > 99 ? `+99` : String.valueOf(item.shopCount)}"
+				android:textColor="@color/white"
+				android:textDirection="ltr"
+				android:textSize="14sp"
+				app:layout_constraintBottom_toTopOf="@id/btnDecrease"
+				app:layout_constraintEnd_toEndOf="@id/btnIncrease"
+				app:layout_constraintTop_toBottomOf="@id/btnIncrease">
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center"
+					android:textColor="@color/white"
+					android:textDirection="ltr"
+					android:textSize="14sp" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:gravity="center"
+					android:textColor="@color/white"
+					android:textDirection="ltr"
+					android:textSize="14sp" />
+			</TextSwitcher>
+
+			<androidx.appcompat.widget.AppCompatImageView
+				android:id="@+id/btnDecrease"
+				android:layout_width="32dp"
+				android:layout_height="32dp"
+				android:padding="2dp"
+				android:scaleType="fitCenter"
+				android:src="@drawable/ic_decrease"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="@id/btnIncrease"
+				app:layout_constraintTop_toBottomOf="@id/txtCount" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</com.google.android.material.card.MaterialCardView>
+</layout>

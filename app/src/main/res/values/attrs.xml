@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<declare-styleable name="MyTextView">
+		<attr name="badgeWidth" format="dimension" />
+		<attr name="badgePadding" format="dimension" />
+		<attr name="badgeCount" format="integer" />
+		<attr name="badgeTextSize" format="dimension" />
+		<attr name="badgeTextColor" format="color" />
+		<attr name="badgeColor" format="color" />
+		<attr name="badgeFont" format="string" />
+	</declare-styleable>
+</resources>

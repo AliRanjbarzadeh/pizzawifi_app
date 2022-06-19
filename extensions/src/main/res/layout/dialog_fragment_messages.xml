@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ir.atriatech.customlibs.shapeofview.shapes.RoundRectView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content"
+    android:layoutDirection="rtl"
+    android:maxHeight="300dp"
+    app:shape_roundRect_bottomLeftRadius="25dp"
+    app:shape_roundRect_bottomRightRadius="25dp"
+    app:shape_roundRect_topLeftRadius="25dp"
+    app:shape_roundRect_topRightRadius="25dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:background="@color/white"
+        android:layoutDirection="rtl"
+
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="@string/_do_you_want_to_delete"
+            android:textAlignment="gravity"
+            android:textColor="#38dbd6"
+            android:textDirection="rtl" />
+
+        <com.bskim.maxheightscrollview.widgets.MaxHeightScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:maxHeight="250dp"
+            >
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="16dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="start"
+
+                android:overScrollMode="never"
+                android:padding="10dp"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbars="vertical"
+                android:text="@string/_by_date"
+                android:textAlignment="gravity"
+                android:textColor="@color/gray"
+                android:textDirection="rtl" />
+        </com.bskim.maxheightscrollview.widgets.MaxHeightScrollView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtClose"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+
+            android:layout_gravity="bottom|end"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:padding="5dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/_close"
+            android:textAlignment="gravity" />
+
+
+    </LinearLayout>
+
+</ir.atriatech.customlibs.shapeofview.shapes.RoundRectView>
+
+
+
+

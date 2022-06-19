@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+	<string name="loremTitle">لورم ایپسوم</string>
+	<string name="loremDescription">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود</string>
+	<string name="shortLoremDescription">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</string>
+	<string name="testDescription">سیر، نمک، روغــن زیتون، ریحـــــــــان گوجه فرنگی فلفل سیاه، پنیر مــــوزارلا، خمیر پیتــــزا سراکــــوف پنیــر پــارمزان</string>
+	<string name="testMaterial">گوشت چرخ کرده</string>
+	<string name="productCommentCount">15 نظر</string>
+	<string name="productSenderTest">فرستنده: علی رنجبرزاده</string>
+	<string name="testName">علی رنجبرزاده</string>
+	<string name="testProductPrice">30,000 تومان</string>
+	<string name="testOrderDate">تاریخ 98/6/31 ساعت 14:52</string>
+	<string name="testOrderPrice">مبلغ کل: 30,000 تومان</string>
+	<string name="testOrderId">سفارش شماره 846582</string>
+	<string name="testOrderSum">مبلغ سفارش: 340,000 تومان</string>
+	<string name="testOrderTax">مالیات: 340,000 تومان</string>
+	<string name="testOrderToll">عوارض: 340,000 تومان</string>
+	<string name="testOrderDiscount">تخفیف: 340,000 تومان</string>
+	<string name="testOrderWallet">کیف پول: 340,000 تومان</string>
+	<string name="testCourierPrice">هزینه ارسال: 340,000 تومان</string>
+	<string name="testOrderTotalPrice">مبلغ قابل پرداخت: 340,000 تومان</string>
+	<string name="testOrderBranchName">نام شعبه: بلوار کسایی</string>
+	<string name="testDate">دوشنبه 24 تیر 98 ساعت 09:55</string>
+	<string name="testStatusText">در انتظار پاسخ</string>
+	<string name="testWalletDescription">افزایش اعتبار توسط ادمین برای ورود اولین بار</string>
+	<string name="testDiameter">20 cm</string>
+</resources>

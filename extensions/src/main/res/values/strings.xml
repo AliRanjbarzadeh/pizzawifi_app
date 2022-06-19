@@ -1,0 +1,9 @@
+<resources>
+	<string name="app_name" translatable="false">Extensions</string>
+	<string name="no_app_found_to_open">برنامه ای برای باز کردن پیدا نشد</string>
+	<string name="save_in_clip_boar">در کلیپ بورد ذخیره شد</string>
+	<string name="c1"> تنظیمات شبکه</string>
+	<string name="c2">تلاش مجدد</string>
+	<string name="app_font">fonts/app_font.ttf</string>
+	<string name="app_font_bold">fonts/app_font_bold.ttf</string>
+</resources>

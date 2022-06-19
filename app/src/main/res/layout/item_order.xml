@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="ir.atriatech.pizzawifi.entities.orders.Order" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvOrderItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4mdp"
+        app:cardCornerRadius="@dimen/_10mdp"
+        app:cardElevation="@dimen/_3mdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10mdp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtOrderId"
+                style="@style/AppFontBold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_4mdp"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:maxLines="1"
+                android:text="@{String.format(@string/orderId, item.id), default=`@string/testOrderId`}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12font_mdp"
+                app:layout_constraintBottom_toTopOf="@id/txtOrderDate"
+                app:layout_constraintEnd_toStartOf="@id/btnStatus"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:focusable="false"
+                android:text="@{item.statusText, default=`@string/pendingStatus`}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10font_mdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtOrderDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4mdp"
+                android:drawableStart="@drawable/ic_calendar_outline_2"
+                android:drawablePadding="@dimen/_8mdp"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:maxLines="1"
+                android:text="@{item.orderTime, default=`@string/testOrderDate`}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/color82"
+                android:textSize="@dimen/_10font_mdp"
+                app:layout_constraintBottom_toTopOf="@id/txtPriceLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtOrderId" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtPriceLabel"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_20mdp"
+                android:layout_marginTop="@dimen/_4mdp"
+                android:drawableStart="@drawable/ic_location_outline_2"
+                android:drawablePadding="@dimen/_8mdp"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:maxLines="1"
+                android:padding="0dp"
+                android:text="@{item.address, default=`@string/address`}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/color82"
+                android:textSize="@dimen/_10font_mdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtOrderDate" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBgPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:clickable="false"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                app:backgroundTint="@color/colorF2"
+                app:cornerRadius="@dimen/_12mdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtPriceLabel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16mdp"
+                android:elevation="100dp"
+                android:text="@string/orderSumTitle"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12mdp"
+                app:layout_constraintBottom_toBottomOf="@id/btnBgPrice"
+                app:layout_constraintStart_toStartOf="@id/btnBgPrice"
+                app:layout_constraintTop_toTopOf="@id/btnBgPrice" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/AppFontBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_16mdp"
+                android:elevation="100dp"
+                android:text="@{item.formatTotal, default=`@string/priceTemp`}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12mdp"
+                app:layout_constraintBottom_toBottomOf="@id/btnBgPrice"
+                app:layout_constraintEnd_toEndOf="@id/btnBgPrice"
+                app:layout_constraintTop_toTopOf="@id/btnBgPrice" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOrderDetail"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/orderDetail2"
+                android:textSize="@dimen/_12font_mdp"
+                app:cornerRadius="@dimen/_20mdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnBgPrice"
+                app:strokeColor="@color/colorPrimary" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

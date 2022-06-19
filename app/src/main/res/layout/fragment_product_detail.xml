@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.productdetail.ProductDetail">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="ir.atriatech.pizzawifi.ui.main.productdetail.ProductDetailFragmentViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="locale">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40mdp"
+                android:background="@color/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtToolbar"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical|start"
+                        android:text="@{viewModel.mItem.name, default=`@string/productDetail`}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_15font_mdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toTopOf="@id/flBottom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/mainView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgProduct"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/_40mdp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_sample"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtName"
+                        style="@style/AppFontBold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginTop="@dimen/_12mdp"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:text="@{viewModel.mItem.name, default=`@string/productName`}"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_16font_mdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imgProduct" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtDescription"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12mdp"
+                        android:gravity="center_vertical|start"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@{viewModel.mItem.description, default=`@string/testDescription`}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color65"
+                        android:textSize="@dimen/_12font_mdp"
+                        app:layout_constraintEnd_toEndOf="@id/txtName"
+                        app:layout_constraintStart_toStartOf="@id/txtName"
+                        app:layout_constraintTop_toBottomOf="@id/txtName" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/flBottom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/lineProduct"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_1mdp"
+                        android:background="@color/colorEB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.mItem.entity == 1 ? @string/addToCart : @string/notExists, default=`@string/addToCart`}"
+                        android:textSize="@dimen/_12font_mdp"
+                        android:visibility="@{!viewModel.mItem.inDb ? View.VISIBLE : View.INVISIBLE, default=`visible`}"
+                        app:cornerRadius="@dimen/_20mdp"
+                        app:layout_constraintBottom_toBottomOf="@id/linearAdd"
+                        app:layout_constraintEnd_toEndOf="@id/linearAdd"
+                        app:layout_constraintTop_toTopOf="@id/linearAdd" />
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:visibility="@{viewModel.mItem.inDb ? View.VISIBLE : View.INVISIBLE, default=`visible`}"
+                        app:cornerRadius="@dimen/_20mdp"
+                        app:layout_constraintBottom_toBottomOf="@id/linearAdd"
+                        app:layout_constraintEnd_toEndOf="@id/linearAdd"
+                        app:layout_constraintStart_toStartOf="@id/linearAdd"
+                        app:layout_constraintTop_toTopOf="@id/linearAdd"
+                        app:strokeColor="@color/textPrimary" />
+
+                    <LinearLayout
+                        android:id="@+id/linearAdd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8mdp"
+                        android:orientation="horizontal"
+                        android:visibility="@{viewModel.mItem.inDb ? View.VISIBLE : View.INVISIBLE, default=`visible`}"
+                        app:layout_constraintBottom_toBottomOf="@id/txtRealPrice"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/txtPriceTotal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/btnIncrease"
+                            android:layout_width="@dimen/_24mdp"
+                            android:layout_height="@dimen/_24mdp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_2mdp"
+                            android:layout_marginTop="@dimen/_2mdp"
+                            android:layout_marginBottom="@dimen/_2mdp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_baseline_add_24"
+                            app:tint="@color/textPrimary" />
+
+                        <TextSwitcher
+                            android:id="@+id/txtCount"
+                            android:layout_width="@dimen/_24mdp"
+                            android:layout_height="@dimen/_24mdp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/_6mdp"
+                            android:layout_marginEnd="@dimen/_6mdp"
+                            android:gravity="center"
+                            android:text="@{viewModel.mItem.shopCount > 99 ? `+99` : String.valueOf(viewModel.mItem.shopCount)}"
+                            android:textColor="@color/textPrimary"
+                            android:textDirection="ltr"
+                            android:textSize="@dimen/_14font_mdp">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textColor="@color/textPrimary"
+                                android:textDirection="ltr"
+                                android:textSize="@dimen/_14font_mdp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:textColor="@color/textPrimary"
+                                android:textDirection="ltr"
+                                android:textSize="@dimen/_14font_mdp" />
+                        </TextSwitcher>
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/btnDecrease"
+                            android:layout_width="@dimen/_24mdp"
+                            android:layout_height="@dimen/_24mdp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="@dimen/_2mdp"
+                            android:layout_marginEnd="@dimen/_2mdp"
+                            android:layout_marginBottom="@dimen/_2mdp"
+                            android:padding="@dimen/_2mdp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_trash2"
+                            app:tint="@color/textPrimary" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/txtDiscount"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        fontPath="@string/app_font_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:gravity="center"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="@dimen/_4mdp"
+                        android:text="@{viewModel.mItem.discountPercentString, default=`@string/discountPercentSample`}"
+                        android:textColor="@color/textPrimary"
+                        android:textSize="@dimen/_12font_mdp"
+                        android:visibility="@{viewModel.mItem.discount_percent > 0 ? View.VISIBLE : View.GONE}"
+                        app:cornerRadius="@dimen/_5mdp"
+                        app:layout_constraintBottom_toBottomOf="@id/txtRealPrice"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/txtPriceTotal"
+                        app:strokeColor="@color/textPrimary"
+                        app:strokeWidth="@dimen/_1mdp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtPriceTotal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8mdp"
+                        android:layout_marginTop="@dimen/_8mdp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical|center"
+                        android:text="@{viewModel.mItem.formatPrice, default=`@string/testProductPrice`}"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12font_mdp"
+                        app:layout_constraintStart_toEndOf="@id/txtDiscount"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtRealPrice"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_8mdp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical|center"
+                        android:text="@{viewModel.mItem.formatRealPrice, default=`@string/testProductPrice`}"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/dustyGray"
+                        android:textSize="@dimen/_10font_mdp"
+                        android:visibility="@{viewModel.mItem.discount_percent > 0 ? View.VISIBLE : View.INVISIBLE}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/txtPriceTotal"
+                        app:layout_constraintTop_toBottomOf="@id/txtPriceTotal" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

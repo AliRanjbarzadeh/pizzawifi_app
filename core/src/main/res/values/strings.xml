@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">core</string>
+    <string name="retry">تلاش مجدد!</string>
+    <string name="close">بستن</string>
+    <string name="error">خطای ارتباط</string>
+    <string name="_error_title">خطا</string>
+    <string name="_success_title">عملیات موفق</string>
+    <string name="message">لطفا به اینترنت وصل شوید و دوباره امتحان کنید</string>
+
+    <string name="check_internet">خطا در اتصال به اینترنت</string>
+    <string name="_retry">تلاش مجدد</string>
+    <string name="_close">بستن</string>
+    <string name="to_get_better_result_give_permission">برای دریافت نتیجه بهتر دسترسی به مکان را در تنظیمات فعال نمایید</string>
+    <string name="_setting">تنظیمات</string>
+    <string name="_no">خیر</string>
+    <string name="_yes">بله</string>
+    <string name="_understand">متوجه شدم</string>
+    <string name="_do_you_want_to_delete">از حذف اطمینان دارید؟</string>
+    <string name="_error_in_connection">خطا در برقراری ارتباط</string>
+    <string name="_camera_req">برای استفاده از این بخش نیاز به استفاده از دوربین است</string>
+    <string name="_by_distance">مرتب سازی بر اساس فاصله</string>
+    <string name="_by_favourit">مرتب سازی بر اساس علاقه مندی</string>
+    <string name="_by_date">مرتب سازی بر اساس تاریخ انقضا</string>
+</resources>

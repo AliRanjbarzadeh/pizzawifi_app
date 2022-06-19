@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<import type="android.view.View" />
+
+		<variable
+			name="item"
+			type="ir.atriatech.pizzawifi.entities.profile.competition.CompetitionQuestion" />
+	</data>
+
+	<com.google.android.material.card.MaterialCardView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:cardBackgroundColor="@color/color30"
+		app:cardCornerRadius="8dp"
+		app:cardElevation="2dp"
+		app:rippleColor="@color/black30">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingTop="16dp"
+			android:paddingBottom="16dp">
+
+			<androidx.appcompat.widget.AppCompatTextView
+				android:id="@+id/txtTitle"
+				style="@style/AppFontBold"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="16dp"
+				android:layout_marginEnd="16dp"
+				android:gravity="center_vertical|start"
+				android:text="@{item.titleWithIndex, default=`@string/loremTitle`}"
+				android:textAlignment="viewStart"
+				android:textColor="@color/colorAccentSecondary"
+				android:textSize="15sp"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintVertical_chainStyle="packed" />
+
+			<androidx.appcompat.widget.AppCompatTextView
+				android:id="@+id/txtNoAnswer"
+				style="@style/AppFontBold"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="16dp"
+				android:layout_marginTop="8dp"
+				android:layout_marginEnd="16dp"
+				android:gravity="center_vertical|start"
+				android:text="@string/yourNotAnswered"
+				android:textAlignment="viewStart"
+				android:textColor="@color/white"
+				android:textSize="15sp"
+				android:visibility="@{item.userSelect == 0 ? View.VISIBLE : View.GONE}"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/txtTitle"
+				app:layout_constraintVertical_chainStyle="packed" />
+
+			<androidx.recyclerview.widget.RecyclerView
+				android:id="@+id/rvAnswers"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				app:layout_constraintEnd_toEndOf="@+id/txtTitle"
+				app:layout_constraintStart_toStartOf="@+id/txtTitle"
+				app:layout_constraintTop_toBottomOf="@id/txtNoAnswer"
+				tools:itemCount="4"
+				tools:listitem="@layout/item_answer" />
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</com.google.android.material.card.MaterialCardView>
+</layout>

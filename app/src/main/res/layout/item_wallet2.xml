@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="ir.atriatech.pizzawifi.entities.profile.wallet.Wallet" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="@dimen/_1mdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_8mdp">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:alpha=".08"
+                app:backgroundTint="@color/walletStatus1"
+                app:cornerRadius="@dimen/_20mdp"
+                app:layout_constraintBottom_toBottomOf="@id/txtAmount"
+                app:layout_constraintEnd_toEndOf="@id/txtAmount"
+                app:layout_constraintStart_toStartOf="@id/txtAmount"
+                app:layout_constraintTop_toTopOf="@id/txtAmount" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="100dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:maxLines="1"
+                android:paddingStart="@dimen/_8mdp"
+                android:paddingEnd="@dimen/_8mdp"
+                android:text="@{item.amountFormat, default=`@string/testProductPrice`}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/walletStatus1"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtDescription"
+                style="@style/AppFontBold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_4mdp"
+                android:gravity="center_vertical|start"
+                android:text="@{item.description, default=`@string/testWalletDescription`}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/walletStatus1"
+                android:textSize="@dimen/_12font_mdp"
+                app:layout_constraintBottom_toTopOf="@id/txtDate"
+                app:layout_constraintEnd_toStartOf="@id/txtAmount"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4mdp"
+                android:ellipsize="end"
+                android:gravity="center_vertical|start"
+                android:maxLines="1"
+                android:text="@{item.cDate, default=`@string/testDate`}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/color82"
+                android:textSize="@dimen/_10font_mdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/txtDescription"
+                app:layout_constraintStart_toStartOf="@id/txtDescription"
+                app:layout_constraintTop_toBottomOf="@id/txtDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:context=".ui.main.more.area.Area">
+
+	<data>
+
+		<variable
+			name="viewModel"
+			type="ir.atriatech.pizzawifi.ui.main.more.area.AreaFragmentViewModel" />
+	</data>
+
+	<androidx.coordinatorlayout.widget.CoordinatorLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layoutDirection="locale">
+
+		<com.google.android.material.appbar.AppBarLayout
+			android:id="@+id/appbarId"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<androidx.appcompat.widget.Toolbar
+				android:id="@+id/toolbarId"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/_40mdp"
+				android:background="@color/colorPrimary"
+				android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+				<androidx.constraintlayout.widget.ConstraintLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:id="@+id/txtToolbar"
+						android:layout_width="0dp"
+						android:layout_height="match_parent"
+						android:layout_marginEnd="16dp"
+						android:gravity="center_vertical|start"
+						android:text="@string/area"
+						android:textAlignment="viewStart"
+						android:textColor="@color/appbarText"
+						android:textSize="@dimen/_15font_mdp"
+						app:layout_constraintBottom_toBottomOf="parent"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintTop_toTopOf="parent" />
+				</androidx.constraintlayout.widget.ConstraintLayout>
+			</androidx.appcompat.widget.Toolbar>
+		</com.google.android.material.appbar.AppBarLayout>
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/mainView"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+			<FrameLayout
+				android:id="@+id/frameMap"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent" />
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="ir.atriatech.pizzawifi.entities.home.BlogVideo" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4mdp"
+        android:layout_marginTop="@dimen/_4mdp"
+        android:layout_marginEnd="@dimen/_4mdp"
+        android:layout_marginBottom="@dimen/_4mdp"
+        app:cardBackgroundColor="@color/color27"
+        app:cardElevation="@dimen/_12mdp"
+        app:shapeAppearance="@style/HomeBlogItem">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_8mdp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgProduct"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_100mdp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/blog_sample_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/HomeBlogItemImage" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_video"
+                app:layout_constraintBottom_toBottomOf="@id/imgProduct"
+                app:layout_constraintEnd_toEndOf="@id/imgProduct"
+                app:layout_constraintStart_toStartOf="@id/imgProduct"
+                app:layout_constraintTop_toTopOf="@id/imgProduct" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtVideoCategory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8mdp"
+                android:layout_marginTop="@dimen/_3mdp"
+                android:layout_marginEnd="@dimen/_2mdp"
+                android:ellipsize="end"
+                android:gravity="start|center_vertical"
+                android:maxLines="1"
+                android:text="@{item.blogVideoInfo.category, default=`@string/blogSampleCategory`}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/gray2"
+                android:textSize="@dimen/_12font_mdp"
+                app:layout_constraintEnd_toStartOf="@id/txtVideoTime"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgProduct" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtVideoTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8mdp"
+                android:text="@{item.blogVideoInfo.time, default=`@string/blogSampleVideoTime`}"
+                android:textColor="@color/gray2"
+                android:textSize="@dimen/_12font_mdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtVideoCategory" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTitle"
+                fontPath="@string/app_font_hekayat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3mdp"
+                android:ellipsize="end"
+                android:gravity="start|center_vertical"
+                android:maxLines="1"
+                android:text="@{item.blogVideoInfo.title, default=`@string/blogSampleTitle`}"
+                android:textAlignment="textStart"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/_15font_mdp"
+                app:layout_constraintEnd_toEndOf="@id/txtVideoTime"
+                app:layout_constraintStart_toStartOf="@id/txtVideoCategory"
+                app:layout_constraintTop_toBottomOf="@id/txtVideoCategory" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
