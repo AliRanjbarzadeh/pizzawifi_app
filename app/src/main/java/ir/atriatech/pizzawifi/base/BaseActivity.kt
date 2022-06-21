@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.afollestad.materialdialogs.MaterialDialog
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
@@ -46,6 +47,7 @@ abstract class BaseActivity : AppCompatActivity(), KeyboardVisibilityEventListen
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
+		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 		setLanguage(loadFromSp(LANGUAGE_SESSION_KEY, DEFAULT_LANGUAGE))
 		// Obtain the FirebaseAnalytics instance.
 		firebaseAnalytics = Firebase.analytics

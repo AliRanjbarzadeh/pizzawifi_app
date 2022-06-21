@@ -4,6 +4,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="item"
             type="ir.atriatech.pizzawifi.entities.orders.Order" />
@@ -133,17 +135,84 @@
                 android:id="@+id/btnOrderDetail"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_30mdp"
                 android:layout_marginTop="@dimen/_8mdp"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:text="@string/orderDetail2"
                 android:textSize="@dimen/_12font_mdp"
-                app:cornerRadius="@dimen/_20mdp"
+                android:visibility="@{!item.showAllButtons ? View.VISIBLE : View.GONE, default=`gone`}"
+                app:cornerRadius="@dimen/_15mdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btnBgPrice"
                 app:strokeColor="@color/colorPrimary" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:orientation="horizontal"
+                android:visibility="@{item.showAllButtons ? View.VISIBLE : View.GONE}"
+                android:weightSum="3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnBgPrice">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnReorder"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30mdp"
+                    android:layout_marginEnd="@dimen/_4mdp"
+                    android:layout_weight="1"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/reorder"
+                    android:textSize="@dimen/_9font_mdp"
+                    app:cornerRadius="@dimen/_15mdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnBgPrice"
+                    app:strokeColor="@color/colorPrimary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShowOrder"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30mdp"
+                    android:layout_marginStart="@dimen/_4mdp"
+                    android:layout_marginEnd="@dimen/_4mdp"
+                    android:layout_weight="1"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/orderDetail3"
+                    android:textSize="@dimen/_9font_mdp"
+                    app:cornerRadius="@dimen/_15mdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnBgPrice"
+                    app:strokeColor="@color/colorPrimary" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSurvey"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30mdp"
+                    android:layout_marginStart="@dimen/_4mdp"
+                    android:layout_weight="1"
+                    android:alpha="@{item.canSurvey ? 1f : 0.5f}"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/survey"
+                    android:textSize="@dimen/_9font_mdp"
+                    app:cornerRadius="@dimen/_15mdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnBgPrice"
+                    app:strokeColor="@color/colorPrimary" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

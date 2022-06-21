@@ -73,7 +73,7 @@ data class CityModel(
 	}
 
 	override fun toString(): String {
-		return "CityModel(id=$id, name='$name', status=$status, isSelected=$isSelected)"
+		return "CityModel(id=$id, name='$name', status=$status, isSelected=$isSelected, branches=$branches)"
 	}
 
 	companion object {

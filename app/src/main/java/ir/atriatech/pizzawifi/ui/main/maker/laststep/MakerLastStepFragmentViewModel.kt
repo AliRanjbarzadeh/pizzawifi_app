@@ -38,12 +38,12 @@ class MakerLastStepFragmentViewModel : BaseFragmentViewModel() {
 					step.materials.forEach { material ->
 						when (material.qty) {
 							1 -> {
-								stepPrice += material.prices.get(step.qty.toString())?.price ?: 0
-								d(material.prices.get(step.qty.toString())?.price ?: 0, "MaterialPriceNormal")
+								stepPrice += material.prices?.get(step.qty.toString())?.price ?: 0
+								d(material.prices?.get(step.qty.toString())?.price ?: 0, "MaterialPriceNormal")
 							}
 							2 -> {
-								stepPrice += material.prices.get("extra")?.price ?: 0
-								d(material.prices.get("extra")?.price ?: 0, "MaterialPriceExtra")
+								stepPrice += material.prices?.get("extra")?.price ?: 0
+								d(material.prices?.get("extra")?.price ?: 0, "MaterialPriceExtra")
 							}
 						}
 					}
@@ -55,8 +55,8 @@ class MakerLastStepFragmentViewModel : BaseFragmentViewModel() {
 				if (step.rightQty > 0) {
 					step.rightMaterials.forEach { rightMaterial ->
 						when (rightMaterial.qty) {
-							1 -> stepRightPrice += rightMaterial.prices.get(step.rightQty.toString())?.price ?: 0
-							2 -> stepRightPrice += rightMaterial.prices.get("extra")?.price ?: 0
+							1 -> stepRightPrice += rightMaterial.prices?.get(step.rightQty.toString())?.price ?: 0
+							2 -> stepRightPrice += rightMaterial.prices?.get("extra")?.price ?: 0
 						}
 					}
 					stepRightPrice -= (stepRightPrice.toFloat() * step.percent[step.rightQty - 1] / 100).toInt()
@@ -66,8 +66,8 @@ class MakerLastStepFragmentViewModel : BaseFragmentViewModel() {
 				if (step.leftQty > 0) {
 					step.leftMaterials.forEach { leftMaterial ->
 						when (leftMaterial.qty) {
-							1 -> stepLeftPrice += leftMaterial.prices.get(step.leftQty.toString())?.price ?: 0
-							2 -> stepLeftPrice += leftMaterial.prices.get("extra")?.price ?: 0
+							1 -> stepLeftPrice += leftMaterial.prices?.get(step.leftQty.toString())?.price ?: 0
+							2 -> stepLeftPrice += leftMaterial.prices?.get("extra")?.price ?: 0
 						}
 					}
 					stepLeftPrice -= (stepLeftPrice.toFloat() * step.percent[step.leftQty - 1] / 100).toInt()

@@ -69,7 +69,7 @@ data class Material(
 	var entity: Int = 0,
 	@SerializedName("prices")
 	@Expose
-	var prices: HashMap<String, MaterialPrice> = HashMap()
+	var prices: HashMap<String, MaterialPrice>? = HashMap()
 ) : BaseObservable(), Parcelable {
 	var qty: Int = 0
 		@Bindable get() = field

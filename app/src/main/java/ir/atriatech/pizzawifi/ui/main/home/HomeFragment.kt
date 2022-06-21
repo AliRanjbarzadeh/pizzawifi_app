@@ -1,5 +1,8 @@
 package ir.atriatech.pizzawifi.ui.main.home
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -9,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -17,16 +21,28 @@ import androidx.transition.TransitionInflater
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.bottomsheets.BottomSheet
 import com.afollestad.materialdialogs.callbacks.onDismiss
+import com.afollestad.materialdialogs.callbacks.onShow
 import com.afollestad.materialdialogs.customview.customView
 import com.afollestad.materialdialogs.customview.getCustomView
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.common.api.ResolvableApiException
+import com.google.android.gms.location.*
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.android.gms.tasks.Task
+import com.patloew.rxlocation.RxLocation
+import com.tbruyelle.rxpermissions2.RxPermissions
 import ir.atriatech.core.ARG_STRING_1
 import ir.atriatech.core.BuildConfig
 import ir.atriatech.core.base.RequestConnectionResult
+import ir.atriatech.core.entities.Msg
 import ir.atriatech.core.interfaces.RecyclerViewTools
 import ir.atriatech.extensions.android.*
 import ir.atriatech.extensions.app.findString
 import ir.atriatech.extensions.base.fragment.baseObserver
 import ir.atriatech.extensions.base.fragment.setProgressView
+import ir.atriatech.extensions.kotlin.d
 import ir.atriatech.extensions.kotlin.e
 import ir.atriatech.pizzawifi.R
 import ir.atriatech.pizzawifi.base.BaseFragment
@@ -48,6 +64,10 @@ class HomeFragment : BaseFragment() {
 	private lateinit var cityBranchBottomsheetBinding: CityBranchBottomsheetBinding
 	private var isShowCityBranchDialog = false
 
+	private lateinit var rxPermissions: RxPermissions
+	private lateinit var rxLocation: RxLocation
+	private val locationRequest = LocationRequest()
+
 	init {
 		component.inject(this)
 	}
@@ -56,8 +76,20 @@ class HomeFragment : BaseFragment() {
 		super.onCreate(savedInstanceState)
 		mViewModel = ViewModelProvider(this).get(HomeFragmentViewModel::class.java)
 
-		mObserver()
 		baseFragmentCallback?.changeMenuLock(true)
+
+		//Location
+		locationRequest.run {
+			interval = 10000
+			fastestInterval = 5000
+			priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+		}
+
+		rxPermissions = RxPermissions(this)
+		rxLocation = RxLocation(requireContext())
+
+		mObserver()
+		mBranchObserver()
 	}
 
 	override fun onCreateView(
@@ -103,7 +135,18 @@ class HomeFragment : BaseFragment() {
 				cancelable(false)
 			}
 
-			onDismiss { mViewModel.isShowBranch = false }
+			onDismiss {
+				mViewModel.isShowBranch = false
+				cityBranchBottomsheetBinding.btnNearestBranch.setIconResource(R.drawable.ic_baseline_location_searching_24)
+				cityBranchBottomsheetBinding.btnNearestBranch.text = getString(R.string.nearestBranch)
+				cityBranchBottomsheetBinding.btnNearestBranch.tag = null
+				mViewModel.latLng = null
+				mViewModel.locationSearch.set(false)
+			}
+
+			onShow {
+				it.view.findViewById<LinearLayoutCompat>(R.id.mainView).setPadding(0, 0, 0, 0)
+			}
 		}
 
 		cityBranchBottomsheetBinding.rvItems.layoutManager = LinearLayoutManager(requireContext())
@@ -123,6 +166,128 @@ class HomeFragment : BaseFragment() {
 
 			mCityBranchDialog.dismiss()
 		}
+
+		cityBranchBottomsheetBinding.btnNearestBranch.setOnClickListener {
+			if (mViewModel.locationSearch.get() == true) {
+				return@setOnClickListener
+			}
+
+			when (it.tag) {
+				"clearFilter" -> {
+					cityBranchBottomsheetBinding.btnNearestBranch.setIconResource(R.drawable.ic_baseline_location_searching_24)
+					cityBranchBottomsheetBinding.btnNearestBranch.text = getString(R.string.nearestBranch)
+					cityBranchBottomsheetBinding.btnNearestBranch.tag = null
+					mViewModel.latLng = null
+					mViewModel.locationSearch.set(false)
+					mViewModel.getNearestBranches()
+				}
+
+				else -> {
+					grantPermissions()
+				}
+			}
+		}
+	}
+
+	@SuppressLint("MissingPermission")
+	private fun grantPermissions() {
+		mViewModel.permissionDisposable?.dispose()
+		mViewModel.permissionDisposable =
+			rxPermissions.request(
+				Manifest.permission.ACCESS_FINE_LOCATION,
+				Manifest.permission.ACCESS_COARSE_LOCATION
+			)
+				.subscribe {
+					if (it) {
+						startLocationListening()
+					}
+				}
+	}
+
+	/**
+	 * Start getting location
+	 */
+	private fun startLocationListening() {
+
+		val mHighAccuracy = LocationRequest()
+		mHighAccuracy.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+		mHighAccuracy.interval = 5000
+
+		val mBalancedAccuracy = LocationRequest()
+		mBalancedAccuracy.priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
+
+		val builder = LocationSettingsRequest
+			.Builder()
+			.addLocationRequest(mHighAccuracy)
+			.addLocationRequest(mBalancedAccuracy)
+			.setNeedBle(true)
+
+		val client: SettingsClient = LocationServices.getSettingsClient(requireContext())
+		val task: Task<LocationSettingsResponse> = client.checkLocationSettings(builder.build())
+		task.addOnSuccessListener(locationSettingSuccess)
+		task.addOnFailureListener(locationSettingFailure)
+	}
+
+	private val locationSettingSuccess = OnSuccessListener<LocationSettingsResponse> {
+		makeFusedLocation()
+	}
+
+	private val locationSettingFailure = OnFailureListener { e ->
+		when (e) {
+			is ApiException -> {
+				when (e.statusCode) {
+					LocationSettingsStatusCodes.RESOLUTION_REQUIRED -> {
+						try {
+							val resolvable = e as ResolvableApiException
+							resolvable.startResolutionForResult(activity, mViewModel.GPS_RESULT)
+						} catch (e1: Exception) {
+							e1.printStackTrace()
+							e(e1.message.toString(), "LocationListener")
+						}
+					}
+
+					else -> {
+						//TODO: toast gps problem
+					}
+				}
+			}
+
+			else -> {
+				//TODO: toast gps problem
+			}
+		}
+	}
+
+	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+		when (requestCode) {
+			mViewModel.GPS_RESULT -> {
+				when (resultCode) {
+					Activity.RESULT_OK -> {
+						makeFusedLocation()
+					}
+
+					else -> mViewModel.locationSearch.set(false)
+				}
+			}
+		}
+	}
+
+	@SuppressLint("MissingPermission")
+	fun makeFusedLocation() {
+		mViewModel.rxLocationDisposable?.dispose()
+		mViewModel.rxLocationDisposable = rxLocation.location()
+			.updates(locationRequest)
+			.doOnSubscribe {
+				mViewModel.locationSearch.set(true)
+				mViewModel.viewModelLoading.set(true)
+			}
+			.subscribe {
+				d(it, "LocationListener")
+				if (it != null) {
+					mViewModel.latLng = LatLng(it.latitude, it.longitude)
+					mViewModel.getNearestBranches()
+				}
+			}
 	}
 
 	override fun onResume() {
@@ -347,6 +512,15 @@ class HomeFragment : BaseFragment() {
 				cityBranchBottomsheetBinding.rvItems.adapter = mViewModel.mCityAdapter
 				mViewModel.mCityAdapter?.notifyItemRangeInserted(0, mViewModel.mItem.cities.size)
 			} else {
+				mViewModel.mItem.cities.first().branches.forEachIndexed { branchIndex, branch ->
+					if (branch.id == AppObject.selectedBranchId) {
+						branch.status = 1
+						mViewModel.lastPositionBranch = branchIndex
+					} else {
+						branch.status = 0
+					}
+				}
+				cityBranchBottomsheetBinding.btnNearestBranch.visibility = View.VISIBLE
 				mViewModel.bottomSheetTitle.set(getString(R.string.selectBranch))
 				if (mViewModel.mBranchAdapter == null) {
 					mViewModel.mBranchAdapter = BranchAdapter(requireContext(), branchClicks)
@@ -541,6 +715,7 @@ class HomeFragment : BaseFragment() {
 	}
 
 	private fun changeToCityAdapter() {
+		cityBranchBottomsheetBinding.btnNearestBranch.visibility = View.GONE
 		cityBranchBottomsheetBinding.imgClose.setImageResource(R.drawable.ic_close_black_24dp)
 		mViewModel.bottomSheetTitle.set(getString(R.string.selectCity))
 		mViewModel.mItem.cities.forEachIndexed { index, cityModel ->
@@ -573,6 +748,7 @@ class HomeFragment : BaseFragment() {
 	}
 
 	private fun changeToBranchAdapter() {
+		cityBranchBottomsheetBinding.btnNearestBranch.visibility = View.VISIBLE
 		cityBranchBottomsheetBinding.imgClose.setImageResource(if (mViewModel.mItem.cities.size > 1) R.drawable.ic_arrow else R.drawable.ic_close_black_24dp)
 		mViewModel.bottomSheetTitle.set(getString(R.string.selectBranch))
 		mViewModel.mItem.cities[mViewModel.lastPosition].also {
@@ -815,5 +991,58 @@ class HomeFragment : BaseFragment() {
 				mViewModel.getData()
 			}
 		}, 2)
+	}
+
+	private fun mBranchObserver() {
+		baseObserver(
+			this,
+			mViewModel.mBranchObserver,
+			object : RequestConnectionResult<MutableList<Branch>> {
+				override fun onProgress(loading: Boolean) {
+					mViewModel.locationSearch.set(true)
+					baseFragmentCallback?.changeMenuLock(loading)
+					setProgressView(cityBranchBottomsheetBinding.mainView, loading, type = 2)
+					cityBranchBottomsheetBinding.rvItems.visibility = View.GONE
+				}
+
+				override fun onSuccess(data: MutableList<Branch>) {
+					cityBranchBottomsheetBinding.rvItems.visibility = View.VISIBLE
+
+					data.forEachIndexed { branchIndex, branch ->
+						if (branch.id == AppObject.selectedBranchId) {
+							branch.status = 1
+							mViewModel.lastPositionBranch = branchIndex
+						} else {
+							branch.status = 0
+						}
+					}
+
+					mViewModel.mBranchAdapter?.list?.clear()
+					mViewModel.mBranchAdapter?.list?.addAll(data)
+					mViewModel.mBranchAdapter?.notifyItemRangeChanged(0, data.size)
+
+					mViewModel.locationSearch.set(false)
+					if (mViewModel.latLng != null) {
+						cityBranchBottomsheetBinding.btnNearestBranch.setIconResource(R.drawable.ic_baseline_my_location_24)
+						cityBranchBottomsheetBinding.btnNearestBranch.text = getString(R.string.clearFilter)
+						cityBranchBottomsheetBinding.btnNearestBranch.tag = "clearFilter"
+					} else {
+						cityBranchBottomsheetBinding.btnNearestBranch.setIconResource(R.drawable.ic_baseline_location_searching_24)
+						cityBranchBottomsheetBinding.btnNearestBranch.text = getString(R.string.nearestBranch)
+						cityBranchBottomsheetBinding.btnNearestBranch.tag = null
+					}
+				}
+
+				override fun onFailed(errorMessage: String) {
+					super.onFailed(errorMessage)
+					cityBranchBottomsheetBinding.rvItems.visibility = View.VISIBLE
+				}
+
+				override fun onFailed(msg: Msg) {
+					super.onFailed(msg)
+					cityBranchBottomsheetBinding.rvItems.visibility = View.VISIBLE
+				}
+			}
+		)
 	}
 }

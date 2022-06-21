@@ -20,7 +20,7 @@ ext {
             'databaseName'       : '"PizzaWifiDB"',
             'appVersion'         : '"33"',
             'userAgent'          : '"PizzaWifi-Android"',
-            'environment'        : '"development"',
+            'environment'        : '"production"',
     ]
 
     versions = [

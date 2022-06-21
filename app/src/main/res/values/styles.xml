@@ -7,7 +7,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/appBackgroundColor</item>
-        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/color32</item>
+        <item name="android:navigationBarColor">@color/color32</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
 
         <!--Primary text & hint color-->
         <!--		<item mSearchText="android:textColor">@color/textPrimary</item>-->

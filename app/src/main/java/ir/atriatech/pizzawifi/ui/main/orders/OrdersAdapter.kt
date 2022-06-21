@@ -31,6 +31,9 @@ class OrdersAdapter(val context: Context, val recyclerViewTools: RecyclerViewToo
 				}
 
 				binding.btnOrderDetail.setOnClickListener { recyclerViewTools.onItemClick(bindingAdapterPosition, it, item) }
+				binding.btnShowOrder.setOnClickListener { recyclerViewTools.onItemClick(bindingAdapterPosition, it, item) }
+				binding.btnReorder.setOnClickListener { recyclerViewTools.onItemClick(bindingAdapterPosition, it, item) }
+				binding.btnSurvey.setOnClickListener { recyclerViewTools.onItemClick(bindingAdapterPosition, it, item) }
 
 				when (item.orderStatus) {
 					0 -> {// pending
@@ -52,6 +55,7 @@ class OrdersAdapter(val context: Context, val recyclerViewTools: RecyclerViewToo
 					4 -> {// declined
 						binding.btnStatus.setTextColor(findColor(R.color.orderStatus4))
 					}
+
 					else -> {// declined
 						binding.btnStatus.setTextColor(findColor(R.color.orderStatusUnknown))
 					}

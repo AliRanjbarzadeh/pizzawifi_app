@@ -49,18 +49,35 @@
                 style="@style/AppFontBold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4mdp"
                 android:ellipsize="end"
                 android:gravity="center_vertical|start"
                 android:maxLines="1"
-                android:padding="@dimen/_8mdp"
+                android:paddingStart="@dimen/_8mdp"
+                android:paddingEnd="@dimen/_8mdp"
                 android:text="@{item.name, default=`@string/loremTitle`}"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14font_mdp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/imgLocation"
                 app:layout_constraintStart_toEndOf="@id/rbBranch"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_4mdp"
+                android:gravity="start"
+                android:paddingStart="@dimen/_8mdp"
+                android:paddingEnd="@dimen/_8mdp"
+                android:text="@{item.address, default=`@string/address`}"
+                android:textAlignment="viewStart"
+                android:textColor="@color/color668"
+                android:textSize="@dimen/_10font_mdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/txtName"
+                app:layout_constraintStart_toStartOf="@id/txtName"
+                app:layout_constraintTop_toBottomOf="@id/txtName" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgLocation"

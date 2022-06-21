@@ -11,56 +11,62 @@ import ir.atriatech.pizzawifi.repository.MainRepository
 import javax.inject.Inject
 
 class OrdersFragmentViewModel : BaseFragmentViewModel() {
-    var mSearchText: String = ""
-    var mListItems: MutableList<Order> = mutableListOf()
-    var mLoadMoreItems: MutableList<Order> = mutableListOf()
-    var mAdapter: OrdersAdapter? = null
-    var isLoadMore = false
-    var isEnd = false
-    var isRefreshing = false
-    var isSearching = false
-    var isFirst = true
-    val isSearchBox = ObservableBoolean(false)
+	var mSearchText: String = ""
+	var mListItems: MutableList<Order> = mutableListOf()
+	var mLoadMoreItems: MutableList<Order> = mutableListOf()
+	var mAdapter: OrdersAdapter? = null
+	var isLoadMore = false
+	var isEnd = false
+	var isRefreshing = false
+	var isSearching = false
+	var isFirst = true
+	val isSearchBox = ObservableBoolean(false)
 
-    @Inject
-    lateinit var repository: MainRepository
+	@Inject
+	lateinit var repository: MainRepository
 
-    @Inject
-    lateinit var scheduler: CoreScheduler
+	@Inject
+	lateinit var scheduler: CoreScheduler
 
-    val mObserver: LiveData<Outcome<MutableList<Order>>> by lazy {
-        repository.orderOutcome.toLiveData(
-            bag
-        )
-    }
+	val mObserver: LiveData<Outcome<MutableList<Order>>> by lazy {
+		repository.orderOutcome.toLiveData(
+			bag
+		)
+	}
 
-    init {
-        component.inject(this)
-    }
+	val mReorderObserver: LiveData<Outcome<Order>> by lazy { repository.orderDetailOutcome.toLiveData(bag) }
 
-    fun getData(limit: Int, offset: Int): Boolean {
-        val orderId = if (mSearchText.isNotEmpty()) {
-            mSearchText.toInt()
-        } else {
-            0
-        }
+	init {
+		component.inject(this)
+	}
 
-        when {
-            mAdapter == null -> {
-                repository.orderArchive(limit, offset, orderId, bag)
-                return false
-            }
+	fun getData(limit: Int, offset: Int): Boolean {
+		val orderId = if (mSearchText.isNotEmpty()) {
+			mSearchText.toInt()
+		} else {
+			0
+		}
 
-            mListItems.isEmpty() -> {
-                repository.orderArchive(limit, offset, orderId, bag)
-                return true
-            }
+		when {
+			mAdapter == null -> {
+				repository.orderArchive(limit, offset, orderId, bag)
+				return false
+			}
 
-            isLoadMore -> {
-                repository.orderArchive(limit, offset, orderId, bag)
-                return true
-            }
-        }
-        return true
-    }
+			mListItems.isEmpty() -> {
+				repository.orderArchive(limit, offset, orderId, bag)
+				return true
+			}
+
+			isLoadMore -> {
+				repository.orderArchive(limit, offset, orderId, bag)
+				return true
+			}
+		}
+		return true
+	}
+
+	fun getReorderData(orderId: Int) {
+		repository.orderDetail(orderId, bag)
+	}
 }

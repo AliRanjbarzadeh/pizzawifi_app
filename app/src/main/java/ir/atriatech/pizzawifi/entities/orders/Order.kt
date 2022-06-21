@@ -72,6 +72,10 @@ open class Order(
 	@Expose
 	var survey: Int = 0
 
+	@SerializedName("can_survey")
+	@Expose
+	var isCanSurvey: Boolean = false
+
 	@SerializedName("status_text")
 	@Expose
 	var statusText: String = ""
@@ -190,6 +194,18 @@ open class Order(
 //			secondString = branch.name,
 //			secondColor = R.color.black
 //		)
+
+	fun isShowAllButtons(): Boolean {
+		return when (orderStatus) {
+			0, 1, 2 -> false
+
+			else -> true
+		}
+	}
+
+	override fun toString(): String {
+		return "Order(id=$id, isReorder=$isReorder, statusText='$statusText', branch=$branch, city=$city)"
+	}
 
 	constructor(source: Parcel) : this(
 		source.readInt(),

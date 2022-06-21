@@ -88,6 +88,7 @@
     <string name="orderDetail">جزئیات سفارش</string>
     <string name="orderUserInfo">اطلاعات تکمیلی سفارش</string>
     <string name="orderDetail2">پیگیری سفارش</string>
+    <string name="orderDetail3">مشاهده فاکتور</string>
     <string name="orderer">نام خریدار: %s</string>
     <string name="orderer2">دریافت در: %s</string>
     <string name="ordererTitle">نام خریدار</string>
@@ -315,7 +316,7 @@
         <item>قوانین و مقررات</item>
         <item>لیست شعب</item>
         <item>مناطق تحت پوشش</item>
-<!--        <item>سوالات متداول</item>-->
+        <!--        <item>سوالات متداول</item>-->
         <item>معرفی به دوستان</item>
     </string-array>
 
@@ -326,7 +327,7 @@
         <item>@drawable/ic_more_law</item>
         <item>@drawable/ic_branch_list</item>
         <item>@drawable/ic_location_more</item>
-<!--        <item>@drawable/ic_faq_more</item>-->
+        <!--        <item>@drawable/ic_faq_more</item>-->
         <item>@drawable/ic_meeting_more</item>
     </integer-array>
 

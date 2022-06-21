@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.afollestad.materialdialogs.MaterialDialog
 import com.google.gson.JsonObject
+import com.google.gson.reflect.TypeToken
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import io.reactivex.Completable
@@ -18,19 +20,18 @@ import ir.atriatech.core.interfaces.RecyclerViewTools
 import ir.atriatech.extensions.android.*
 import ir.atriatech.extensions.android.ui.IsEndOfRecyclerView
 import ir.atriatech.extensions.app.findString
-import ir.atriatech.extensions.base.fragment.baseListObserver
-import ir.atriatech.extensions.base.fragment.checkRvEnd
-import ir.atriatech.extensions.base.fragment.hideKeyboard
+import ir.atriatech.extensions.base.fragment.*
+import ir.atriatech.extensions.kotlin.d
 import ir.atriatech.extensions.reactivex.performOnBackOutOnMain
 import ir.atriatech.pizzawifi.R
 import ir.atriatech.pizzawifi.base.BaseFragment
 import ir.atriatech.pizzawifi.base.MarginItemDecoration
-import ir.atriatech.pizzawifi.common.GO_SHOP_CART
-import ir.atriatech.pizzawifi.common.GO_TO_ORDERS
-import ir.atriatech.pizzawifi.common.NOTIFICATION_ADDITIONAL
-import ir.atriatech.pizzawifi.common.NOTIFICATION_KEY
+import ir.atriatech.pizzawifi.common.*
 import ir.atriatech.pizzawifi.databinding.FragmentOrdersBinding
 import ir.atriatech.pizzawifi.entities.orders.Order
+import ir.atriatech.pizzawifi.entities.orders.OrderItem
+import ir.atriatech.pizzawifi.entities.shopcart.ShopCartItem
+import java.lang.reflect.Type
 
 
 class OrdersFragment : BaseFragment(), RecyclerViewTools, OnRefreshListener, IsEndOfRecyclerView {
@@ -45,13 +46,14 @@ class OrdersFragment : BaseFragment(), RecyclerViewTools, OnRefreshListener, IsE
 		super.onCreate(savedInstanceState)
 		mViewModel = ViewModelProvider(this).get(OrdersFragmentViewModel::class.java)
 		mObserver()
+		mReorderObserver()
 	}
 
 	override fun onCreateView(
 		inflater: LayoutInflater,
 		container: ViewGroup?,
 		savedInstanceState: Bundle?
-	): View? {
+	): View {
 		binding = DataBindingUtil.inflate(inflater, R.layout.fragment_orders, container, false)
 
 		binding.lifecycleOwner = this
@@ -216,8 +218,21 @@ class OrdersFragment : BaseFragment(), RecyclerViewTools, OnRefreshListener, IsE
 
 	override fun <T> onItemClick(position: Int, view: View, item: T) {
 		item as Order
-		val arg = extraArguments(item.id, ARG_STRING_1)
-		navTo(R.id.orderDetailFragment, arg = arg)
+		when (view.id) {
+			R.id.btnReorder -> {
+				mViewModel.getReorderData(item.id)
+			}
+
+			R.id.btnSurvey -> {
+				val arg = extraArguments(argument1 = item, key1 = ARG_STRING_1)
+				navTo(R.id.surveyFragment, arg = arg)
+			}
+
+			else -> {
+				val arg = extraArguments(item.id, ARG_STRING_1)
+				navTo(R.id.orderDetailFragment, arg = arg)
+			}
+		}
 	}
 
 	override fun onRefresh(refreshLayout: RefreshLayout) {
@@ -338,5 +353,91 @@ class OrdersFragment : BaseFragment(), RecyclerViewTools, OnRefreshListener, IsE
 			},
 			4
 		)
+	}
+
+	private fun mReorderObserver() {
+		baseObserver(this, mViewModel.mReorderObserver, object : RequestConnectionResult<Order> {
+			override fun onProgress(loading: Boolean) {
+				setProgressView(binding.mainView, loading, 2)
+			}
+
+			override fun onSuccess(data: Order) {
+				d(data, "OrderDetailInfo")
+				if (data.isReorder) {
+					mDialog?.dismiss()
+					mDialog = MaterialDialog(requireContext())
+						.apply {
+							title(R.string.reorder)
+							message(R.string.reorderDescription)
+							positiveButton(R.string._yes)
+								.positiveButton {
+									appDataBase.shopDao().deleteAll()
+									reorder(data)
+								}
+							negativeButton(R.string._no)
+							show()
+						}
+				} else {
+					eToast(getString(R.string.reorderError))
+				}
+			}
+		})
+	}
+
+	private fun reorder(order: Order) {
+		try {
+			val listType: Type = object : TypeToken<MutableList<OrderItem>>() {}.type
+			val orderItems = gson.fromJson<MutableList<OrderItem>>(
+				order.orderItems,
+				listType
+			)
+			val items = mutableListOf<ShopCartItem>()
+			orderItems.forEach { orderItem ->
+				val shopCartItem = ShopCartItem()
+				shopCartItem.apply {
+					productID = orderItem.id
+					name = orderItem.name
+					price = orderItem.updatePrice
+					type = orderItem.type
+					max_choice = orderItem.max_choice
+					branchId = order.branch.id
+					branchName = order.branch.name
+					branchAddress = order.branch.address
+					discount_percent = orderItem.discount_percent
+					discount = orderItem.updateDiscount
+					materials = gson.toJson(orderItem.materials)
+					qty = orderItem.qty
+					if (orderItem.type == 1) {
+						pizza = 1
+					} else {
+						image = orderItem.image
+						pizza = 0
+					}
+				}
+				items.add(shopCartItem)
+			}
+			appDataBase.shopDao().saveItem(*items.toTypedArray())
+
+			//region Set city and branch from this order in session
+			//Save city in session and AppObject
+			saveToSp(SELECTED_CITY_MODEL, order.city)
+			AppObject.selectedCityId = order.city.id
+			AppObject.cityItem = order.city
+
+			//Save branch in session and AppObject
+			saveToSp(SELECTED_BRANCH_MODEL, order.city.branches.first())
+
+			//Make home refresh after select branch
+			if (AppObject.selectedBranchId != order.city.branches.first().id) {
+				SHOULD_REFRESH_HOME = true
+			}
+			AppObject.selectedBranchId = order.city.branches.first().id
+			AppObject.branchItem = order.city.branches.first()
+			//endregion
+
+			baseFragmentCallback?.goToShopCart()
+		} catch (ex: Exception) {
+			eToast(getString(R.string.reorderError))
+		}
 	}
 }
