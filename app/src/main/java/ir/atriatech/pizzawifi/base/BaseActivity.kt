@@ -47,7 +47,7 @@ abstract class BaseActivity : AppCompatActivity(), KeyboardVisibilityEventListen
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
-		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//		AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 		setLanguage(loadFromSp(LANGUAGE_SESSION_KEY, DEFAULT_LANGUAGE))
 		// Obtain the FirebaseAnalytics instance.
 		firebaseAnalytics = Firebase.analytics
