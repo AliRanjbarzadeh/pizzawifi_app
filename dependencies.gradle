@@ -1,10 +1,10 @@
 ext {
     fields = [
-            'baseUrl'            : '"https://api.new.pizzawifi.com/"',
+            'baseUrl'            : '"https://api.pizzawifi.com/"',
             'devUrl'             : '"http://192.168.1.155/pizzawifi-new/api/"',
-            'baseUrlUnsafe'      : '"http://api.new.pizzawifi.com/"',
-            'uploadUrl'          : '"https://media.new.pizzawifi.com/"',
-            'uploadUrlUnsafe'    : '"http://media.new.pizzawifi.com/"',
+            'baseUrlUnsafe'      : '"http://api.pizzawifi.com/"',
+            'uploadUrl'          : '"https://media.pizzawifi.com/"',
+            'uploadUrlUnsafe'    : '"http://media.pizzawifi.com/"',
             'clubUrl'            : '"https://crm.pizzawifi.com/api/"',
             'authorization'      : '"Authorization"',
             'tokenPrefix'        : '"Bearer "',
@@ -18,9 +18,9 @@ ext {
             'languageSessionKey' : '"current.language"',
             'appName'            : '"PizzaWifi"',
             'databaseName'       : '"PizzaWifiDB"',
-            'appVersion'         : '"33"',
+            'appVersion'         : '"34"',
             'userAgent'          : '"PizzaWifi-Android"',
-            'environment'        : '"production"',
+            'environment'        : '"development"',
     ]
 
     versions = [
@@ -29,7 +29,7 @@ ext {
             'build_tools'            : "29.0.2",
             'kotlin_version'         : '1.4.31',
             'java_version'           : JavaVersion.VERSION_1_8,
-            'appVersion'             : 33,
+            'appVersion'             : 34,
 
             //Global
             'appcompat'              : '1.2.0',
